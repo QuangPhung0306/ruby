@@ -1,0 +1,15 @@
+<div class="modal fade modal_reg modal_rs" id="confirm_logout_modal" tabindex="-1" role="dialog"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="text-center">
+          <h3><%= t ".message" %></h3>
+        </div>
+        <div class="text-center mt-4 div_btn_logout">
+          <%= link_to t(".ok"), "javascript:void(0)", class: " btn_primary btn-lg", id: "btn_logout_ok", data: {dismiss: "modal"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

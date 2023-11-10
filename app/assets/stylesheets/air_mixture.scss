@@ -1,0 +1,26 @@
+.calculation_w .calculation_results .table_results th,
+.calculation_w .calculation_results .table_results td {
+  min-width: 224px;
+  max-width: 224px;
+}
+
+#air_mixture_datetimepicker {
+  background-color: #FFF;
+}
+
+.project-name-group {
+  position: relative;
+  width: 100%
+}
+
+#project_name-error{
+  position: relative;
+  right: 0;
+}
+.hint {
+    font-size: 15px;
+    color: darkred;
+}
+.air_mixture_col {
+  padding-right: 0;
+}

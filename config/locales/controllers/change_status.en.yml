@@ -1,0 +1,4 @@
+en:
+  change_status:
+    update_successful: Update status successfully.
+    update_failed: Update status failed.

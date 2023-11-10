@@ -1,0 +1,29 @@
+$('#unit-selections-page #pills-tabContent').html('');
+<% visible_tabs.each do |tab| %>
+  <% if form_element_values['radiobutton5'] %>
+    $('#unit-selections-page #pills-tabContent').append('<%= j render partial: "unit_selections/si_mode/#{tab}" %>');
+  <% elsif form_element_values['radiobutton6'] %>
+    $('#unit-selections-page #pills-tabContent').append('<%= j render partial: "unit_selections/pi_mode/#{tab}" %>');
+  <% end %>
+<% end %>
+<% if (params[:history_change].to_s.split("\n")[-3].to_s.match(/combobox(2|8)/) && params[:history_change].to_s.split("\n")[-2].to_s.match(/radiobutton10:true/) && params[:history_change].to_s.split("\n")[-1].to_s.match(/checkbox4:false/)) || params[:history_change].blank? && params[:unit_selection_input_id].present? %>
+  $('#unit-selections-page #pills-tab').html('');
+  <% visible_tabs.each_with_index do |tab, index| %>
+    $('#unit-selections-page #pills-tab').append('<%= j render(partial: "unit_selections/tab_pill", locals: {tab: tab, index: index}) %>');
+  <% end %>
+<% elsif params[:history_change].to_s.split("\n").last.to_s.match(/(combobox(2|8)|(radiobutton(5|6)))/) %>
+  $('#unit-selections-page #pills-tab').html('');
+  <% visible_tabs.each_with_index do |tab, index| %>
+    $('#unit-selections-page #pills-tab').append('<%= j render(partial: "unit_selections/tab_pill", locals: {tab: tab, index: index}) %>');
+  <% end %>
+<% end %>
+
+$('#unit-selections-page .input-tab-wrap').removeClass('active').removeClass('show');
+$('#unit-selections-page .input-tab-wrap').first().addClass('active show');
+$('#unit-selections-page #pills-tab .nav-link').removeClass('active');
+$('#unit-selections-page #pills-tab .nav-link').first().addClass('active');
+
+if($('#category').val() === 'consorb' && ['CS-5', 'CS-5L'].includes($('#unit').val())) {
+  $('.nav-link[href="#tabs_c1_regen_air_inlet"] span').text('C. Regen Air Inlet');
+  $('#textbox78').attr('id', 'textbox79');
+}

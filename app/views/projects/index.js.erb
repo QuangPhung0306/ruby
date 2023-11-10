@@ -1,0 +1,2 @@
+$('#list_projects').html('<%= j render partial: "shared/project_item", collection: @projects, as: :project %>');
+$('#paginator').html('<%= j paginate @projects, param_name: :page %>');

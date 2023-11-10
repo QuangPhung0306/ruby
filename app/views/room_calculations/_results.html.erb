@@ -1,0 +1,208 @@
+<div class="calculation_results">
+  <h2 id="js_room_calculatiobn_btn_result" class="show_mb cal_btnmb">
+    <a href="javascript:void(0)">RESULTS</a>
+  </h2>
+  <div class="table_results_ed" id="table_result_other">
+    <div class="table_right_b mt-5">
+    <div class="table_right_tlt">
+      <strong class="table_right_tlt"><%= t ".b_position_name" %></strong>
+    </div>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td><%= t ".total_dry_air_flow" %></td>
+          <td><span id="r003_result_total_dry_air_flow"><%= input.total_dry_air_flow.round(2) if input.presence %></span> <span class="measure">&nbsp; m3/h</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".r003_result_xp2" %></td>
+          <% if result && input %>
+            <% xp2_text = result.result_xp2.to_f <= input.dry_air_needed_moisture_content.to_f ? "OK" : "too small" %>
+            <td><span id="r003_result_xp2"><%= result.result_xp2.round(2) %></span><span class="measure">&nbsp; g/kg </span><span id="xp2_text">(<%= xp2_text %>)</span></td>
+            <%= hidden_field_tag :result_xp2, "#{result.result_xp2}" %>
+          <% else %>
+            <td><span id="r003_result_xp2"></span><span class="measure">&nbsp; g/kg </span> <span id="xp2_text"></span></td>
+            <%= hidden_field_tag :result_xp2, "" %>
+          <% end %>
+        </tr>
+        <tr>
+          <td><%= t ".r003_result_tp2" %></td>
+          <td><span id="r003_result_tp2"><%= result.result_tp2.round(2) if result.presence %></span> <span class="measure"> <sup>o</sup>C</span></td>
+          <%= hidden_field_tag :result_tp2, "#{result.result_tp2 if result.presence}" %>
+        </tr>
+        <tr>
+          <td><%= t ".r003_result_mr" %></td>
+          <td><span id="r003_result_mr"><%= result.result_mr.round(2) if result.presence %></span> <span class="measure">&nbsp; kg/h</span></td>
+          <%= hidden_field_tag :result_mr, "#{result.result_mr if result.presence}" %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table_left_ed mt-5">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td><%= t ".process_airflow" %>&nbsp;</td>
+          <td>[A]</td>
+          <td><span id="r003_result_process_airflow"><%= input.process_airflow.round(2) if input.presence %></span> <span class="measure">&nbsp; m3/h&nbsp;</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".return_air_direct" %></td>
+          <td>[C]</td>
+          <td><span id="r003_result_return_air_direct"><%= input.return_air_direct.round(2) if input.presence %></span> <span class="measure">&nbsp; m3/h</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".pre_cooled_air" %></td>
+          <td>[D]</td>
+          <td><span id="r003_result_pre_cooled_air"><%= input.pre_cooled_air if input.presence %></span> <span class="measure">&nbsp; m3/h</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".pre_cooling_ambient" %></td>
+          <td>[D]</td>
+          <td><span id="r003_result_pre_cooling_ambient"><%= input.pre_cooling_ambient_air if input.presence %></span> <span class="measure"><sup>o</sup>C</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".corresponding_to" %></td>
+          <td></td>
+          <td><span id="r003_result_corresponding_to"><%= input.corresponding_to.round(2) if input.presence %></span> <span class="measure"> g/kg</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".ambient_air" %></td>
+          <td>[E]</td>
+          <td><span id="r003_result_ambient_air"><%= input.ambient_air_direct.round(2) if input.presence %></span> <span class="measure"> m3/h</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".before_pre_cooler1" %></td>
+          <td></td>
+          <td><span id="r003_result_before_pre_cooler1"><%= input.j_before_pre_cooler_degree.round(2) if input.presence %></span> <span class="measure"><sup>o</sup>C</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".before_pre_cooler2" %></td>
+          <td></td>
+          <td><span id="r003_result_before_pre_cooler2"><%= input.j_before_pre_cooler_rate.round(2) if input.presence %></span> <span class="measure"> g/kg</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".pre_cooling_before" %></td>
+          <td>[J to A]</td>
+          <td><span id="r003_result_pre_cooling_before"><%= input.j_to_a_pre_cooling.round(2) if input.presence %></span> <span class="measure"><sup>o</sup>C</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".final_temperature" %></td>
+          <td>[A]</td>
+          <td><span id="r003_result_temperature"><%= input.inlet_temperature.round(2) if input.presence %></span> <span class="measure"><sup>o</sup>C</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".moisture_content" %></td>
+          <td>[A]</td>
+          <td><span id="r003_result_moisture_content"><%= input.inlet_moisture_content.round(2) if input.presence %></span> <span class="measure"> g/kg</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".pre_cooling" %></td>
+          <td></td>
+          <td><span id="r003_result_pre_cooling"><%= input.air_direct_from_pre_cooling if input.presence %></span> <span class="measure"> m3/h</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".ambient" %></td>
+          <td></td>
+          <td><span id="r003_result_ambient"><%= input.air_direct_from_ambient if input.presence %></span> <span class="measure"> m3/h</span></td>
+        </tr>
+        <tr>
+          <td><%= t ".leakage" %></td>
+          <td></td>
+          <td><span id="r003_result_leakage"><%= input.leakage.round(2) if input.presence %></span> <span class="measure"> m3/h</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <div class="table_results_bg mt-5">
+      <div class="table_results_tlt">
+        <h3><%= t ".pulldown_time" %></h3>
+        <div class="d-flex mb-2">
+          <div><%= t ".chosen_unit" %></div>
+          <div class="ml-3"><span id="unit-name"><%= result.choosen_unit if result.presence %></span></div>
+        </div>
+        <div class="d-flex mb-2">
+          <div><%= t ".quantity" %></div>
+          <div class="ml-3"><span id="quantity"><%= result ? result.number_of_unit : 1 %></span> pcs</div>
+        </div>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td scope="col"></td>
+            <td scope="col"><%= t ".starting" %></td>
+            <td scope="col"><%= t ".final" %></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="d-flex justify-content-between">
+                <div><%= t ".temperature" %></div>
+                <div>( <span class="measure"><sup>o</sup>C</span> )</div>
+              </div>
+            </td>
+            <td>
+              <span id="start-temperature"><%= result.start_temperature.round(2) if result.presence %></span>
+              <%= hidden_field_tag :start_temperature, "#{result ? result.start_temperature : 25}" %>
+            </td>
+            <td><span id="final-temperature"><%= result.final_temperature.round(2) if result.presence %></span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="d-flex justify-content-between">
+                <div><%= t ".relative_humidity" %></div>
+                <div>( <span class="measure">%RH</span> )</div>
+              </div>
+            </td>
+            <td><span id="start-relative-humidity"><%= result.starting_relative_humidity.round(2) if result.presence %></span></td>
+            <td><span id="final-relative-humidity"><%= result.final_relative_humidity.round(2) if result.presence %></span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="d-flex justify-content-between">
+                <div><%= t ".atmospheric_pressure" %></div>
+                <div>( <span class="measure">mbar</span> )</div>
+              </div>
+            </td>
+            <td><span id="start-atmospheric-pressure"><%= result.starting_atmospheric_pressure.round(2) if result.presence %></span></td>
+            <td><span id="final-atmospheric-pressure"><%= result.final_atmospheric_pressure.round(2) if result.presence %></span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="d-flex justify-content-between">
+                <div><%= t ".corresponding_to" %></div>
+                <div>( <span class="measure">g/kg</span> )</div>
+              </div>
+            </td>
+            <td>
+              <span id="start-corresponding-to"><%= result.starting_corresponding_to.round(2) if result.presence %></span>
+              <%= hidden_field_tag :starting_corresponding_to, "#{result ? result.starting_corresponding_to : 11.9}" %>
+            </td>
+            <td><span id="final-corresponding-to"><%= result.final_corresponding_to.round(2) if result.presence %></span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="d-flex justify-content-between">
+                <div><%= t ".capacity" %></div>
+                <div>( <span class="measure">kg/h</span> )</div>
+              </div>
+            </td>
+            <td>
+              <span id="start-capacity"><%= result.capacity_at_starting_climate.round(2) if result.presence %></span>
+              <%= hidden_field_tag :start_capacity, "#{result.capacity_at_starting_climate if result.presence}" %>
+            </td>
+            <td>
+              <span id="final-capacity"><%= result.capacity_at_final_climate.round(2) if result.presence %></span>
+              <%= hidden_field_tag :final_capacity, "#{result.capacity_at_final_climate if result.presence}" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="chart_results" id="chart_wrap">
+    <div class="text-center">
+      <div id="curve_chart"></div>
+    </div>
+  </div>
+</div>

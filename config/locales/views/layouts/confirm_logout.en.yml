@@ -1,0 +1,5 @@
+en:
+  layouts:
+    confirm_logout:
+      message: Are you sure to logout?
+      ok: Ok

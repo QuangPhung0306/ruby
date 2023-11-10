@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>R005</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i&display=swap&subset=vietnamese"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/perfect-scrollbar.css">
+  <link rel="stylesheet" href="css/jquery.datetimepicker.min.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <header id="header">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <h1 class="navbar-brand" href="#"><img src="images/logo.png"></h1>
+          <button class="navbar-toggler navbar-icon" type="button" data-toggle="collapse" data-target="#navbar_rps"
+            aria-controls="navbar_rps" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar bar1"></span>
+            <span class="icon-bar bar2"></span>
+            <span class="icon-bar bar3"></span>
+          </button>
+          <div class="collapse navbar-collapse navbar_rps" id="navbar_rps">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="room-calculation.html">Room calculation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="unit-selection-recusorb2.html">Unit selection</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="air-mixture-and-capacity.html">Air mixture and capacity</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="agency-management.html">Agency management</a>
+              </li>
+              <li class="nav-item nav_logout_mb">
+                <a class="nav-link" href="login.html">logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="header_pw">
+        <a href="login.html"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+      </div>
+    </header>
+    <main id="main">
+      <div class="offer_w">
+        <div class="offer_container">
+          <div class="offer_tlt">
+            <div class="tlt_gr_lr">
+              <h2 class="tlt_gr_txt">OFFER DATA</h2>
+            </div>
+          </div>
+          <div class="offer_tabs_nv">
+            <ul class="nav nav-tabs nav_offer" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#pane-1" role="tab">PROJECT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#pane-2" role="tab">MOISTURE
+                  PROBLEM</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#pane-3" role="tab">COST OF
+                  MOISTURE PROBLEM WITHOUT DEHUMIDIFICATION</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#pane-4" role="tab">DESIGN
+                  DATA</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#pane-5" role="tab">SOLUTION</a>
+              </li>
+            </ul>
+            <div id="content" class="tab-content tab-content-ed" role="tablist">
+              <div id="pane-1" class="card tab-pane fade show active" role="tabpanel">
+                <div class="card-header" role="tab">
+                  <a data-toggle="collapse" href="#collapse-tabs1">
+                    PROJECT
+                  </a>
+                </div>
+
+                <!-- Note: New place of `data-parent` -->
+                <div id="collapse-tabs1" class="collapse show" data-parent="#content" role="tabpanel">
+                  <div class="card-body">
+                      <div class="offer_tabs_ct">
+                          <div class="container">
+        
+                            <div class="box_gr visit-status-intro-page visit_ed">
+                              <div class="grouptwotablefixedhead">
+                                <div class="boxtableleft">
+                                  <div class="box-theadtable">
+                                    <div class="table-box-Schedule tableleft">
+                                      <div class="div-thead" id="theadTableLeft">
+                                        <div class="div-tr heightrow1">
+                                          <div class="div-th div-th-ed"><span>ELECTRICITY COST</span></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="box-tbodytable01">
+                                    <div class="table-box-Schedule tableleft">
+                                      <div class="div-tbody">
+                                        <div class="div-tr">
+                                          <div class="div-td"><span>Electricity cost</span></div>
+                                        </div>
+                                        <div class="div-tr">
+                                          <div class="div-td"><span>Energy B cost</span></div>
+                                        </div>
+                                        <div class="div-tr">
+                                          <div class="div-td"><span>Energy C cost</span></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="boxtablescroll">
+                                  <div class="box-theadtable">
+                                    <div class="table-box-Schedule tablescroll">
+                                      <div class="div-thead" id="theadTableRight">
+                                        <div class="div-tr heightrow2">
+                                          <div class="div-th">
+                                            <div>
+                                              <span>SEK</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-th">
+                                            <div>
+                                              <span>PER KWH</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-th">
+                                            <div>
+                                              <span>TYPE</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="box-tbodytable">
+                                    <div class="table-box-Schedule tablescroll">
+                                      <div class="div-tbody">
+                                        <div class="div-tr">
+                                          <div class="div-td">
+                                            <div class="box-intro">
+                                              <input value="123" class="inp_table_gr">
+                                            </div>
+                                          </div>
+                                          <div class="div-td">
+                                            <div class="box-intro">
+                                              <input value="123" class="inp_table_gr">
+                                            </div>
+                                          </div>
+                                          <div class="div-td">
+                                            <div class="text-center">
+                                              <span class="label_table lb_blue">GAS</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="div-tr">
+                                          <div class="div-td">
+                                            <div class="box-intro">
+                                              <input value="123" class="inp_table_gr">
+                                            </div>
+                                          </div>
+                                          <div class="div-td">
+                                            <div class="box-intro">
+                                              <input value="123" class="inp_table_gr">
+                                            </div>
+                                          </div>
+                                          <div class="div-td">
+                                            <div class="text-center">
+                                              <span class="label_table lb_red">STEAM</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="div-tr">
+                                          <div class="div-td">
+                                            <div class="box-intro">
+                                              <input value="123" class="inp_table_gr">
+                                            </div>
+                                          </div>
+                                          <div class="div-td">
+                                            <div class="box-intro">
+                                              <input value="123" class="inp_table_gr">
+                                            </div>
+                                          </div>
+                                          <div class="div-td">
+                                            <div class="text-center">
+                                              <span class="label_table lb_blue">GAS</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="pane-2" class="card tab-pane fade" role="tabpanel">
+                <div class="card-header" role="tab">
+                  <a class="collapsed" data-toggle="collapse" href="#collapse-tabs2">
+                    MOISTURE PROBLEM
+                  </a>
+                </div>
+                <div id="collapse-tabs2" class="collapse" data-parent="#content" role="tabpanel">
+                  <div class="card-body">
+                      <div class="offer_tabs_ct">
+                          <div class="container">
+        
+                            <div class="box_gr">
+                              <textarea name="" id="" placeholder="Moisture problem information"
+                                class="form-control"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="pane-3" class="card tab-pane fade" role="tabpanel">
+                <div class="card-header" role="tab">
+                  <a class="collapsed" data-toggle="collapse" href="#collapse-tabs3">
+                    COST OF MOISTURE PROBLEM WITHOUT DEHUMIDIFICATION
+                  </a>
+                </div>
+                <div id="collapse-tabs3" class="collapse" role="tabpanel" data-parent="#content">
+                  <div class="card-body">
+                    3
+                  </div>
+                </div>
+              </div>
+
+              <div id="pane-4" class="card tab-pane fade" role="tabpanel">
+                <div class="card-header" role="tab">
+                  <a class="collapsed" data-toggle="collapse" href="#collapse-tabs4">
+                      DESIGN DATA
+                  </a>
+                </div>
+                <div id="collapse-tabs4" class="collapse" role="tabpanel" data-parent="#content">
+                  <div class="card-body">
+                    4
+                  </div>
+                </div>
+              </div>
+
+              <div id="pane-5" class="card tab-pane fade" role="tabpanel">
+                  <div class="card-header" role="tab">
+                    <a class="collapsed" data-toggle="collapse" href="#collapse-tabs5">
+                        SOLUTION
+                    </a>
+                  </div>
+                  <div id="collapse-tabs5" class="collapse" role="tabpanel" data-parent="#content">
+                    <div class="card-body">
+                        <div class="offer_tabs_ct">
+                            <div class="container">
+                              <div class="box_gr visit-status-intro-page visit_ed1">
+                                <div class="grouptwotablefixedhead ">
+                                  <div class="boxtableleft">
+                                    <div class="box-theadtable">
+                                      <div class="table-box-Schedule tableleft">
+                                        <div class="div-thead" id="theadTableLeft1">
+                                          <div class="div-tr heightrow1">
+                                            <div class="div-th div-th-ed"><span>POSITION</span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="box-tbodytable01">
+                                      <div class="table-box-Schedule tableleft">
+                                        <div class="div-tbody">
+                                          <div class="div-tr">
+                                            <div class="div-td border_t_n"><span>Seibu Giken DST AB<br>
+                                                dehumidifier</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td border_t_n"><span>Electricity consumption</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td border_t_n"><span>Energy B consumption</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td border_t_n"><span>Energy C consumption</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td border_t_n"><span>Capacity at average</br>process inlet</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Number of</br>
+                                                dehumidifiers</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>In combination with</br>
+                                                pos. 1=1</span></div>
+                                          </div>
+          
+          
+          
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Operation hours </br>
+                                                per year</span></div>
+                                          </div>
+          
+          
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Price</div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Pre-cooling</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Post-cooling</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Total installation </br>
+                                                cost</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Maintenance cost</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Initial cost</span></div>
+                                          </div>
+          
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Cost energy and </br>
+                                                maintenance</span></div>
+                                          </div>
+          
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Pay-off time</span></div>
+                                          </div>
+          
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Present value<br>
+                                                calculus</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Number of years</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Interest</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Present value of cost</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Present value of</br>
+                                                savings</span></div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td"><span>Present value</span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="boxtablescroll">
+                                    <div class="box-theadtable">
+                                      <div class="table-box-Schedule tablescroll">
+                                        <div class="div-thead" id="theadTableRight1">
+                                          <div class="div-tr heightrow2">
+                                            <div class="div-th">
+                                              <div>
+                                                <span>1</span>
+                                              </div>
+                                            </div>
+                                            <div class="div-th">
+                                              <div>
+                                                <span>2</span>
+                                              </div>
+                                            </div>
+                                            <div class="div-th">
+                                              <div>
+                                                <span>3</span>
+                                              </div>
+                                            </div>
+                                            <div class="div-th">
+                                              <div>
+                                                <span>UNIT OF MEASUREMENT</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="box-tbodytable">
+                                      <div class="table-box-Schedule tablescroll">
+                                        <div class="div-tbody">
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <input value="CS-5" class="inp_table_gr">
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="text-center">
+          
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">kW</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <input value="123" class="inp_table_gr">
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">kW</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">kW</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">kg/h per unit</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">pcs</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">Alternative to pos 1 = 0</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">h</span>
+                                            </div>
+                                          </div>
+          
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">SEK per unit</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">kW per unit</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">kW per unit</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">SEK per unit incl. cooling</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">SEK per year and unit</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">SEK totally</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">SEK per year, totally</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">years</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">SEK per year, totally</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">years</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">kg/h per unit</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">SEK</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">SEK</span>
+                                            </div>
+                                          </div>
+                                          <div class="div-tr">
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+                                            <div class="div-td">
+                                              <div class="box-intro">
+                                                <input value="123" class="inp_table_gr">
+                                              </div>
+                                            </div>
+                                            <div class="div-td">
+                                              <span class="txt_value">123</span>
+                                            </div>
+          
+                                            <div class="div-td">
+                                              <span class="txt_value">SEK</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+          <div class="offer_print">
+            <div class="tlt_gr_lr">
+              <a href="preview.html" class="tlt_gr_txt">PREVIEW AND PRINT</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade modal_reg" id="modal_reg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="text-center">
+            <h3>REGISTRATION</h3>
+          </div>
+          <form>
+            <span class="lb_frm">The fields with (*) are required</span>
+            <div class="form-group">
+              <div class="inp_name inp_gr">
+                <input type="text" placeholder="Agency Name" class="inp_txt">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="inp_email inp_gr">
+                <input type="text" placeholder="Email*" class="inp_txt">
+              </div>
+            </div>
+            <h4 class="tlt_model">MODELS</h4>
+            <div class="modal_checkbox">
+              <label class="container-checkbox">
+
+                <input type="checkbox" checked>
+                <span class="checktxt">Room calculation</span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="modal_checkbox">
+              <label class="container-checkbox">
+                <input type="checkbox" checked>
+                <span class="checktxt">Calculation Roto</span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="modal_checkbox">
+              <label class="container-checkbox">
+                <input type="checkbox">
+                <span class="checktxt">Air mixture and capacity</span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="modal_btn">
+              <button class="btn_primary" type="submit">Save</button>
+              <button class="btn_primary btn_wt" type="submit" data-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade modal_reg" id="modal_rs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="text-center">
+            <h3>Reset Password</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/jquery.scrolling-tabs.min.js"></script>
+  <script src="js/jquery.selectable-list.js"></script>
+  <script src="js/perfect-scrollbar.min.js"></script>
+  <script src="js/jquery.datetimepicker.full.min.js"></script>
+  <script src="js/common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<div class="modal fade modal_email" id="modal_email" tabindex="-1" role="dialog" aria-labelledby=""
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t ".send_email" %></h5>
+      </div>
+      <div class="modal-body">
+        <%= form_with url: send_email_users_path, method: :put, id: "form_send_email" do |f| %>
+          <%= f.hidden_field :user_ids_to_send_email %>
+          <%= f.text_area :content, rows: 10, class: "form-control",
+            placeholder: t(".content_place_holder"), type: "text" %>
+          <div class="text-center btn_gr_all">
+            <%= f.submit t(".send"), id: "btn_submit_send_email", class: "btn-send btn_primary" %>
+            <a href="#" class="btn_secondary" data-dismiss="modal"><%= t ".cancel" %></a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

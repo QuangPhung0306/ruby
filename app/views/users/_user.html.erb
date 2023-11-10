@@ -1,0 +1,54 @@
+<%= hidden_field_tag "q", params[:q]&.try(:permit, :agency_name_cont) %>
+<%= hidden_field_tag "page", params[:page] %>
+<div class="egency_it">
+  <div class="egency_acc">
+    <div class="egency_acc_check">
+      <label class="container-checkbox">
+        <%= check_box_tag "user_ids[]", user.id, false,
+          title: t(".select_all"), class: "checkbox-select-user" %>
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="egency_acc_txt">
+      <h3 class="egency_acc_hd"><%= user.agency_name.gsub(/\s/, "&nbsp").html_safe %></h3>
+      <span><%= user.email %></span>
+    </div>
+  </div>
+  <div class="egency_act">
+    <% models.all.each do |model| -%>
+      <div class="agency_act_it">
+        <label class="container-checkbox" for="<%= "#{model.key_name}_user_#{user.id}" %>">
+          <%= hidden_field_tag "user[#{user.id}][m_model_ids][]" %>
+          <%= check_box_tag "#{model.key_name}_user_#{user.id}", model.id,
+            user.m_models.include?(model), name: "user[#{user.id}][m_model_ids][]" -%>
+          <span class="checktxt"><%= model.name %></span>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    <% end -%>
+    <div class="agency_act_it">
+      <h6 class="show_mb text-left txt_area"><%= t ".area" %>:</h6>
+      <label class="container-checkbox container-checkbox-ed" for="area_user_<%= user.id %>">
+        <%= hidden_field_tag "user[#{user.id}][area]", 0 %>
+        <%= check_box_tag :area, 1,
+          user.asia?, name: "user[#{user.id}][area]", id: "area_user_#{user.id}" -%>
+        <span class="checktxt"><%= t ".asia" %></span>
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="agency_act_it">
+      <label class="switch" data-toggle="modal" data-target="#modal_ct" 
+        data-href="<%= change_status_path id: user.id, page: params[:page],
+        q: params[:q]&.try(:permit, :agency_name_cont) %>">
+        <%= check_box_tag "", nil, user.is_active?, class: "switch-input" %>
+        <span class="switch-label" data-on="<%= t ".enabled" %>" data-off="<%= t ".disabled" %>"></span>
+        <span class="switch-handle"></span>
+      </label>
+    </div>
+    <div class="agency_act_it">
+      <%= link_to t(".reset_password"), "", class: "btn_rs btn_primary",
+        data: {toggle: "modal", email: user.email, name: user.agency_name,
+        href: password_reset_path(id: user.id), target: "#modal_rs"} %>
+    </div>
+  </div>
+</div>

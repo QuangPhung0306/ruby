@@ -1,0 +1,9 @@
+<ul class="nav nav_air nav_scrollpy_all" role="tablist" id="sections_link">
+  <% Settings.air_mixture_sections_link_ordered.each do |section| %>
+    <li class="nav-item">
+      <%= link_to t(".section_#{section.to_s}"), "#tabs_section_#{section.to_s}",
+        class: "nav-link", data: {"click-id": "#tabs_section_#{section.to_s}", toggle: "pill", dismiss: "modal"},
+        role: "tab", onclick: "$('#pill_tab_#{section}').trigger('click')", aria: {controls: "pills-profile", selected: "true"} %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,297 @@
+<%= form_with id: "infor_of_project" do %>
+  <div class="container" id="unit-selections-page" data-area="<%= current_user.area %>">
+    <div class="calculation_w unit_w">
+      <div id="image-container">
+      </div>
+      <div class="cal_button" id="bonus_start_calculation">
+        <%= link_to t(".start_calculation"), "javascript:void(0)",
+          class: "btn_rs btn_primary", id: "bonus_unit_selection_start_calculation" %>
+      </div>
+      <div class="calculation_slt">
+        <div class="cal_date">
+          <h2 class="show_mb cal_btnmb"><a href="javascript:void(0)">CALCULATION ROTOR</a></h2>
+          <div class="cal_select">
+            <div class="frm_gr d-flex">
+              <label class="frm_gr_lb" id="unit_selection_data_project" data-unit-selection-projects="<%= @unit_selection_projects %>">Project <span class="hidden_mb">Name</span></label>
+              <%= text_field_tag "name", "Case 1", maxlength: 50, class: "form-control frm_gr_inp", id: "project_name_unit_selection", placeholder: t(".name"), autocomplete: "off" %>
+            </div>
+            <div class="frm_gr d-flex">
+              <label class="frm_gr_lb">Date</label>
+              <%= text_field_tag :date_of_project,
+                Date.current.strftime(Settings.data_time_format.project),
+                class: "form-control frm_gr_inp",
+                id: "unit_selection_datetimepicker", readonly: true %>
+            </div>
+          </div>
+        </div>
+        <div class="cal_catefory">
+          <h2 class="show_mb cal_btnmb"><a href="javascript:void(0)">CONDITIONS</a></h2>
+          <div class="cal_select">
+
+            <div class="frm_gr d-flex" id="unit_selection_category_box">
+              <label class="frm_gr_lb">Category</label>
+              <div class="dropdown">
+                <button class="item_boxshadow btn_ct_sl choose_category" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+ Choose one</button>
+                <div class="item-categories dropdown-menu dropdown_sl item_boxshadow" aria-labelledby="dropdownMenuButton">
+                  <% @categories.each do |category| %>
+                    <a class="dropdown-item" href="javascript:void(0)" data-key-name="<%= category.key_name %>" data-name="<%= category.name %>" data-selected="false" data-id="<%= category.id %>" ><%= category.name %></a>
+                  <% end %>
+                  <%= hidden_field_tag "category", "" %>
+                </div>
+              </div>
+            </div>
+            <div class="frm_gr d-flex" id="unit_selection_unit_box">
+              <label class="frm_gr_lb">Unit</label>
+              <div class="dropdown">
+                <button class="item_boxshadow btn_ct_sl choose_units" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+ Choose one</button>
+                <div class="item-units dropdown-menu dropdown_sl item_boxshadow scroll_unit" aria-labelledby="dropdownMenuButton">
+                  <%= render partial: "unit_selections/unit_items", collection: @units, as: :unit %>
+                </div>
+                <%= hidden_field_tag "unit", "" %>
+              </div>
+            </div>
+
+            <div class="clearfix">
+              <div class="row">
+                <div class="col-12 col-sm-6">
+                  <div class="frm_gr d-flex">
+                    <label class="frm_gr_lb">Rotor</label>
+                    <div class="dropdown">
+                      <button class="item_boxshadow btn_ct_sl" type="button" id="combobox3"
+                        data-toggle="" aria-haspopup="true" aria-expanded="false">
+                        + Choose one
+                      </button>
+                      <div class="dropdown-menu dropdown_sl item_boxshadow" aria-labelledby="dropdownMenuButton">
+                        <% Settings.unit_selection.rotor.each do |name| %>
+                          <%= link_to name, "javascript:void(0)", class: "dropdown-item" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <div class="frm_gr d-flex">
+                    <label class="frm_gr_lb">Depth</label>
+                    <div class="dropdown">
+                      <button class="item_boxshadow btn_ct_sl" type="button" id="combobox4"
+                        data-toggle="" aria-haspopup="true" aria-expanded="false">
+                        + Choose one
+                      </button>
+                      <div class="dropdown-menu dropdown_sl item_boxshadow" aria-labelledby="dropdownMenuButton">
+                        <% Settings.unit_selection.depth.each do |name| %>
+                          <%= link_to name, "javascript:void(0)", class: "dropdown-item" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="frm_gr d-flex">
+                    <label class="frm_gr_lb">Rotor Diameter</label>
+                    <div class="dropdown">
+                      <button class="item_boxshadow btn_ct_sl" type="button" id="combobox1"
+                        data-toggle="" aria-haspopup="true" aria-expanded="false">
+                        + Choose one
+                      </button>
+                      <div class="dropdown-menu dropdown_sl item_boxshadow" aria-labelledby="dropdownMenuButton">
+                        <% Settings.unit_selection.rotor_diameter.each do |name| %>
+                          <%= link_to name, "javascript:void(0)", class: "dropdown-item" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="frm_gr d-flex">
+                    <div class="row w-100 align-items-center">
+                      <div class="col-12 col-sm-3 text-center">
+                        <fieldset class="scheduler-border">
+                          <legend class="scheduler-border">Unit Select</legend>
+                          <div class="control-group">
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input type="radio" id="radiobutton5" name="unit_selection_mode" value="5"
+                                class="custom-control-input">
+                              <label class="custom-control-label custom-control-label-ed"
+                                for="radiobutton5">SI</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input type="radio" id="radiobutton6" name="unit_selection_mode" value="6"
+                                class="custom-control-input">
+                              <label class="custom-control-label custom-control-label-ed"
+                                for="radiobutton6">IP</label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+                      <div class="col-12 col-sm-3 text-center">
+                        <fieldset class="scheduler-border">
+                          <legend class="scheduler-border">Heater Select</legend>
+                          <div class="control-group">
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input type="radio" id="radiobutton8" name="heater_select" value="8"
+                                class="custom-control-input">
+                              <label class="custom-control-label custom-control-label-ed"
+                                for="radiobutton8">Temp.</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input type="radio" id="radiobutton9" name="heater_select" value="9"
+                                class="custom-control-input">
+                              <label class="custom-control-label custom-control-label-ed"
+                                for="radiobutton9">Power</label>
+                            </div>
+                          </div>
+                        </fieldset>
+
+                      </div>
+
+                      <div class="col-12 col-sm-3">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="checkbox23" value="true">
+                          <label class="custom-control-label" for="checkbox23">Flow rate remained</label>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-sm-3 text-center">
+                        <fieldset class="scheduler-border">
+                          <legend class="scheduler-border">Humidity Select</legend>
+                          <div class="control-group">
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input type="radio" id="radiobutton10" name="humidity_select" value="10"
+                                class="custom-control-input">
+                              <label class="custom-control-label custom-control-label-ed"
+                                for="radiobutton10">g/kg</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input type="radio" id="radiobutton11" name="humidity_select" value="11"
+                                class="custom-control-input">
+                              <label class="custom-control-label custom-control-label-ed"
+                                for="radiobutton11">%RH</label>
+                            </div>
+                          </div>
+                        </fieldset>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="frm_gr d-flex justify-content-center">
+                  <label class="frm_gr_lb">Rotation Rate[rph]</label>
+                  <input type="text" class="form-control" value="50" id="textbox8" name="textbox8">
+                  <%= button_tag "Search", type: "button",
+                    data: {toggle: "modal", target: "#unit_selection_search_modal"},
+                    class: "ml-3 btn_rs btn_primary text-nowrap mb-0", id: "button4" %>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="calculation_tabs calculation_data_inputs">
+          <div class="box_gr clearfix flex-direction-column" id="anchor_to_scroll">
+            <div class="w-tabscroll-ed margin-bottom-25">
+              <div id="js_tab_slider" class="center slider css-autow">
+                <% Settings.unit_selection.tab_input_visible.init.each_with_index do |tab, index| %>
+                  <%= render partial: "unit_selections/tab_pill", locals: {tab: tab, index: index} %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="w-btn-total flex-order-default">
+              <div class="text-center">
+                <a class="btn btnPrevious">Previous</a>
+                <a class="btn btnNext">Next</a>
+              </div>
+              <div class="text-center mt-3 js-total-tabs">
+                (<span class="js-tabs-default">1</span>/<span class="js-tabs-nb">10</span>)
+              </div>
+            </div>
+
+            <hr>
+            <div class="tab-content tab_ct_ed margin-bottom-0" id="pills-tabContent">
+              <% Settings.unit_selection.tab_input_visible.init.each do |tab| %>
+                <%= render "unit_selections/si_mode/#{tab}" %>
+              <% end %>
+            </div>
+
+            <div class="d-none">
+              <ul class="nav nav-pills nav-scroll nav_tabs_ed" id="pills-tab" role="tablist">
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="cal_button">
+          <%= link_to t(".start_calculation"), "javascript:void(0)",
+            class: "btn_rs btn_primary", id: "unit_selection_start_calculation" %>
+        </div>
+      </div>
+      <%= render partial: "result" %>
+
+      <div class="text-center btn_gr_all">
+        <%= link_to t(".save"), "javascript:void(0)", class: "btn_primary", id: "save_project_unit_selection" %>
+        <%= link_to t(".preview_and_print"), "javascript:void(0)", class: "btn_primary", id: "preview_and_print_button", target: "_blank" %>
+        <div class="btn_offed_cal">
+          <%= link_to t(".excel_export"), "javascript:void(0)", method: :post,
+            class: "btn_primary", id: "excel_export_button" %>
+        </div>
+      </div>
+
+      <%= render "shared/table_list_project", model: "unit_selection" %>
+
+    </div>
+    <%= render "unit_selections/unit_selection_search_modal" %>
+  </div>
+</div>
+<%= hidden_field_tag :current_unit_selection_input_id, nil %>
+<% end %>
+
+<%= form_tag unit_selection_change_values_path, remote: true,
+  id: "form-select-category-unit", class: "d-none" do %>
+  <div style="display: none;">
+    <%= text_area_tag :history_change, "", id: "unit_selection_history_change" %>
+  </div>
+  <%= submit_tag "", id: "btn-change-unit-or-category" %>
+<% end %>
+
+<%= render "choose_result_alert" %>
+<%= render "choose_result_alert_before_save" %>
+<%= render "choose_result_alert_before_preview" %>
+<%= render "unit_selections/modal_zoom_image" %>
+<div id="unit_selection_calculation_error_container">
+  <%= render "shared/unit_selection_calculation_error", error_message: "" %>
+</div>
+
+<%= link_to "#modal_cal", data: {toggle: "modal"}, class: "gr_popup_mb btn_primary show_mb" do %>
+  <i class="fa fa-sitemap fa-2x" aria-hidden="true"></i>
+<% end %>
+
+<%= link_to asset_url("manual_of_unit_selection.pdf"), class: "btn_primary", id: "btn-show-manual", target: "_blank" do %>
+  <i class="fa fa-question fa-2x" aria-hidden="true"></i>
+<% end %>
+
+<%= render "shared/invalid_message_modal" %>
+
+<% content_for :assets do %>
+  <%= javascript_include_tag "unit_selections/show" %>
+  <%= javascript_include_tag "unit_selections/radiobutton" %>
+  <%= javascript_include_tag "unit_selections/checkbox" %>
+  <%= javascript_include_tag "unit_selections/validations/new_project" %>
+  <%= javascript_include_tag "unit_selections/unit_selection" %>
+  <%= javascript_include_tag "unit_selections/load_unit_selection_input" %>
+  <%= javascript_include_tag "unit_selections/load_unit_selection_project" %>
+  <%= javascript_include_tag "unit_selections/unit_selection_search" %>
+  <%= javascript_include_tag "handle_projects_table" %>
+  <%= javascript_include_tag "air_mixture/handle_checkbox_table_results" %>
+<% end %>

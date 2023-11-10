@@ -1,0 +1,7 @@
+$('#flash-message').html('<%= j render "shared/flash_messages" %>');
+
+var timeout;
+window.clearTimeout(timeout);
+timeout = window.setTimeout(function() {
+  $('.alert').remove();
+}, 4000); 

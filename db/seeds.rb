@@ -1,0 +1,261 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+%i(agencies air_mixture_inputs chart_datas email_histories 
+  projects room_calculation_inputs room_calculation_results
+  unit_selection_results user_models users).each do |table|
+  table.to_s.classify.constantize.delete_all
+end
+
+Rake::Task["master_data:import"].invoke if Rails.env.development?
+
+(1..50).each do |i|
+  user = User.new email: "user#{i}@ominext.com",
+    area: User.areas.keys.sample,
+    password: "Omi12345", is_active: Faker::Boolean.boolean
+  user.build_agency name: Faker::Company.name
+  user.user_models.build m_model_id: M::Model.all.sample.id
+  user.save
+end
+
+user_ids = User.pluck :id
+category_ids = M::Category.pluck :id
+units = M::Unit.all
+
+(1..10).each do |i|
+  project = Project.new name: Faker::ElectricalComponents.electromechanical,
+    date_of_project: Faker::Date.between(from: 7.days.ago, to: Date.today),
+    user_id: user_ids.sample,
+    calculation_type: Project.calculation_types.keys.sample
+
+  unit_ids = units.air_mixture
+    .send("#{project.user.area}").pluck :id
+
+  (1..20).each do |ii|
+    air_mixture_input = project.air_mixture_inputs.build atmospheric_pressure: Faker::Number.number(digits: 2),
+      water_temperature_in: Faker::Number.number(digits: 2),
+      water_temperature_out: Faker::Number.number(digits: 2),
+      r_flow_rate: Faker::Number.number(digits: 2),
+      r_temperature: Faker::Number.number(digits: 2),
+      r_absolute_humidity: Faker::Number.decimal(l_digits: 2),
+      f_flow_rate: Faker::Number.number(digits: 2),
+      f_temperature: Faker::Number.number(digits: 2),
+      f_absolute_humidity: Faker::Number.number(digits: 2),
+      a_flow_rate: Faker::Number.number(digits: 2),
+      a_temperature: Faker::Number.number(digits: 2),
+      a_absolute_humidity: Faker::Number.decimal(l_digits: 2),
+      m_flow_rate: Faker::Number.number(digits: 2),
+      m_temperature: Faker::Number.number(digits: 2),
+      m_absolute_humidity: Faker::Number.number(digits: 2),
+      n_flow_rate: Faker::Number.number(digits: 2),
+      n_temperature: Faker::Number.number(digits: 2),
+      n_absolute_humidity: Faker::Number.decimal(l_digits: 2),
+      n_cathode_capacity: Faker::Number.decimal(l_digits: 2),
+      n_cathode_flow_rate: Faker::Number.decimal(l_digits: 2),
+      g_flow_rate: Faker::Number.number(digits: 2),
+      g_temperature: Faker::Number.decimal(l_digits: 2),
+      g_absolute_humidity: Faker::Number.decimal(l_digits: 2),
+      g_cathode_capacity: Faker::Number.decimal(l_digits: 2),
+      g_anode_capacity: Faker::Number.decimal(l_digits: 2),
+      g_cathode_flow_rate: Faker::Number.decimal(l_digits: 2),
+      p_flow_rate: Faker::Number.number(digits: 2),
+      p_temperature: Faker::Number.decimal(l_digits: 2),
+      p_absolute_humidity: Faker::Number.decimal(l_digits: 2),
+      h_flow_rate: Faker::Number.number(digits: 2),
+      h_temperature: Faker::Number.decimal(l_digits: 2),
+      h_absolute_humidity: Faker::Number.decimal(l_digits: 2),
+      j_flow_rate: Faker::Number.number(digits: 2),
+      j_temperature: Faker::Number.decimal(l_digits: 2),
+      j_absolute_humidity: Faker::Number.decimal(l_digits: 2),
+      j_cathode_capacity: Faker::Number.decimal(l_digits: 2),
+      j_cathode_flow_rate: Faker::Number.decimal(l_digits: 2),
+      c_flow_rate: Faker::Number.number(digits: 2),
+      c_temperature: Faker::Number.decimal(l_digits: 2),
+      c_absolute_humidity: Faker::Number.decimal(l_digits: 2),
+      k_flow_rate: Faker::Number.number(digits: 2),
+      k_temperature: Faker::Number.decimal(l_digits: 2),
+      k_absolute_humidity: Faker::Number.decimal(l_digits: 2),
+      l_flow_rate: Faker::Number.number(digits: 2),
+      l_temperature: Faker::Number.decimal(l_digits: 2),
+      l_absolute_humidity: Faker::Number.decimal(l_digits: 2),
+      l_cathode_capacity: Faker::Number.decimal(l_digits: 2),
+      d_flow_rate: Faker::Number.number(digits: 2),
+      d_temperature: Faker::Number.decimal(l_digits: 2),
+      d_absolute_humidity: Faker::Number.decimal(l_digits: 2),
+      e_flow_rate: Faker::Number.number(digits: 2),
+      e_temperature: Faker::Number.decimal(l_digits: 2),
+      e_absolute_humidity: Faker::Number.decimal(l_digits: 2),
+      e_anode_capacity: Faker::Number.decimal(l_digits: 2),
+      e_cathode_capacity: Faker::Number.decimal(l_digits: 2),
+      m_category_id: category_ids.sample,
+      m_unit_id: unit_ids.sample,
+      supply_air_sa: Faker::Number.number(digits: 2),
+      outside_air_oa: Faker::Number.decimal(l_digits: 2),
+      s_flow_rate: Faker::Number.number(digits: 2),
+      s_temperature: Faker::Number.decimal(l_digits: 2),
+      s_absolute_humidity: Faker::Number.decimal(l_digits: 2)
+
+    project.unit_selection_results.build rotation: Faker::Number.number(digits: 2),
+      diameter: Faker::Number.number(digits: 2),
+      depth: Faker::Number.number(digits: 2),
+      a_fp: Faker::Number.number(digits: 2),
+      f_fr: Faker::Number.number(digits: 2),
+      h: Faker::Number.number(digits: 2),
+      i: Faker::Number.number(digits: 2),
+      j: Faker::Number.number(digits: 2),
+      k: Faker::Number.number(digits: 2),
+      l: Faker::Number.number(digits: 2),
+      m: Faker::Number.number(digits: 2),
+      a_tp1: Faker::Number.decimal(l_digits: 2),
+      a_xp1: Faker::Number.decimal(l_digits: 2),
+      a_vp: Faker::Number.decimal(l_digits: 2),
+      f_tr1: Faker::Number.decimal(l_digits: 2),
+      f_xr1: Faker::Number.decimal(l_digits: 2),
+      f_vr: Faker::Number.decimal(l_digits: 2),
+      b_tp2: Faker::Number.decimal(l_digits: 2),
+      b_xp2: Faker::Number.decimal(l_digits: 2),
+      b_mr: Faker::Number.decimal(l_digits: 2),
+      d_tpu2: Faker::Number.decimal(l_digits: 2),
+      g_tr2: Faker::Number.decimal(l_digits: 2),
+      g_xr2: Faker::Number.decimal(l_digits: 2),
+      hp: Faker::Number.decimal(l_digits: 2),
+      pp: Faker::Number.decimal(l_digits: 2),
+      pr: Faker::Number.decimal(l_digits: 2),
+      ppu: Faker::Number.decimal(l_digits: 2),
+      margin: Faker::Number.decimal(l_digits: 2),
+      smo_xp2: Faker::Number.decimal(l_digits: 2),
+      status: "D-MAX",
+      room_calculation_input: nil,
+      air_mixture_input: air_mixture_input,
+      model_type: UnitSelectionResult.model_types[:air_mixture]
+  end
+  project.save
+end
+
+(1..10).each do |i|
+  project = Project.new name: Faker::ElectricalComponents.electromechanical,
+    date_of_project: Faker::Date.between(from: 7.days.ago, to: Date.today),
+    user_id: user_ids.sample,
+    calculation_type: Project.calculation_types.keys.sample
+
+  unit_ids = units.room_calculation
+    .send("#{project.user.area}").pluck :id
+
+  room_calculation_input = project.build_room_calculation_input drc_moisture_content: Faker::Number.decimal(l_digits: 2),
+    odc_moisture_content: Faker::Number.decimal(l_digits: 2),
+    src_moisture_content: Faker::Number.decimal(l_digits: 2),
+    room_length: Faker::Number.decimal(l_digits: 2),
+    room_width: Faker::Number.decimal(l_digits: 2),
+    room_height: Faker::Number.decimal(l_digits: 2),
+    room_volume: Faker::Number.decimal(l_digits: 2),
+    without_lock_door_height: Faker::Number.decimal(l_digits: 2),
+    without_lock_door_width: Faker::Number.decimal(l_digits: 2),
+    without_lock_door_length: Faker::Number.decimal(l_digits: 2),
+    air_lock_doors_height: Faker::Number.decimal(l_digits: 2),
+    air_lock_doors_width: Faker::Number.decimal(l_digits: 2),
+    air_lock_doors_length: Faker::Number.decimal(l_digits: 2),
+    total_load_from_ventilation: Faker::Number.decimal(l_digits: 2),
+    moisture_load_from_each: Faker::Number.decimal(l_digits: 2),
+    total_load_from_people: Faker::Number.decimal(l_digits: 2),
+    total_load_from_water_surface: Faker::Number.decimal(l_digits: 2),
+    total_load_from_product_drying: Faker::Number.decimal(l_digits: 2),
+    total_load_from_other_sources: Faker::Number.decimal(l_digits: 2),
+    total_moisture_load: Faker::Number.decimal(l_digits: 2),
+    corresponding_to: Faker::Number.decimal(l_digits: 2),
+    j_before_pre_cooler_degree: Faker::Number.decimal(l_digits: 2),
+    j_before_pre_cooler_rate: Faker::Number.decimal(l_digits: 2),
+    j_to_a_pre_cooling: Faker::Number.decimal(l_digits: 2),
+    inlet_temperature: Faker::Number.decimal(l_digits: 2),
+    inlet_moisture_content: Faker::Number.decimal(l_digits: 2),
+    air_mix_needed_moisture_content: Faker::Number.decimal(l_digits: 2),
+    dry_air_needed_moisture_content: Faker::Number.decimal(l_digits: 2),
+    heat_load: Faker::Number.decimal(l_digits: 2),
+    drc_temperature: Faker::Number.number(digits: 2),
+    drc_relative_humidity: Faker::Number.number(digits: 2),
+    drc_atmospheric_pressure: Faker::Number.number(digits: 2),
+    d_room_has_walls_towards_outdoor: Faker::Number.number(digits: 2),
+    odc_temperature: Faker::Number.number(digits: 2),
+    odc_relative_humidity: Faker::Number.number(digits: 2),
+    odc_atmospheric_pressure: Faker::Number.number(digits: 2),
+    src_temperature: Faker::Number.number(digits: 2),
+    src_relative_humidity: Faker::Number.number(digits: 2),
+    src_atmospheric_pressure: Faker::Number.number(digits: 2),
+    tightness_of_building: Faker::Number.number(digits: 2),
+    surroundings: Faker::Number.number(digits: 2),
+    door_to_outdoor_air: Faker::Number.number(digits: 2),
+    wind_speed: Faker::Number.number(digits: 2),
+    without_lock_opened_per_hour: Faker::Number.number(digits: 2),
+    air_lock_vestibule_passages_per_hour: Faker::Number.number(digits: 2),
+    tightness_of_room: Faker::Number.number(digits: 2),
+    door_or_air_lock_infiltration: Faker::Number.number(digits: 2),
+    open_holes: Faker::Number.number(digits: 2),
+    needed_airflow: Faker::Number.number(digits: 2),
+    mechanical_ventilation: Faker::Number.number(digits: 2),
+    total_ventilation_from_outdoor: Faker::Number.number(digits: 2),
+    total_ventilation_from_surrounding_rooms: Faker::Number.number(digits: 2),
+    percentage_leakage: Faker::Number.number(digits: 2),
+    number_of_people: Faker::Number.number(digits: 2),
+    pool_length: Faker::Number.number(digits: 2),
+    pool_width: Faker::Number.number(digits: 2),
+    pool_surface: Faker::Number.number(digits: 2),
+    water_temperature: Faker::Number.number(digits: 2),
+    vaporization_coefficient: Faker::Number.number(digits: 2),
+    total_weight_of_products: Faker::Number.number(digits: 2),
+    start_percentage_of_moisture: Faker::Number.number(digits: 2),
+    percentage_dried_per_hour: Faker::Number.number(digits: 2),
+    number_of_units: Faker::Number.number(digits: 2),
+    process_airflow: Faker::Number.number(digits: 2),
+    return_air_direct: Faker::Number.number(digits: 2),
+    total_wet_air_flow: Faker::Number.number(digits: 2),
+    pre_cooled_air: Faker::Number.number(digits: 2),
+    leakage_average: Faker::Number.number(digits: 2),
+    leakage: Faker::Number.number(digits: 2),
+    pre_cooling_ambient_air: Faker::Number.number(digits: 2),
+    ambient_air_direct: Faker::Number.number(digits: 2),
+    air_direct_from_pre_cooling: Faker::Number.number(digits: 2),
+    air_direct_from_ambient: Faker::Number.number(digits: 2),
+    total_airflow_to_room: Faker::Number.number(digits: 2),
+    total_dry_air_flow: Faker::Number.number(digits: 2),
+    dry_air_temperature: Faker::Number.number(digits: 2),
+    m_category_id: category_ids.sample,
+    m_unit_id: unit_ids.sample
+
+  project.unit_selection_results.build rotation: Faker::Number.number(digits: 2),
+    diameter: Faker::Number.number(digits: 2),
+    depth: Faker::Number.number(digits: 2),
+    a_fp: Faker::Number.number(digits: 2),
+    f_fr: Faker::Number.number(digits: 2),
+    h: Faker::Number.number(digits: 2),
+    i: Faker::Number.number(digits: 2),
+    j: Faker::Number.number(digits: 2),
+    k: Faker::Number.number(digits: 2),
+    l: Faker::Number.number(digits: 2),
+    m: Faker::Number.number(digits: 2),
+    a_tp1: Faker::Number.decimal(l_digits: 2),
+    a_xp1: Faker::Number.decimal(l_digits: 2),
+    a_vp: Faker::Number.decimal(l_digits: 2),
+    f_tr1: Faker::Number.decimal(l_digits: 2),
+    f_xr1: Faker::Number.decimal(l_digits: 2),
+    f_vr: Faker::Number.decimal(l_digits: 2),
+    b_tp2: Faker::Number.decimal(l_digits: 2),
+    b_xp2: Faker::Number.decimal(l_digits: 2),
+    b_mr: Faker::Number.decimal(l_digits: 2),
+    d_tpu2: Faker::Number.decimal(l_digits: 2),
+    g_tr2: Faker::Number.decimal(l_digits: 2),
+    g_xr2: Faker::Number.decimal(l_digits: 2),
+    hp: Faker::Number.decimal(l_digits: 2),
+    pp: Faker::Number.decimal(l_digits: 2),
+    pr: Faker::Number.decimal(l_digits: 2),
+    ppu: Faker::Number.decimal(l_digits: 2),
+    margin: Faker::Number.decimal(l_digits: 2),
+    smo_xp2: Faker::Number.decimal(l_digits: 2),
+    status: "D-MAX",
+    room_calculation_input: room_calculation_input,
+    air_mixture_input: nil,
+    model_type: UnitSelectionResult.model_types[:air_mixture]
+  project.save
+end

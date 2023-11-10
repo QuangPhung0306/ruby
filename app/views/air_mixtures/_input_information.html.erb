@@ -1,0 +1,399 @@
+<div class="calculation_slt" id="air_mixture_inputs">
+  <div class="cal_date">
+    <h2 class="show_mb cal_btnmb"><%= link_to t(".air_mixture_and_capacity"), "javascript:void(0)" %></h2>
+    <div class="cal_select">
+      <div class="frm_gr d-flex">
+        <label class="frm_gr_lb" id="air_mixture_data_project" data-air-mixture-projects="<%= @air_mixture_projects %>"><%= t ".project" %>&nbsp;<span class="hidden_mb"><%= t ".name" %></span></label>
+        <div class="project-name-group">
+          <%= f.text_field :name, value: "Case 1", maxlength: 50, class: "form-control frm_gr_inp", placeholder: t(".name"), id: "air_mixture_project_name", autocomplete: "off" %>
+        </div>
+
+      </div>
+      <div class="frm_gr d-flex">
+        <label class="frm_gr_lb"><%= t ".date" %></label>
+        <%= f.text_field :date_of_project, value: Date.current.strftime(Settings.data_time_format.project),
+          class: "form-control frm_gr_inp", id: "air_mixture_datetimepicker", placeholder: t(".format_date"),
+          readonly: true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="frm_gr d-flex">
+          <div class="row w-100 align-items-center">
+
+            <div class="col-12 col-sm-4 text-center">
+              <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Unit Select</legend>
+                <div class="control-group">
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="air_mixture_si" name="calculation_mode" value="si" checked="checked"
+                      class="custom-control-input">
+                    <label class="custom-control-label custom-control-label-ed"
+                      for="air_mixture_si">SI</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="air_mixture_ip" name="calculation_mode" value="ip"
+                      class="custom-control-input">
+                    <label class="custom-control-label custom-control-label-ed"
+                      for="air_mixture_ip">IP</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-12 col-sm-4 text-center">
+              <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Heater Select</legend>
+                <div class="control-group">
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="radiobutton8" name="heater_select" value="8"
+                      class="custom-control-input">
+                    <label class="custom-control-label custom-control-label-ed"
+                      for="radiobutton8">Temp.</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="radiobutton9" name="heater_select" value="9" checked="checked"
+                      class="custom-control-input">
+                    <label class="custom-control-label custom-control-label-ed"
+                      for="radiobutton9">Power</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-12 col-sm-4 text-center">
+              <div class="d-flex align-items-center">
+                <span class="mr-2 text-nowrap col-lg-2">HP</span>
+                <input type="text" id="textbox50" name="textbox50" class="col-md-8 w-100 form-control form-control-sm h-auto">
+                <div id="textbox50_unit" class="ml-auto pl-2">
+                  kW/h
+                </div>
+              </div>
+              <div class="d-flex align-items-center mt-1">
+                <span class="mr-2 text-nowrap col-lg-2">TR1</span>
+                <input type="text" id="textbox2" name="textbox2" class="col-md-8 w-100 form-control form-control-sm h-auto" disabled>
+                <div id="textbox2_unit" class="ml-auto pl-2">
+                  <sup>o</sup>C
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calculation_tabs calculation_data_inputs">
+    <div class="box_gr clearfix flex-direction-column" id="anchor_to_scroll">
+      <div class="w-tabscroll-ed margin-bottom-25">
+        <!-- <div class="owl-carousel owl-theme owl-autow css-autow" >
+          <div class="item">
+            <a class="nav-link active" data-toggle="pill" href="#tabs_ct1" role="tab"
+              aria-controls="pills-home" aria-selected="true"><span>Desired room climate</span></a>
+          </div>
+          <% Settings.air_mixture_sections.keys.each do |section| %>
+            <div class="item">
+              <%= link_to "#tabs_section_#{section}", id: "pill_tab_#{section}",
+                class: "nav-link", data: {toggle: "pill"}, role: "tab",
+                aria: {controls: "pills-profile", selected: "true"} do %>
+                <span>
+                  <%= t ".section_#{section}" %>
+                </span>
+              <% end %>
+            </div>
+          <% end %>
+        </div> -->
+
+         <div class="center slider css-autow">
+            <div class="item" data-index="0">
+              <a class="nav-link active" data-toggle="pill" href="#tabs_section_air_flow" role="tab" aria-controls="pills-home"
+                aria-selected="true"><span><%= t ".section_air_flow" %></span></a>
+            </div>
+            <% Settings.air_mixture_tab_paginate_keys.each_with_index do |section, index| %>
+              <div class="item" data-index="<%= index.next %>">
+                <%= link_to "#tabs_section_#{section}",
+                  class: "nav-link", data: {toggle: "pill"}, role: "tab",
+                  aria: {controls: "pills-profile", selected: "true"} do %>
+                  <%= t ".section_#{section}" %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+      </div>
+
+      <div class="w-btn-total flex-order-default">
+        <div class="text-center">
+          <a class="btn btnPrevious">Previous</a>
+          <a class="btn btnNext">Next</a>
+        </div>
+        <div class="text-center mt-3 js-total-tabs">
+          (<span class="js-tabs-default">1</span>/<span class="js-tabs-nb">16</span>)
+        </div>
+      </div>
+
+      <hr>
+      <div class="tab-content tab_ct_ed margin-bottom-0" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="tabs_section_air_flow" role="tabpanel" aria-labelledby="tabs_section_air_flow">
+          <div class="box_gr_tlt">
+            <h2 class="box_gr_hd"><%= t ".measurements" %></h2>
+            <h2 class="box_gr_hd"><%= t ".units_of_measurement" %></h2>
+            <h2 class="box_gr_hd"><%= t ".value" %></h2>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span><%= t ".supply_air_sa" %></span>
+            </div>
+            <div class="gr_item">
+              <span id="ac_supply_air_sa_unit"><%= t ".supply_air_sa_unit" %></span>
+            </div>
+            <div class="gr_item">
+              <%= text_field_tag :supply_air_sa, "", class: "supply-air-sa",
+                id: "ac_supply_air_sa", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span><%= t ".outside_air_oa" %></span>
+            </div>
+            <div class="gr_item">
+              <span id="ac_outside_air_oa_unit"><%= t ".outside_air_oa_unit" %></span>
+            </div>
+            <div class="gr_item">
+              <%= text_field_tag :outside_air_oa_show, "", class: "outside-air-oa-show", id: "ac_outside_air_oa_show" %>
+              <%= hidden_field_tag :outside_air_oa, "", class: "outside-air-oa", id: "ac_outside_air_oa" %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span><%= t ".height_above_sea_level" %></span>
+            </div>
+            <div class="gr_item">
+              <span>m</span>
+            </div>
+            <div class="gr_item">
+              <%= text_field_tag :height_above_sea_level, -6.2, class: "height_above_sea_level", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span><%= t ".atmospheric_pressure" %></span>
+            </div>
+            <div class="gr_item">
+              <span id="ac_atmospheric_pressure_unit"><%= t ".atmospheric_pressure_unit" %></span>
+            </div>
+            <div class="gr_item">
+              <%= text_field_tag :atmospheric_pressure, "", class: "atmospheric-pressure",
+                id: "ac_atmospheric_pressure", autocomplete: "off", readonly: true %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span><%= t ".water_temperature_in" %></span>
+            </div>
+            <div class="gr_item">
+              <span id="ac_water_temperature_in_unit"><sup>o</sup>C</span>
+            </div>
+            <div class="gr_item">
+              <%= text_field_tag :water_temperature_in, "", class: "water-temperature-in",
+                id: "ac_water_temperature_in", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span><%= t ".water_temperature_out" %></span>
+            </div>
+            <div class="gr_item">
+              <span id="ac_water_temperature_out_unit"><sup>o</sup>C</span>
+            </div>
+            <div class="gr_item">
+              <%= text_field_tag :water_temperature_out, "", class: "water-temperature-out",
+                id: "ac_water_temperature_out", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span>Hot water in</span>
+            </div>
+            <div class="gr_item">
+              <span id="hot_water_in_unit"><sup>o</sup>C</span>
+            </div>
+            <div class="gr_item">
+              <%= text_field_tag :hot_water_in, "", class: "hot_water_in",
+                id: "hot_water_in", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span>Hot water out</span>
+            </div>
+            <div class="gr_item">
+              <span id="hot_water_out_unit"><sup>o</sup>C</span>
+            </div>
+            <div class="gr_item">
+              <%= text_field_tag :hot_water_out, "", class: "hot_water_out",
+                id: "hot_water_out", autocomplete: "off" %>
+            </div>
+          </div>
+        </div>
+
+        <% Settings.air_mixture_sections.keys.each do |section| %>
+          <%= render "input_sections", section: section, input_field: Settings.air_mixture_sections[section] %>
+        <% end %>
+
+        <div class="tab-pane fade" id="tabs_section_summary" role="tabpanel" aria-labelledby="tabs_section_summary">
+          <div class="box_gr_tlt">
+            <h2 class="box_gr_hd"><%= t ".measurements" %></h2>
+            <h2 class="box_gr_hd"><%= t ".units_of_measurement" %></h2>
+            <h2 class="box_gr_hd"><%= t ".value" %></h2>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span>Total cooling power</span>
+            </div>
+            <div class="gr_item">
+              <span id="total_cooling_power_unit">kW</span>
+            </div>
+            <div class="gr_item">
+              <span class="total-cooling-power-display" id="total_cooling_power_display"></span>
+              <%= hidden_field_tag :total_cooling_power, "", class: "total_cooling_power",
+                id: "total_cooling_power", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span>Total cooling water flow</span>
+            </div>
+            <div class="gr_item">
+              <span id="total_cooling_water_flow_unit">l/s</span>
+            </div>
+            <div class="gr_item">
+              <span class="total-cooling-water-flow-display" id="total_cooling_water_flow_display"></span>
+              <%= hidden_field_tag :total_cooling_water_flow, "", class: "total_cooling_water_flow",
+                id: "total_cooling_water_flow", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span>Total heater power</span>
+            </div>
+            <div class="gr_item">
+              <span id="total_heater_power_unit">kW</span>
+            </div>
+            <div class="gr_item">
+              <span class="total-heater-power-display" id="total_heater_power_display"></span>
+              <%= hidden_field_tag :total_heater_power, "", class: "total_heater_power",
+                id: "total_heater_power", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span>Total hot water flow</span>
+            </div>
+            <div class="gr_item">
+              <span id="total_hot_water_flow_unit">l/s</span>
+            </div>
+            <div class="gr_item">
+              <span class="total-hot-water-flow-display" id="total_hot_water_flow_display"></span>
+              <%= hidden_field_tag :total_hot_water_flow, "", class: "total_hot_water_flow",
+                id: "total_hot_water_flow", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span>Room capacity to cover moisture load inside the room</span>
+            </div>
+            <div class="gr_item">
+              <span id="room_capacity_unit">kg/h</span>
+            </div>
+            <div class="gr_item">
+              <span class="room-capacity-display" id="room_capacity_display"></span>
+              <%= hidden_field_tag :room_capacity, "", class: "room_capacity",
+                id: "room_capacity", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span>Correspondes to latent load in the room</span>
+            </div>
+            <div class="gr_item">
+              <span id="correspondes_to_unit">kW</span>
+            </div>
+            <div class="gr_item">
+              <span class="correspondes-to-display" id="correspondes_to_display"></span>
+              <%= hidden_field_tag :correspondes_to, "", class: "correspondes_to",
+                id: "correspondes_to", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="box_gr_item">
+            <div class="gr_item">
+              <span>Temp difference SA and RA cooling to cover heat load inside the room</span>
+            </div>
+            <div class="gr_item">
+              <span id="temp_difference_SA_and_RA_unit">kW</span>
+            </div>
+            <div class="gr_item">
+              <span class="temp-difference-SA-and-RA-display" id="temp_difference_SA_and_RA_display"></span>
+              <%= hidden_field_tag :temp_difference_SA_and_RA, "", class: "temp_difference_SA_and_RA",
+                id: "temp_difference_SA_and_RA", autocomplete: "off" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cal_catefory">
+      <h2 class="show_mb cal_btnmb"><%= link_to t(".dehumidifier"), "javascript:void(0)" %></h2>
+      <div class="cal_select">
+        <div class="frm_gr d-flex" id="dropdown_category_box">
+          <label class="frm_gr_lb"><%= t ".category" %></label>
+          <div class="dropdown">
+            <button class="item_boxshadow btn_ct_sl" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= t ".choose_one" %>
+            </button>
+            <div id="item-categories" class="dropdown-menu dropdown_sl item_boxshadow air-mixture-categories" aria-labelledby="dropdownMenuButton">
+              <% @m_categories.each do |category| %>
+                <%= link_to "javascript:void(0)", class: "dropdown-item dropdown-category", data: {id: category.id, category_name: category.name} do %>
+                  <%= category.name %>
+                <% end %>
+              <% end %>
+            </div>
+            <%= hidden_field_tag :m_category_id, "", id: "air_mixture_category_id" %>
+          </div>
+        </div>
+
+        <div class="frm_gr d-flex" id="dropdown_unit_box">
+          <label class="frm_gr_lb"><%= t ".unit" %></label>
+          <div class="dropdown">
+            <button class="item_boxshadow btn_ct_sl" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= t ".choose_one" %>
+            </button>
+            <div id="item-units" class="dropdown-menu dropdown_sl item_boxshadow scroll_unit" aria-labelledby="dropdownMenuButton">
+              <% @m_units.each do |unit| %>
+                <%= link_to "javascript:void(0)", class: "dropdown-item dropdown-unit", data: {id: unit.id, category_id: unit.m_category_id, model_name: unit.name, dry_air: unit.dry_air, wet_air: unit.wet_air, capacity: unit.capacity} do %>
+                  <span class="color_xd"><%= unit.name.strip %></span>,&nbsp;<span class="color_red"><%= unit.dry_air %>&nbsp;m3/h</span>
+                <% end %>
+              <% end %>
+            </div>
+            <%= hidden_field_tag :m_unit_id, "", id: "air_mixture_unit_id" %>
+          </div>
+        </div>
+
+        <div class="frm_gr d-flex" id="read_supply_air_sa">
+          <label class="frm_gr_lb"><%= t ".supply_air_sa" %></label>
+          <%= text_field_tag :supply_air_sa, "",
+            class: "form-control frm_gr_inp text-center", readonly: true %>
+        </div>
+
+        <div class="frm_gr d-flex" id="notice_supply_air_sa">
+          <label class="frm_gr_lb"></label>
+          <span class="hint"><%= t ".choosen_suitable_unit" %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cal_button">
+    <%= link_to "Start Calculation", "javascript:void(0)", class: "btn_rs btn_primary", id: "air_mixture_start_calculation" %>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+en:
+  air_mixtures:
+    input_sections:
+      measurements: MEASUREMENTS
+      units_of_measurement: UNITS OF MEASUREMENT
+      value: VALUE
+      temperature: Temperature
+      flow_rate: Flow rate
+      flow_rate_unit: m3/h
+      absolute_humidity: Absolute humidity
+      absolute_humidity_unit: g/kg
+      n_cathode_capacity: Pre-Cooler2 power
+      n_cathode_flow_rate: Pre-Cooler2 condensed water amount
+      g_anode_capacity: Heater power
+      g_cathode_capacity: Pre-Cooler1 power
+      g_cathode_flow_rate: Pre-Cooler2 condensed water amount
+      j_cathode_capacity: Pre-Cooler power
+      j_cathode_flow_rate: Pre-Cooler condensed water amount
+      l_cathode_capacity: After-Cooler1 power
+      e_anode_capacity: After-Cooler2 power
+      e_cathode_capacity: After-Heater power
+      n_cathode_capacity_unit: kWR
+      n_cathode_flow_rate_unit: kg/h
+      g_anode_capacity_unit: kW
+      g_cathode_capacity_unit: kWR
+      g_cathode_flow_rate_unit: kg/h
+      j_cathode_capacity_unit: kWR
+      j_cathode_flow_rate_unit: kg/h
+      l_cathode_capacity_unit: kWR
+      e_anode_capacity_unit: kWR
+      e_cathode_capacity_unit: kW
+      not_given: Not given

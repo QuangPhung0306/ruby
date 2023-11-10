@@ -1,0 +1,49 @@
+.w-inp-prev {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+}
+
+.w-inp-prev input {
+  width: 150px;
+}
+
+@media screen and (max-width: 480px) {
+  #page_print_unit_selection {
+    .w-inp-prev {
+      top: 3px;
+      label.text-nowrap {
+        font-size: 12px;
+        width: 100px;
+        + .pl-4 {
+          padding-left: 6px !important;
+        }
+      }
+      #textbox8 {
+        width: 40px;
+        height: 25px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media print {
+  #page_print_unit_selection.prev_container {
+    margin: 0 auto 0;
+    padding: 50px 20px 0 20px;
+    border: none;
+
+    .prev_unit {
+      padding: 10px 0 20px 0;
+    }
+  }
+}
+
+@media print {
+  .prev_container {
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+}

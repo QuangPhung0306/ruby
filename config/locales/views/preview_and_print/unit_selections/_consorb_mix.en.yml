@@ -1,0 +1,35 @@
+en:
+  preview_and_print:
+    unit_selections:
+      consorb_mix:
+        preview_and_print: PREVIEW AND PRINT
+        date: Date
+        project: Project
+        category: Category
+        unit: Unit
+        temperature: Temperature
+        print: PRINT
+        close: CLOSE
+        desiccant_rotor_calculation: Desiccant Rotor Calculation
+        company_name: Seibu Giken DST AB
+        company_address: Avestagatan 33, SE-163 53 Spånga, SWEDEN
+        tel: "TEL: +46-8-445-7720"
+        link_tel: "tel:4684457720"
+        url: "URL: www.dst-sg.com"
+        link_url: "https://www.dst-sq.com"
+        project_name_default: Case 1
+        G_Wet_Air_Outlet: G. Wet Air Outlet
+        F_Regen_Air: F. Regen Air
+        Heater: Heater
+        E_Regen_Air_Inlet: E.Regen Air Inlet
+        A_Process_Air_Inlet: A. Process Air Inlet
+        B_Dry_Air_Outlet: B. Dry Air Outlet
+        Pressure_drop: Pressure drop
+        Process_PP: Process PP
+        Regeneration_RP: Regeneration RP
+        Purge_PPu: Purge PPu
+        C_ss_Regen_Air_Inlet: C". Regen Air Inlet
+        A_s_Process_Air_Inlet: A'. Process Air Inlet
+        D_purge_Air: D. Purge Air
+        C_s_Regen_Air_Inlet: C'. Regen Air Inlet
+        height_above_sea_level: Height Above Sea Level

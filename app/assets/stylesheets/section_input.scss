@@ -1,0 +1,17 @@
+.calculation_w .calculation_tabs .tab_ct_ed.margin-bottom-0 {
+  margin-bottom: 0px; 
+}
+
+.w-tabscroll-ed.margin-bottom-25 {
+  margin: 0 auto 25px; 
+}
+
+@media screen and (max-width: 991px) {
+  .calculation_w .calculation_tabs > .box_gr.flex-direction-column {
+    flex-direction: column;
+  }
+
+  .w-btn-total.flex-order-default {
+    order: initial;
+  }
+}

@@ -1,0 +1,623 @@
+<div class="offer_w prev_w" id="show_preview_and_print">
+  <%= hidden_field_tag :air_mixture_calculation_mode, @air_mixture_calculation_mode %>
+  <div class="offer_container">
+    <div class="offer_tlt">
+      <div class="tlt_gr_lr">
+        <h2 class="tlt_gr_txt"><%= t ".preview_and_print" %></h2>
+      </div>
+    </div>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="tabs-prev1" role="tabpanel">
+        <div class="prev_container">
+          <div class="prev_header">
+            <div class="prev_logo">
+              <%= image_tag "logo-print.png", alt: "" %>
+              <h2><%= t ".company_name" %></h2>
+              <h3><%= t ".company_address" %></h3>
+              <%= link_to t(".tel"), t(".link_tel") %>
+              <%= link_to t(".url"), t(".link_url") %>
+            </div>
+            <div class="prev_date">
+              <h2><%= t ".desiccant_rotor_calculation" %></h2>
+              <div class="d-flex justify-content-end">
+                <div class="well">
+                  <table class="table">
+                    <% if @data_preview_and_print.project %>
+                      <tr>
+                        <td><%= t ".date" %>:</td>
+                        <td><%= l @data_preview_and_print.project.date_of_project,
+                          format: :day_month_year %></td>
+                      </tr>
+                      <tr>
+                        <td><%= t ".project" %>:</td>
+                        <td class="project_name_of_print"><%= @data_preview_and_print.project.name %></td>
+                      </tr>
+                    <% else %>
+                      <tr>
+                        <td><%= t ".date" %>:</td>
+                        <td><%= l Time.now, format: :day_month_year %></td>
+                      </tr>
+                      <tr>
+                        <td><%= t ".project" %>:</td>
+                        <td><%= t ".project_name_default" %></td>
+                      </tr>
+                    <% end %>
+                    <tr>
+                      <td><%= t ".category" %>:</td>
+                      <td><%= @data_preview_and_print.m_category.name %></td>
+                    </tr>
+                    <tr>
+                      <td><%= t ".unit" %>:</td>
+                      <td><%= @data_preview_and_print.m_unit.name %></td>
+                    </tr>
+                    <tr>
+                      <td><%= t ".regen_air_temperature" %>:</td>
+                      <td>
+                        <span id="regen_air_temperature"><%= @data_preview_and_print.unit_selection_result.f_tr1 %></span>
+                        <span id="regen_air_temperature_unit"><sup>o</sup>C</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t ".heater_power" %>:</td>
+                      <td>
+                        <span id="heater_power"><%= @data_preview_and_print.unit_selection_result.hp %></span>
+                        <span id="heater_power_unit">kW</span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="prev_air">
+            <div class="calculation_img">
+              <div class="abg_it mt-5">
+                <div class="abg_item bg_cl_air">
+                  <h2 class="abg_tlt"><%= t ".a_return_air_ra" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.a_flow_rate %>" class="inp_table_gr" id="a_flow_rate" readonly></span>
+                      <span id="a_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.a_temperature %>" class="inp_table_gr" id="a_temperature" readonly></span>
+                      <span id="a_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.a_absolute_humidity %>" class="inp_table_gr" id="a_absolute_humidity" readonly></span>
+                      <span id="a_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="abg_item bg_cl_air">
+                  <h2 class="abg_tlt"><%= t ".f_outside_air_oa" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.f_flow_rate %>" class="inp_table_gr" id="f_flow_rate" readonly ></span>
+                      <span id="f_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.f_temperature %>" class="inp_table_gr" id="f_temperature" readonly></span>
+                      <span id="f_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.f_absolute_humidity %>" class="inp_table_gr" id="f_absolute_humidity" readonly></span>
+                      <span id="f_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                </div>                
+                <div class="abg_item bg_cl_air">
+                  <h2 class="abg_tlt"><%= t ".m_outside_air" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.m_flow_rate %>" class="inp_table_gr" id="m_flow_rate" readonly ></span>
+                      <span id="m_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.m_temperature %>" class="inp_table_gr" id="m_temperature" readonly></span>
+                      <span id="m_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.m_absolute_humidity %>" class="inp_table_gr" id="m_absolute_humidity" readonly></span>
+                      <span id="m_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="calculation_img_w none_scrollpy">
+                <%= image_tag "air-mixture-mb.png", alt: "", data: {toggle: "modal", target: "#modal_cal"} %>
+              </div>
+              <div class="abg_it">
+                <div class="abg_item bg_cl_air">
+                  <h2 class="abg_tlt"><%= t ".r_return_air" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.r_flow_rate %>" class="inp_table_gr" id="r_flow_rate" readonly ></span>
+                      <span id="r_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.r_temperature %>" class="inp_table_gr" id="r_temperature" readonly></span>
+                      <span id="r_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.r_absolute_humidity %>" class="inp_table_gr" id="r_absolute_humidity" readonly></span>
+                      <span id="r_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="abg_item bg_cl_s">
+                  <h2 class="abg_tlt"><%= t ".s_wet_air" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.s_flow_rate %>" class="inp_table_gr" id="s_flow_rate" readonly ></span>
+                      <span id="s_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.s_temperature %>" class="inp_table_gr not_given" id="s_temperature" readonly></span>
+                      <span id="s_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.s_absolute_humidity %>" class="inp_table_gr" id="s_absolute_humidity" readonly></span>
+                      <span id="s_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="abg_item bg_cl_e">
+                  <h2 class="abg_tlt"><%= t ".e_sipply_air_sa" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.e_flow_rate %>" class="inp_table_gr" id="e_flow_rate" readonly ></span>
+                      <span id="e_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.e_temperature %>" class="inp_table_gr" id="e_temperature" readonly></span>
+                      <span id="e_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.e_absolute_humidity %>" class="inp_table_gr" id="e_absolute_humidity" readonly></span>
+                      <span id="e_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".e_anode_capacity" %></span>
+                      <span><input value="<%= @data_preview_and_print.e_anode_capacity %>" class="inp_table_gr" id="e_anode_capacity" readonly></span>
+                      <span id="e_anode_capacity_unit">kWR</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".e_cathode_capacity" %></span>
+                      <span><input value="<%= @data_preview_and_print.e_cathode_capacity %>" class="inp_table_gr" id="e_cathode_capacity" readonly></span>
+                      <span id="e_cathode_capacity_unit">kW</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="tabs-prev2" role="tabpanel">
+        <div class="prev_container">
+          <div class="prev_air">
+            <div class="calculation_img">
+              <div class="calculation_img_w none_scrollpy">
+                <%= image_tag "air-mixture-mb.png", alt: "",
+                  data: {toggle: "modal", target: "#modal_cal"}, class: "" %>
+              </div>
+              <div class="abg_it">
+                <div class="abg_item bg_cl_air">
+                  <h2 class="abg_tlt"><%= t ".n_pre_cooler_2" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.n_flow_rate %>" class="inp_table_gr" id="n_flow_rate" readonly ></span>
+                      <span id="n_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.n_temperature %>" class="inp_table_gr" id="n_temperature" readonly></span>
+                      <span id="n_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.n_absolute_humidity %>" class="inp_table_gr" id="n_absolute_humidity" readonly></span>
+                      <span id="n_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".n_cathode_capacity" %></span>
+                      <span><input value="<%= @data_preview_and_print.n_cathode_capacity %>" class="inp_table_gr" id="n_cathode_capacity" readonly></span>
+                      <span id="n_cathode_capacity_unit">kWR</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".n_cathode_flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.n_cathode_flow_rate %>" class="inp_table_gr" id="n_cathode_flow_rate" readonly></span>
+                      <span id="n_cathode_flow_rate_unit">kg/h</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="abg_item bg_cl_air">
+                  <h2 class="abg_tlt"><%= t ".g_pre_cooler_1_heater" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.g_flow_rate %>" class="inp_table_gr" id="g_flow_rate" readonly ></span>
+                      <span id="g_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.g_temperature %>" class="inp_table_gr" id="g_temperature" readonly></span>
+                      <span id="g_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.g_absolute_humidity %>" class="inp_table_gr" id="g_absolute_humidity" readonly></span>
+                      <span id="g_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".g_anode_capacity" %></span>
+                      <span><input value="<%= @data_preview_and_print.g_anode_capacity %>" class="inp_table_gr" id="g_anode_capacity" readonly></span>
+                      <span id="g_anode_capacity_unit">kW</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".g_cathode_capacity" %></span>
+                      <span><input value="<%= @data_preview_and_print.g_cathode_capacity %>" class="inp_table_gr" id="g_cathode_capacity" readonly></span>
+                      <span id="g_cathode_capacity_unit">kWR</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".g_cathode_flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.g_cathode_flow_rate %>" class="inp_table_gr" id="g_cathode_flow_rate" readonly></span>
+                      <span id="g_cathode_flow_rate_unit">kg/h</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="abg_item bg_cl_air">
+                  <h2 class="abg_tlt"><%= t ".h_mixed_air_2" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.h_flow_rate %>" class="inp_table_gr" id="h_flow_rate" readonly ></span>
+                      <span id="h_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.h_temperature %>" class="inp_table_gr" id="h_temperature" readonly></span>
+                      <span id="h_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.h_absolute_humidity %>" class="inp_table_gr" id="h_absolute_humidity" readonly></span>
+                      <span id="h_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="abg_it mt-2">
+                <div class="abg_item bg_cl_air">
+                  <h2 class="abg_tlt"><%= t ".p_regeneration_air" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.p_flow_rate %>" class="inp_table_gr" id="p_flow_rate" readonly ></span>
+                      <span id="p_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.p_temperature %>" class="inp_table_gr" id="p_temperature" readonly></span>
+                      <span id="p_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.p_absolute_humidity %>" class="inp_table_gr" id="p_absolute_humidity" readonly></span>
+                      <span id="p_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="abg_item bg_cl_air">
+                  <h2 class="abg_tlt"><%= t ".j_process_air" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.j_flow_rate %>" class="inp_table_gr" id="j_flow_rate" readonly ></span>
+                      <span id="j_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.j_temperature %>" class="inp_table_gr" id="j_temperature" readonly></span>
+                      <span id="j_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.j_absolute_humidity %>" class="inp_table_gr" id="j_absolute_humidity" readonly></span>
+                      <span id="j_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".j_cathode_capacity" %></span>
+                      <span><input value="<%= @data_preview_and_print.j_cathode_capacity %>" class="inp_table_gr" id="j_cathode_capacity" readonly></span>
+                      <span id="j_cathode_capacity_unit">kWR</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".j_cathode_flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.j_cathode_flow_rate %>" class="inp_table_gr" id="j_cathode_flow_rate" readonly></span>
+                      <span id="j_cathode_flow_rate_unit">kg/h</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="abg_item bg_cl_air">
+                    <h2 class="abg_tlt"><%= t ".c_bypass_air" %></h2>
+                    <div class="abg_group_inp">
+                      <div class="d-flex align-items-center">
+                        <span><%= t ".flow_rate" %></span>
+                        <span><input value="<%= @data_preview_and_print.c_flow_rate %>" class="inp_table_gr" id="c_flow_rate" readonly ></span>
+                        <span id="c_flow_rate_unit">m3/h</span>
+                      </div>
+                    </div>
+                    <div class="abg_group_inp">
+                      <div class="d-flex align-items-center">
+                        <span><%= t ".temperature" %></span>
+                        <span><input value="<%= @data_preview_and_print.c_temperature %>" class="inp_table_gr" id="c_temperature" readonly></span>
+                        <span id="c_temperature_unit"><sup>o</sup>C</span>
+                      </div>
+                    </div>
+                    <div class="abg_group_inp">
+                      <div class="d-flex align-items-center">
+                        <span><%= t ".absolute_humidity" %></span>
+                        <span><input value="<%= @data_preview_and_print.c_absolute_humidity %>" class="inp_table_gr" id="c_absolute_humidity" readonly></span>
+                        <span id="c_absolute_humidity_unit">g/kg</span>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="abg_it mt-2">
+                <div class="abg_item bg_cl_air">
+                  <h2 class="abg_tlt"><%= t ".k_dry_air" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.k_flow_rate %>" class="inp_table_gr" id="k_flow_rate" readonly ></span>
+                      <span id="k_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.k_temperature %>" class="inp_table_gr" id="k_temperature" readonly></span>
+                      <span id="k_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.k_absolute_humidity %>" class="inp_table_gr" id="k_absolute_humidity" readonly></span>
+                      <span id="k_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="abg_item bg_cl_air">
+                  <h2 class="abg_tlt"><%= t ".l_post_cooler" %></h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".flow_rate" %></span>
+                      <span><input value="<%= @data_preview_and_print.l_flow_rate %>" class="inp_table_gr" id="l_flow_rate" readonly ></span>
+                      <span id="l_flow_rate_unit">m3/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".temperature" %></span>
+                      <span><input value="<%= @data_preview_and_print.l_temperature %>" class="inp_table_gr" id="l_temperature" readonly></span>
+                      <span id="l_temperature_unit"><sup>o</sup>C</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".absolute_humidity" %></span>
+                      <span><input value="<%= @data_preview_and_print.l_absolute_humidity %>" class="inp_table_gr" id="l_absolute_humidity" readonly></span>
+                      <span id="l_absolute_humidity_unit">g/kg</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span><%= t ".l_cathode_capacity" %></span>
+                      <span><input value="<%= @data_preview_and_print.l_cathode_capacity %>" class="inp_table_gr" id="l_cathode_capacity" readonly></span>
+                      <span id="l_cathode_capacity_unit">kWR</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="abg_item bg_cl_air">
+                    <h2 class="abg_tlt"><%= t ".d_mixed_air_1" %></h2>
+                    <div class="abg_group_inp">
+                      <div class="d-flex align-items-center">
+                        <span><%= t ".flow_rate" %></span>
+                        <span><input value="<%= @data_preview_and_print.d_flow_rate %>" class="inp_table_gr" id="d_flow_rate" readonly ></span>
+                        <span id="d_flow_rate_unit">m3/h</span>
+                      </div>
+                    </div>
+                    <div class="abg_group_inp">
+                      <div class="d-flex align-items-center">
+                        <span><%= t ".temperature" %></span>
+                        <span><input value="<%= @data_preview_and_print.d_temperature %>" class="inp_table_gr" id="d_temperature" readonly></span>
+                        <span id="d_temperature_unit"><sup>o</sup>C</span>
+                      </div>
+                    </div>
+                    <div class="abg_group_inp">
+                      <div class="d-flex align-items-center">
+                        <span><%= t ".absolute_humidity" %></span>
+                        <span><input value="<%= @data_preview_and_print.d_absolute_humidity %>" class="inp_table_gr" id="d_absolute_humidity" readonly></span>
+                        <span id="d_absolute_humidity_unit">g/kg</span>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="tabs-prev3" role="tabpanel">
+        <div class="prev_container">
+          <div class="prev_air">
+            <div class="calculation_img">
+              <div class="calculation_img_w none_scrollpy">
+                <%= image_tag "air-mixture-mb.png", alt: "",
+                  data: {toggle: "modal", target: "#modal_cal"}, class: "" %>
+              </div>
+              <div class="abg_it mt-5">
+                <div class="abg_item bg_cl_air">
+                  <h2 class="abg_tlt">Summary</h2>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span>Total cooling power</span>
+                      <span><input value="<%= @data_preview_and_print.total_cooling_power %>" class="inp_table_gr" id="total_cooling_power" readonly ></span>
+                      <span id="total_cooling_power_unit">kW</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span>Total cooling water flow</span>
+                      <span><input value="<%= @data_preview_and_print.total_cooling_water_flow %>" class="inp_table_gr" id="total_cooling_water_flow" readonly></span>
+                      <span id="total_cooling_water_flow_unit">l/s</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span>Total heater power</span>
+                      <span><input value="<%= @data_preview_and_print.total_heater_power %>" class="inp_table_gr" id="total_heater_power" readonly></span>
+                      <span id="total_heater_power_unit">kW</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span>Total hot water flow</span>
+                      <span><input value="<%= @data_preview_and_print.total_hot_water_flow %>" class="inp_table_gr" id="total_hot_water_flow" readonly></span>
+                      <span id="total_hot_water_flow_unit">l/s</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span>Room capacity</span>
+                      <span><input value="<%= @data_preview_and_print.room_capacity %>" class="inp_table_gr" id="room_capacity" readonly></span>
+                      <span id="room_capacity_unit">kg/h</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span>Correspondes to</span>
+                      <span><input value="<%= @data_preview_and_print.correspondes_to %>" class="inp_table_gr" id="correspondes_to" readonly></span>
+                      <span id="correspondes_to_unit">kWR</span>
+                    </div>
+                  </div>
+                  <div class="abg_group_inp">
+                    <div class="d-flex align-items-center">
+                      <span>Temp difference SA and RA</span>
+                      <span><input value="<%= @data_preview_and_print.temp_difference_SA_and_RA %>" class="inp_table_gr" id="temp_difference_SA_and_RA" readonly></span>
+                      <span id="temp_difference_SA_and_RA_unit">kWR</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-3">
+      <div class="nav navtabs-prev" id="nav-tab-prev" role="tablist">
+        <a class="nav-item nav-link active" data-toggle="tab" href="#tabs-prev1" role="tab"
+          aria-selected="true">1</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#tabs-prev2" role="tab" aria-selected="false">2</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#tabs-prev3" role="tab" aria-selected="false">3</a>
+      </div>
+    </div>
+
+    <div class="prev_btngr">
+      <div class="container">
+        <div class="text-center">
+          <%= link_to t(".print"), "javascript:void(0)", class: "btn_primary btn-block print" %>
+          <%= link_to t(".close"), "javascript:void(0)", class: "btn_secondary btn-block", data: {toggle: "modal", target: "#confirm_close_modal"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/confirm_close_preview_print" %>
+
+<% content_for :assets do %>
+  <%= javascript_include_tag "air_mixture/preview_and_print" %>
+<% end %>

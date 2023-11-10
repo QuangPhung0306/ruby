@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Login</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i&display=swap&subset=vietnamese"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/perfect-scrollbar.css">
+  <link rel="stylesheet" href="css/jquery.datetimepicker.min.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <div class="w_login">
+      <div class="login_frm">
+        <div class="login_logo">
+          <h1><a href="#"><img src="images/logo.png" alt="D-support"></a></h1>
+        </div>
+        <div class="login_box">
+          <h2>Login</h2>
+          <form>
+            <span class="lb_login">The fields with (*) are required.</span>
+            <div class="inp_center">
+              <input type="text" placeholder="Email*" class="inp_ct">
+            </div>
+            <div class="inp_center">
+              <input type="password" placeholder="Password*" class="inp_ct inp_error">
+            </div>
+            <div class="text-left login_checkb">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember me</label>
+              </div>
+            </div>
+            <div class="btn_login">
+                <a href="agency-management.html" class="btn_primary btn-block">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="w_intro">
+      <img src="images/logo.png" alt="">
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade modal_reg" id="modal_reg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="text-center">
+            <h3>REGISTRATION</h3>
+          </div>
+          <form>
+            <span class="lb_frm">The fields with (*) are required</span>
+            <div class="form-group">
+              <div class="inp_name inp_gr">
+                <input type="text" placeholder="Agency Name" class="inp_txt">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="inp_email inp_gr">
+                <input type="text" placeholder="Email*" class="inp_txt">
+              </div>
+            </div>
+            <h4 class="tlt_model">MODELS</h4>
+            <div class="modal_checkbox">
+              <label class="container-checkbox">
+
+                <input type="checkbox" checked>
+                <span class="checktxt">Room calculation</span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="modal_checkbox">
+              <label class="container-checkbox">
+                <input type="checkbox" checked>
+                <span class="checktxt">Calculation Roto</span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="modal_checkbox">
+              <label class="container-checkbox">
+                <input type="checkbox">
+                <span class="checktxt">Air mixture and capacity</span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="modal_btn">
+              <button class="btn_primary" type="submit">Save</button>
+              <button class="btn_primary btn_wt" type="submit" data-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade modal_reg" id="modal_rs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="text-center">
+            <h3>Reset Password</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/jquery.scrolling-tabs.min.js"></script>
+  <script src="js/jquery.selectable-list.js"></script>
+  <script src="js/perfect-scrollbar.min.js"></script>
+  <script src="js/jquery.datetimepicker.full.min.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+en:
+  users:
+    change_status_modal:
+      change_status_confirm_message: "Are you sure you want to change status?"
+      yes_button: "Yes"
+      no_button: "No"

@@ -1,0 +1,5 @@
+en:
+  send_email:
+    users:
+      content_required: Email's content is required
+      send_email_success: Send email to users successfully.

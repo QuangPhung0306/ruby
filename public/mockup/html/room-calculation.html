@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Room Calculation</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i&display=swap&subset=vietnamese"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/perfect-scrollbar.css">
+  <link rel="stylesheet" href="css/jquery.datetimepicker.min.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <header id="header">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <h1 class="navbar-brand" href="#"><img src="images/logo.png"></h1>
+          <button class="navbar-toggler navbar-icon" type="button" data-toggle="collapse" data-target="#navbar_rps"
+            aria-controls="navbar_rps" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar bar1"></span>
+            <span class="icon-bar bar2"></span>
+            <span class="icon-bar bar3"></span>
+          </button>
+          <div class="collapse navbar-collapse navbar_rps" id="navbar_rps">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="room-calculation.html">Room calculation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="unit-selection-recusorb2.html">Unit selection</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="air-mixture-and-capacity.html">Air mixture and capacity</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="agency-management.html">Agency management</a>
+              </li>
+              <li class="nav-item nav_logout_mb">
+                <a class="nav-link" href="login.html">logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="header_pw">
+        <a href="login.html"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+      </div>
+    </header>
+    <main id="main">
+      <div class="container">
+        <div class="calculation_w clt_w">
+          <div class="calculation_img">
+            <div class="calculation_img_w">
+              <img src="images/room-cal-2.png" alt="" data-toggle="modal" data-target="#modal_cal"
+                class="img_dekstop_pu">
+              <img src="images/room-cal-2-mb.png" alt="" data-toggle="modal" data-target="#modal_cal"
+                class="img_mobile_pu">
+              <ul class="nav nav_cal nav_scrollpy_all" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#tabs_ct1" role="tab"
+                    onclick="$('#link_tabs1').trigger('click')">A</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#tabs_ct2" role="tab"
+                    onclick="$('#link_tabs2').trigger('click')">B</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#tabs_ct3" role="tab"
+                    onclick="$('#link_tabs3').trigger('click')">C</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#tabs_ct4" role="tab"
+                    onclick="$('#link_tabs4').trigger('click')">D</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-profile" role="tab"
+                    onclick="$('#link_tabs5').trigger('click')">E</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">F</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">G</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">J</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">H</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="calculation_slt">
+            <div class="cal_date">
+              <h2 class="show_mb cal_btnmb"><a href="javascript:void(0)">ROOM CALCULATION</a></h2>
+              <div class="cal_select">
+                <div class="frm_gr d-flex">
+                  <label class="frm_gr_lb">Project <span class="hidden_mb">Name</span></label>
+                  <input type="text" placeholder="Name" class="form-control" class="frm_gr_inp">
+                </div>
+                <div class="frm_gr d-flex">
+                  <label class="frm_gr_lb">Date</label>
+                  <input type="text" placeholder="MM/DD/YY" class="form-control" class="frm_gr_inp" id="datetimepicker">
+                </div>
+              </div>
+            </div>
+
+            <div class="calculation_tabs">
+              <div class="box_gr clearfix">
+                <div class="tab-content tab_ct_ed" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="tabs_ct1" role="tabpanel" aria-labelledby="tabs_ct1">
+                    <div class="box_gr_tlt">
+                      <h2 class="box_gr_hd">MEASUREMENTS</h2>
+                      <h2 class="box_gr_hd">UNITS OF MEASUREMENT</h2>
+                      <h2 class="box_gr_hd">VALUE</h2>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Temperature</span>
+                      </div>
+                      <div class="gr_item">
+                        <span><sup>o</sup>C</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>20</span>
+                      </div>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Relative humidity</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>%RH</span>
+                      </div>
+                      <div class="gr_item">
+                        <input type="text" value="50">
+                      </div>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Atmospheric pressure</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>mbar</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>1014</span>
+                      </div>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Moisture content</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>g/kg</span>
+                      </div>
+                      <div class="gr_item">
+                        <input type="text" value="7.3">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="tabs_ct2" role="tabpanel" aria-labelledby="tabs_ct2">
+                    <div class="box_gr_tlt">
+                      <h2 class="box_gr_hd">MEASUREMENTS</h2>
+                      <h2 class="box_gr_hd">UNITS OF MEASUREMENT</h2>
+                      <h2 class="box_gr_hd">DIMENSIONING</h2>
+                      <h2 class="box_gr_hd">AVERAGE</h2>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Temperature</span>
+                      </div>
+                      <div class="gr_item">
+                        <span><sup>o</sup>C</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>25</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>20</span>
+                      </div>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Relative humidity</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>%RH</span>
+                      </div>
+                      <div class="gr_item">
+                        <input type="text" value="60">
+                      </div>
+                      <div class="gr_item">
+                        <input type="text" value="60">
+                      </div>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Atmospheric pressure</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>mbar</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>1014</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>1014</span>
+                      </div>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Moisture content</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>g/kg</span>
+                      </div>
+                      <div class="gr_item">
+                        <input type="text" value="11.9">
+                      </div>
+                      <div class="gr_item">
+                        <input type="text" value="8.7">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-btn-total">
+                  <div class="text-center">
+                    <a class="btn btnPrevious">Previous</a>
+                    <a class="btn btnNext">Next</a>
+                  </div>
+                  <div class="text-center mt-3 js-total-tabs">
+                    (<span class="js-tabs-default">1</span>/<span class="js-tabs-nb"></span>)
+                  </div>
+                </div>
+                <div class="w-tabscroll">
+                  <ul class="nav nav-pills nav-scroll nav_tabs_ed" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="pill" href="#tabs_ct1" role="tab"
+                        id="link_tabs1"><span>Desired room
+                          climate</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct2" role="tab" id="link_tabs2"><span>Desired
+                          room climate
+                          1</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct2" role="tab" id="link_tabs3"><span>Desired
+                          room climate
+                          1</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct2" role="tab" id="link_tabs4"><span>Desired
+                          room climate
+                          1</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct2" role="tab" aria-controls="pills-profile"
+                        aria-selected="false" id="link_tabs5"><span>Desired room climate 1</span></a>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="cal_catefory">
+              <h2 class="show_mb cal_btnmb"><a href="javascript:void(0)">TYPES OF INSTALLATION</a></h2>
+              <div class="cal_select">
+                <div class="frm_gr d-flex">
+                  <label class="frm_gr_lb">Category</label>
+                  <div class="dropdown">
+                    <button class="item_boxshadow btn_ct_sl" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      + Choose one
+                    </button>
+                    <div class="dropdown-menu dropdown_sl item_boxshadow" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="javascript:void(0)">Recusorb</a>
+                      <a class="dropdown-item" href="javascript:void(0)">Consorb</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="frm_gr d-flex">
+                  <label class="frm_gr_lb">Unit</label>
+                  <div class="dropdown">
+                    <button class="item_boxshadow btn_ct_sl" type="button" id="dropdownMenuButton1"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      + Choose one
+                    </button>
+                    <div class="dropdown-menu dropdown_sl item_boxshadow btn_ct_sl_ed"
+                      aria-labelledby="dropdownMenuButton1">
+                      <a class="dropdown-item" href="javascript:void(0)"><span class="color_xd">RLA-60LR,</span> <span
+                          class="color_red">5.2 kg/h at 20<sup>o</sup>C/60%RH</span></a>
+                      <a class="dropdown-item" href="javascript:void(0)"><span class="color_xd">RLA-051 R,</span> <span
+                          class="color_red">7.7 kg/h at 20<sup>o</sup>C/60%RH</span></a>
+                      <a class="dropdown-item" href="javascript:void(0)"><span class="color_xd">RL - 61 ICE,</span>
+                        <span class="color_red">8.9 kg/h at 20<sup>o</sup>C/60%RH</span></a>
+                      <a class="dropdown-item" href="javascript:void(0)"><span class="color_xd">RLA - 71 ICE,</span>
+                        <span class="color_red">15.2 kg/h at 20<sup>o</sup>C/60%RH</span></a>
+                      <a class="dropdown-item" href="javascript:void(0)"><span class="color_xd">RLZ - 81,</span> <span
+                          class="color_red">19.3 kg/h at 20<sup>o</sup>C/60%RH</span></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="frm_gr d-flex justify-content-between mt-3 gr_rcm">
+                  <label class="frm_gr_lb">Recommended unit</label>
+                  <div class="txt_rcm">
+                    + Choose one
+                  </div>
+                </div>
+                <div class="frm_gr d-flex justify-content-between mt-3 gr_unt">
+                  <label class="frm_gr_lb">Number of unit</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" aria-label="Recipient's username" value="1">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2"><strong>pcs</strong></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cal_button">
+              <a href="#" class="btn_rs btn_primary">Start Calculation</a>
+            </div>
+          </div>
+          <div class="calculation_results">
+            <h2 class="show_mb cal_btnmb"><a href="javascript:void(0)">RESULTS</a></h2>
+            <div class="table_results_ed">
+              <div class="table_results_tlt">
+                <h3>Pulldown time</h3>
+                <div class="d-flex mb-2">
+                  <div>Chosen Unit:</div>
+                  <div class="ml-3">CS - 5</div>
+                </div>
+                <div class="d-flex mb-2">
+                  <div>Quantity:</div>
+                  <div class="ml-3">1 pcs</div>
+                </div>
+              </div>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <td scope="col"></td>
+                    <td scope="col">Starting</td>
+                    <td scope="col">Final</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="d-flex justify-content-between">
+                        <div>Temperature</div>
+                        <div>( <sup>o</sup>C )</div>
+                      </div>
+                    </td>
+                    <td>25</td>
+                    <td>20</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex justify-content-between">
+                        <div>Relative humidity</div>
+                        <div>( %RH )</div>
+                      </div>
+                    </td>
+                    <td>60</td>
+                    <td>50</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex justify-content-between">
+                        <div>Atmospheric pres.</div>
+                        <div>( mbar )</div>
+                      </div>
+                    </td>
+                    <td>1014</td>
+                    <td>1014</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex justify-content-between">
+                        <div>Corresponding to</div>
+                        <div>( g/kg )</div>
+                      </div>
+                    </td>
+                    <td>11.9</td>
+                    <td>7.3</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex justify-content-between">
+                        <div>Capacity</div>
+                        <div>( kg/h )</div>
+                      </div>
+                    </td>
+                    <td>0.38</td>
+                    <td>0.37</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="chart_results">
+              <div class="text-center">
+                <img src="images/chart.png" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="text-center btn_gr_all">
+            <a href="#" class="btn_primary">SAVE</a>
+            <a href="preview.html" class="btn_primary">PREVIEW AND PRINT</a>
+            <div class="btn_offed_cal">
+              <a href="r005.html" class="btn_primary">OFFER DATA ROOM CALCULATION</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade modal_reg" id="modal_reg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="text-center">
+            <h3>REGISTRATION</h3>
+          </div>
+          <form>
+            <span class="lb_frm">The fields with (*) are required</span>
+            <div class="form-group">
+              <div class="inp_name inp_gr">
+                <input type="text" placeholder="Agency Name" class="inp_txt">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="inp_email inp_gr">
+                <input type="text" placeholder="Email*" class="inp_txt">
+              </div>
+            </div>
+            <h4 class="tlt_model">MODELS</h4>
+            <div class="modal_checkbox">
+              <label class="container-checkbox">
+
+                <input type="checkbox" checked>
+                <span class="checktxt">Room calculation</span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="modal_checkbox">
+              <label class="container-checkbox">
+                <input type="checkbox" checked>
+                <span class="checktxt">Calculation Roto</span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="modal_checkbox">
+              <label class="container-checkbox">
+                <input type="checkbox">
+                <span class="checktxt">Air mixture and capacity</span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="modal_btn">
+              <button class="btn_primary" type="submit">Save</button>
+              <button class="btn_primary btn_wt" type="submit" data-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade modal_reg" id="modal_rs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="text-center">
+            <h3>Reset Password</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade modal_cal" id="modal_cal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="clt_w">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#modal_cal" data-toggle="modal" class="gr_popup_mb btn_primary show_mb"><i class="fa fa-sitemap fa-2x"
+      aria-hidden="true"></i></a>
+      
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/jquery.scrolling-tabs.min.js"></script>
+  <script src="js/jquery.selectable-list.js"></script>
+  <script src="js/perfect-scrollbar.min.js"></script>
+  <script src="js/jquery.datetimepicker.full.min.js"></script>
+  <script src="js/common.js"></script>
+</body>
+
+</html>

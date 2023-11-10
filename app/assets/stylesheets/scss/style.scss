@@ -1,0 +1,28 @@
+$viewport-xl: 1199px;
+$viewport-tablet: 991px;
+$viewport-mobile: 767px;
+$viewport-mobile-sm: 480px;
+$viewport-mobile-xs: 380px;
+$color_pr: rgba(255, 255, 255, 0.87);
+$color_pr1: rgba(0, 0, 0, 0.38);
+$color_wt: #fff;
+$color_bl: #000000;
+$bg_a: #90EE90;
+$bg_ap: #ADFF30;
+$bg_b: #dbdb00;
+$bg_cp: #669900;
+$bg_cp1: #90ee90;
+$bg_d: #FFA07A;
+$bg_f: #FFA07A;
+$bg_g: #ADD8E6;
+$bg_h: #FF6347;
+$bg_none: none;
+
+@import 'mixins.scss';
+@import 'common.scss';
+@import 'layout.scss';
+@import 'header.scss';
+@import 'footer.scss';
+@import 'login.scss';
+@import 'datetimepicker-build.scss';
+@import 'scrolling-tabs.scss';

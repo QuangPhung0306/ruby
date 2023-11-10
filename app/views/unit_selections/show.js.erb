@@ -1,0 +1,60 @@
+<% if @current_unit_selection_input_id %>
+  var m_category_key_name = '<%= @master_data[:m_category_key_name] %>';
+  $('#category').val(m_category_key_name);
+  var m_category_name = '<%= @master_data[:m_category_name] %>';
+  $('#unit_selection_category_box').find('.btn_ct_sl').html(m_category_name);
+  var unit_selection_input_id = '<%= @current_unit_selection_input_id %>';
+  $('#unit_selection_input_id').val(unit_selection_input_id);
+
+  $('#unit_selection_history_change').val('');
+  var category = $('#category').val();
+
+  $.LoadingOverlay("show");
+  var params = {category: category, unit_selection_input_id: unit_selection_input_id, reload_result: 1};
+  <% if params[:click_result] %>
+    params.radiobutton5 = $('#radiobutton5').is(':checked');
+  <% end %>
+  $.ajax({
+    type: "POST",
+    url: $("#form-select-category-unit").attr("action"),
+    data: params,
+    dataType: "script",
+    headers: {
+      'X-CSRF-Token': document.querySelector("meta[name=csrf-token]").content
+    },
+    cache: false,
+    success: function() {
+      $.LoadingOverlay("hide");
+    },
+    error: function() {
+      $.LoadingOverlay("hide");
+    }
+  });
+
+  var m_unit_name = '<%= @master_data[:m_unit_name] %>';
+  $('#unit_selection_unit_box').find('.btn_ct_sl').html(m_unit_name).addClass('color_green');
+  $('#unit').val(m_unit_name);
+
+  <% if @reload_project %>
+    $('#project_name_unit_selection').val('<%= @reload_project.name %>');
+    $('#unit_selection_datetimepicker').val('<%= @reload_project.date_of_project.strftime(Settings.data_time_format.project) %>');
+  <% end %>
+  <% if @is_reload_project %>
+    $('#data-rows-unit-selection').html('<%= j render partial: "unit_selections/item", collection: @unit_selection_results, as: :result %>');
+  <% end %>
+  <% if @unit_selection_object.instance_variable_get(:@radiobutton5) %>
+    $('#result-units').html('<%= j render "unit_selections/si_mode/units" %>')
+  <% elsif @unit_selection_object.instance_variable_get(:@radiobutton6) %>
+    $('#result-units').html('<%= j render "unit_selections/pi_mode/units" %>')
+  <% end %>
+
+  $('#current_unit_selection_input_id').val('<%= @current_unit_selection_input_id %>');
+
+<% end %>
+$('#unit_selection_calculation_results #select_all').click(function() {
+  if ($(this).is(':checked')) {
+    $('.choosen-result-cb').prop('checked', true);
+  } else {
+    $('.choosen-result-cb').prop('checked', false);
+  }
+});

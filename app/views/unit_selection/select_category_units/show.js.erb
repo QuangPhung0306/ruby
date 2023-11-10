@@ -1,0 +1,36 @@
+<% case @type %>
+<% when "consorb" %>
+  $('#image-container').html('<%= j render "unit_selections/unit-selection-consorb_1_3" %>');
+<% when "mix_consorb" %>
+  $('#image-container').html('<%= j render "unit_selections/unit-selection-consorb_mix" %>');
+<% when "recusorb_1" %>
+  $('#image-container').html('<%= j render "unit_selections/unit-selection-recusorb1" %>');
+<% when "mix_recusorb_1" %>
+  $('#image-container').html('<%= j render "unit_selections/unit-selection-recusorb1-mix" %>');
+<% else %>
+  $('#image-container').html('<%= j render "unit_selections/unit-selection-recusorb2" %>');
+<% end %>
+$('.item-units').html('<%= j render partial: "unit_selections/unit_items",
+  collection: @units, as: :unit %>');
+
+<%= render "unit_selection/select_category_units/visible_elements", visible_tabs: @visible_tabs %>
+
+<%= render "unit_selection/select_category_units/set_value_for_elements", form_element_values: @form_element_values %>
+
+<%= render "unit_selection/select_category_units/enable_elements", type: @type %>
+
+slick.slick('unslick');
+
+$('#js_tab_slider').html($('.nav-pills').html());
+slick = $(".center").slick({
+  centerMode: true,
+  infinite: true,
+  centerPadding: '60px',
+  slidesToShow: 3,
+  speed: 500,
+  variableWidth: true
+});
+
+var total_number = $('.slick-slide').not('.slick-cloned').length;
+$('.js-tabs-nb').text(total_number);
+$('.slick-current.slick-active.slick-center').attr('current', true);

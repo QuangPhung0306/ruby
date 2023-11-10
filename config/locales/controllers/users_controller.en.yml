@@ -1,0 +1,5 @@
+en:
+  users:
+    create:
+      create_successful: Create agency successfully.
+      create_failed: Create agency failed.

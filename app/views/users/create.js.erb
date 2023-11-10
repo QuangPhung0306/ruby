@@ -1,0 +1,17 @@
+<% if @is_success %>
+  $('#modal_reg').modal('toggle');
+  <%= render "shared/handle_flash_message" %>
+<% else %>
+  $('#message').html('<%= j render "shared/flash_messages" %>');
+  var validator = $('#modal_reg').validate();
+  <% if (message = @user.errors.messages.try(:[], :email)&.first) %>
+    validator.showErrors({
+      'user[email]': '<%= t ".email_error", content: message %>'
+    });
+  <% end %>
+  <% if (message = @user.errors.messages.try(:[], :agency_name)&.first) %>
+    validator.showErrors({
+      'user[agency][name]': '<%= t ".agency_name_error", content: message %>'
+    });
+  <% end %>
+<% end %>

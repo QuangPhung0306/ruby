@@ -1,0 +1,38 @@
+en:
+  room_calculations:
+    results:
+      header: "RESULTS"
+      chosen_unit: "Chosen Unit:"
+      chosen_category: "Chosen Category:"
+      quantity: "Quantity:"
+      starting: Starting
+      final: Final
+      temperature: Temperature
+      relative_humidity: Relative humidity
+      atmospheric_pressure: Atmospheric pressure
+      corresponding_to: Corresponding to
+      capacity: Capacity
+      process_airflow: Tot. process airflow into dehumidifier(s)
+      return_air_direct: Return air direct to dehumidifier(s)
+      pre_cooled_air: Pre-cooled air
+      pre_cooling_ambient: Pre-cooling ambient air to
+      ambient_air: Ambient air direct to the dehumidifier(s)
+      before_pre_cooler1: Point J before pre-cooler (Final condition)
+      before_pre_cooler2: Point J before pre-cooler (Final condition)
+      pre_cooling_before: Pre-cooling before dehumidifier(s)
+      final_temperature: Temperature (Final condition)
+      moisture_content: Moisture content (Final condition)
+      pre_cooling: Air direct from pre-cooling to the room
+      ambient: Air direct from ambient to the room
+      leakage: Leakage H
+      pulldown_time: Pulldown time
+      total_dry_air_flow: Total dry air flow
+      needed_moisture_content: Needed moisture content in the dry air </br> from the dehumidifier(s)
+      dry_air_temperature: Dry air temperature
+      heat_load: Heat load
+      date: "Date:"
+      project: "Project:"
+      b_position_name: Calculation Results
+      r003_result_xp2: Dry air from the dehumidifier(s)
+      r003_result_tp2: Dry air temperature
+      r003_result_mr: Capacity

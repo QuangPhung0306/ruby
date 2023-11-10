@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= t ".title" %></title>
+    <%= csrf_meta_tags %>
+    <%= javascript_tag "var AUTH_TOKEN = '#{form_authenticity_token}';" if protect_against_forgery? %>
+    <%= csp_meta_tag %>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag "application", media: "all" %>
+
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <%= render "layouts/header" %>
+      <main id="main" class="main">
+        <div id="flash-message">
+          <%= render "shared/flash_messages" %>
+        </div>
+        <%= yield %>
+        <%= render "layouts/confirm_logout" %>
+      </main>
+    </div>
+    <%= yield :show_calculation_icon %>
+    <%= javascript_include_tag "application" %>
+    <% if content_for? :assets %>
+      <%= yield :assets %>
+    <% end %>
+  </body>
+</html>

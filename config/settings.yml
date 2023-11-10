@@ -1,0 +1,490 @@
+message_css_class:
+  alert: danger
+  notice: success
+  success: success
+  danger: danger
+paginate:
+  user_per_page: 10
+export_csv:
+  users_csv_header: ["Id","Email","Agency name","Enable",
+    "Room calculation","Unit selection","Air mixture and capacity","Area"]
+  users_csv_file_name: "users.csv"
+boolean_integer:
+  true: 1
+  false: 0
+model_key:
+  room_calculation: room_calculation
+  unit_selection: unit_selection
+  air_mixture_and_capacity: air_mixture_and_capacity
+room_calculation:
+  result_tabs:
+    a: tab_abcdeghfj
+    b: tab_abcdeghfj
+    c: tab_abcdeghfj
+    d: tab_abcdeghfj
+    e: tab_abcdeghfj
+    f: tab_abcdeghfj
+    g: tab_abcdeghfj
+    j: tab_abcdeghfj
+    h: tab_abcdeghfj
+  default_number_unit: 1
+  vii:
+    tightness: [["1 very tight welded plastic hall", 1],["2 normal plastic hall", 2],["3 concrete building", 3],["4 insulated steel building", 4],["5 insulated wooden building", 5],["6 uninsulated steel building", 6],["7 uninsulated wooden building", 7]]
+    surroundings: [["1– in city", 1], ["2– Building around but on a longer distance", 2], ["3– One side exposed to open ground", 3], ["4– on open ground", 4]]
+  total_wet_air_flow_units: ["DR-010 B", "DR-20B", "DR-30D", "DR-40-T10", "DR-40-T16", "DR-50 R", "DR-31 T10", "CS-5", "CS-5L"]
+  units:
+    dr_cs: ["DR-010 B", "DR-20B", "DR-30D", "DR-40-T10", "DR-40-T16", "DR-50 R", "CS-5", "CS-5L"]
+    dr: ["DR-010 B", "DR-20B", "DR-30D", "DR-40-T10", "DR-40-T16", "DR-50 R"]
+    cs: ["CS-5", "CS-5L"]
+air_mixture_input_output: [a, f, m, r, s, e]
+air_mixture_sections_css:
+  s: bg_cl_s
+  e: bg_cl_e
+air_mixture_tab_paginate_keys: [a, r, f, m, n, g, h, p, j, c, k, l, d, e, s, summary]
+air_mixture_sections:
+  a:
+    flow_rate: false
+    temperature: true
+    absolute_humidity: true
+  r:
+    flow_rate: true
+    temperature: false
+    absolute_humidity: false
+  f:
+    flow_rate: false
+    temperature: true
+    absolute_humidity: true
+  m:
+    flow_rate: false
+    temperature: false
+    absolute_humidity: false
+  n:
+    flow_rate: false
+    temperature: true
+    absolute_humidity: false
+    cathode_capacity: false
+    cathode_flow_rate: false
+  g:
+    flow_rate: false
+    temperature: true
+    absolute_humidity: false
+    anode_capacity: false
+    cathode_capacity: false
+    cathode_flow_rate: false
+  h:
+    flow_rate: false
+    temperature: false
+    absolute_humidity: false
+  p:
+    flow_rate: false
+    temperature: false
+    absolute_humidity: false
+  j:
+    flow_rate: false
+    temperature: true
+    absolute_humidity: false
+    cathode_capacity: false
+    cathode_flow_rate: false
+  c:
+    flow_rate: false
+    temperature: false
+    absolute_humidity: false
+  k:
+    flow_rate: false
+    temperature: false
+    absolute_humidity: false
+  l:
+    flow_rate: false
+    temperature: true
+    absolute_humidity: false
+    cathode_capacity: false
+  d:
+    flow_rate: false
+    temperature: false
+    absolute_humidity: false
+  e:
+    flow_rate: false
+    temperature: true
+    absolute_humidity: false
+    anode_capacity: false
+    cathode_capacity: false
+  s:
+    flow_rate: false
+    temperature: false
+    absolute_humidity: false
+air_mixture_sections_link_ordered: [a, c, d, e, f, g, h, j, k, l, m, n, p, r, s]
+unit_selection:
+  rotor: ["SSCR AS-31", "D-MAX 200cpsi", "D-MAX 300cpsi"]
+  rotor_diameter: [180, 250, 320, 450, 550, 660, 770, 965, 1060, 1220, 1525, 1730, 1940, 2190]
+  depth: [400, 200, 100, 50, 120]
+  default:
+    comboBox1: 320
+    textBoxd: 2
+    textBoxe: 2
+    textBox16: 2
+    textBox10: 30
+    textBox6: 1
+    textBox7: 6
+    textBox5: 6
+    textBox19: 1
+    textBox60: 20
+    textBox61: 8
+  tab_input_visible:
+    init: ["c1_regen_air_inlet", "c_purge_inlet", "a_process_air_inlet", "g_wet_air_outlet", "f_regen_air", "heater", "e_regen_air_inlet", "d_purge_air", "b_dry_air_outlet", "pressure_drop", "height_above_sea_level"]
+    category:
+      recusorb_1: ["c1_regen_air_inlet", "c_purge_inlet", "a_process_air_inlet", "g_wet_air_outlet", "f_regen_air", "heater", "d_purge_air", "b_dry_air_outlet", "pressure_drop", "height_above_sea_level"]
+      recusorb_2: ["c1_regen_air_inlet", "c_purge_inlet", "a_process_air_inlet", "c2_regen_air_inlet", "a1_process_air_inlet", "g_wet_air_outlet", "f_regen_air", "heater", "d_purge_air", "b_dry_air_outlet", "pressure_drop", "height_above_sea_level"]
+      consorb: ["a_process_air_inlet", "g_wet_air_outlet", "f_regen_air", "heater", "e_regen_air_inlet", "b_dry_air_outlet", "pressure_drop", "height_above_sea_level"]
+    unit:
+      recusorb_1:
+        common: ["c1_regen_air_inlet", "c_purge_inlet", "a_process_air_inlet", "c2_regen_air_inlet", "g_wet_air_outlet", "f_regen_air", "heater", "d_purge_air", "b_dry_air_outlet", "pressure_drop", "height_above_sea_level", a1_process_air_inlet]
+        other: ["c1_regen_air_inlet", "c_purge_inlet", "a_process_air_inlet", "g_wet_air_outlet", "f_regen_air", "heater", "d_purge_air", "b_dry_air_outlet", "pressure_drop", "height_above_sea_level"]
+      consorb:
+        common: ["c1_regen_air_inlet", "a_process_air_inlet", c2_regen_air_inlet, "g_wet_air_outlet", "f_regen_air", "heater", "e_regen_air_inlet", "b_dry_air_outlet", "pressure_drop", "height_above_sea_level", "a1_process_air_inlet"]
+        other: ["a_process_air_inlet", "g_wet_air_outlet", "f_regen_air", "heater", "e_regen_air_inlet", "b_dry_air_outlet", "pressure_drop", "height_above_sea_level"]
+  tab_names:
+    c1_regen_air_inlet: "C'.Regen Air Inlet"
+    c2_regen_air_inlet: "C\".Regen Air Inlet"
+    a1_process_air_inlet: "A'.Process Air Inlet"
+  si_input: ["textbox4", "textbox6", "textbox79", "textbox22", "textbox16", "textbox1", "textbox7", "textbox23", "textboxd", "textbox81", "textbox82", "textbox76", "textbox60", "textbox61", "textbox80", "textbox17", "textbox12", "textbox64", "textbox52", "textbox18", "textbox10", "textbox19", "textbox65", "textbox50", "textbox2", "textbox5", "textbox38", "textboxe", "textbox21", "textbox20", "textbox55", "textbox56", "textbox73"]
+  ip_input: ["textbox27", "textbox26", "textbox78", "textbox28", "textbox91", "textbox31", "textbox30", "textbox29", "textbox89", "textbox87", "textbox86", "textbox85", "textbox59", "textbox58", "textbox88", "textbox37", "textbox36", "textbox84", "textbox51", "textbox35", "textbox48", "textbox47", "textbox83", "textbox49", "textbox34", "textbox33", "textbox32", "textbox90", "textbox25", "textbox24", "textbox54", "textbox53", "textbox72"]
+
+regex:
+  user_password: !ruby/regexp /\A(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).+\z/
+  float_number: !ruby/regexp /\A[+-]?\d+((\.|\,)\d+)?\z/
+user_validate:
+  password_length: 8
+m_coefficients:
+  number_start: 6
+recusorb_1_mix_units: ["DR-010 B", "DR-20B", "DR-30D", "DR-40-T10", "DR-40-T16", "DR-50 R"]
+consorb_mix_units: ["CS-5", "CS-5L"]
+data_time_format:
+  project: "%Y/%m/%d"
+  project_export_csv: "%Y_%m_%d"
+unit_groups:
+  recusorb1_group: ["DR-010 B", "DR-20B", "DR-30D", "DR-40-T10", "DR-40-T16", "DR-50 R"]
+  recusorb2_group: ["DR-31 T10"]
+  consorb_group: ["CS-5", "CS-5L"]
+section_tab_numbered:
+  first_tab_order: 1
+export_project_csv:
+  air_mixture:
+    inputs:
+      project_id: "Project ID"
+      project_name: "Project name"
+      m_category_name: "Category name"
+      m_unit_name: "Unit name"
+      supply_air_sa: "Supply Air SA"
+      outside_air_oa: "Outside Air OA"
+      atmospheric_pressure: "Atmospheric pressure"
+      height_above_sea_level: "Height above sea level"
+      water_temperature_in: "Water temperature in"
+      water_temperature_out: "Water temperature out"
+      hot_water_in: "Hot water in"
+      hot_water_out: "Hot water out"
+      total_cooling_power: "Total cooling power"
+      total_cooling_water_flow: "Total cooling water flow"
+      total_heater_power: "Total heater power"
+      total_hot_water_flow: "Total hot water flow"
+      room_capacity: "Room capacity to cover moisture load inside the room"
+      correspondes_to: "Correspondes to latent load in the room"
+      temp_difference_SA_and_RA: "Temp difference SA and RA cooling to cover heat load inside the room"
+      a_flow_rate: "A. Return Air RA Flow rate"
+      a_temperature: "A. Return Air RA Temperature"
+      a_absolute_humidity: "A. Return Air RA Absolute humidity"
+      r_flow_rate: "R. Return Air Flow rate"
+      r_temperature: "R. Return Air Temperature"
+      r_absolute_humidity: "R. Return Air Absolute humidity"
+      f_flow_rate: "F. Outside Air OA Flow rate"
+      f_temperature: "F. Outside Air OA Temperature"
+      f_absolute_humidity: "F. Outside Air OA Absolute humidity"
+      m_flow_rate: "F. Outside Air OA Flow rate"
+      m_temperature: "F. Outside Air OA Temperature"
+      m_absolute_humidity: "F. Outside Air OA Absolute humidity"
+      n_flow_rate: "N. Pre-cooler2 Flow rate"
+      n_temperature: "N. Pre-cooler2 Temperature"
+      n_absolute_humidity: "N. Pre-cooler2 Absolute humidity"
+      n_cathode_capacity: "N. Pre-cooler2 Pre-Cooler2 power"
+      n_cathode_flow_rate: "N. Pre-cooler2 Pre-Cooler2 condensed water amount"
+      g_flow_rate: "G. Pre-cooler1/Heater Flow rate"
+      g_temperature: "G. Pre-cooler1/Heater Temperature"
+      g_absolute_humidity: "G. Pre-cooler1/Heater Absolute humidity"
+      g_cathode_capacity: "G. Pre-cooler1/Heater Heater power"
+      g_cathode_flow_rate: "G. Pre-cooler1/Heater Pre-Cooler1 power"
+      g_anode_capacity: "G. Pre-cooler1/Heater Pre-Cooler2 condensed water amount"
+      h_flow_rate: "H. Mixed Air2 Flow rate"
+      h_temperature: "H. Mixed Air2 Temperature"
+      h_absolute_humidity: "H. Mixed Air2 Absolute humidity"
+      p_flow_rate: "P. Regeneration Air Flow rate"
+      p_temperature: "P. Regeneration Air Temperature"
+      p_absolute_humidity: "P. Regeneration Air Absolute humidity"
+      j_flow_rate: "J. Process Air Flow rate"
+      j_temperature: "J. Process Air Temperature"
+      j_absolute_humidity: "J. Process Air Absolute humidity"
+      j_cathode_capacity: "J. Process Air Pre-Cooler power"
+      j_cathode_flow_rate: "J. Process Air Pre-Cooler condensed water amount"
+      c_flow_rate: "C. Bypass Air Flow rate"
+      c_temperature: "C. Bypass Air Temperature"
+      c_absolute_humidity: "C. Bypass Air Absolute humidity"
+      k_flow_rate: "K. Dry Air Flow rate"
+      k_temperature: "K. Dry Air Temperature"
+      k_absolute_humidity: "K. Dry Air Absolute humidity"
+      l_flow_rate: "L. Post-cooler Flow rate"
+      l_temperature: "L. Post-cooler Temperature"
+      l_absolute_humidity: "L. Post-cooler Absolute humidity"
+      l_cathode_capacity: "L. Post-cooler After-Cooler1 power"
+      d_flow_rate: "D. Mixed Air1 Flow rate"
+      d_temperature: "D. Mixed Air1 Temperature"
+      d_absolute_humidity: "D. Mixed Air1 Absolute humidity"
+      e_flow_rate: "E. Supply Air SA Flow rate"
+      e_temperature: "E. Supply Air SA Temperature"
+      e_absolute_humidity: "E. Supply Air SA Absolute humidity"
+      e_anode_capacity: "E. Supply Air SA After-Cooler2 power"
+      e_cathode_capacity: "E. Supply Air SA After-Heater power"
+      s_flow_rate: "S. Wet Air Flow rate"
+      s_temperature: "S. Wet Air Temperature"
+      s_absolute_humidity: "S. Wet Air Absolute humidity"
+      format_created_at: Created at
+      format_updated_at: Updated at
+    results:
+      id: Result ID
+      rotation: Rotation
+      diameter: Diameter
+      depth: Depth
+      a_tp1: A_TP1
+      a_xp1: A_XP1
+      a_fp: A_FP
+      a_vp: A_VP
+      f_tr1: F_TR1
+      f_xr1: F_XR1
+      f_fr: F_FR
+      f_vr: F_VR
+      b_tp2: B_TP2
+      b_xp2: B_XP2
+      b_mr: B_MR
+      d_tpu2: D_TPU2
+      g_tr2: G_TR2
+      g_xr2: G_XR2
+      hp: HP
+      pp: PP
+      pr: PR
+      ppu: PPU
+      margin: Margin
+      h: H
+      i: I
+      j: J
+      k: K
+      l: L
+      m: M
+      status: Status
+      smo_xp2: SMO_XP2
+      is_draff: Is draff
+  room_calculation:
+    inputs:
+      project_id: Project ID
+      project_name: Project name
+      m_category_name: Category name
+      m_unit_name: Unit name
+      drc_temperature: Desired room climate temperature
+      drc_relative_humidity: Desired room climate relative humidity
+      drc_atmospheric_pressure: Desired room climate atmospheric pressure
+      drc_moisture_content: Desired room climate moisture content
+      d_room_has_walls_towards_outdoor: Dehumidified room has one or more walls towards outdoor
+      odc_temperature: Outdoor design climate temperature
+      odc_relative_humidity: Outdoor design climate relative humidity
+      odc_atmospheric_pressure: Outdoor design climate atmospheric pressure
+      odc_moisture_content: Outdoor design climate moisture content
+      src_temperature: Surrounding rooms climate temperature
+      src_relative_humidity: Surrounding rooms climate relative humidity
+      src_atmospheric_pressure: Surrounding rooms climate atmospheric pressure
+      src_moisture_content: Surrounding rooms climate moisture content
+      room_length: Room length
+      room_width: Room width
+      room_height: Room height
+      room_volume: Room volume
+      tightness_of_building: Tightness of building
+      surroundings: Surroundings
+      without_lock_door_height: Door without air lock vestibule height
+      without_lock_door_width: Door without air lock vestibule width
+      without_lock_door_length: Door without air lock vestibule length
+      air_lock_doors_height: Air lock vestibule, between the two doors height
+      air_lock_doors_width: Air lock vestibule, between the two doors width
+      air_lock_doors_length: Air lock vestibule, between the two doors length
+      door_to_outdoor_air: Door to outdoor air
+      wind_speed: Wind speed, do not use below 6 m/s
+      without_lock_opened_per_hour: Door without air lock, opened per hour
+      air_lock_vestibule_passages_per_hour: Air lock vestibule, passages per hour
+      tightness_of_room: Infiltration, room tightness
+      door_or_air_lock_infiltration: Infiltration, door and/or air lock
+      open_holes: Open holes
+      needed_airflow: Needed airflow through the open hole
+      mechanical_ventilation: Mechanical ventilation
+      total_ventilation_from_outdoor: Total ventilation from outdoor
+      total_ventilation_from_surrounding_rooms: Total ventilation from surrounding rooms
+      percentage_leakage: Percentage leakage
+      total_load_from_ventilation: Total load from ventilation
+      number_of_people: Number of people
+      moisture_load_from_each: Moisture load from each
+      total_load_from_people: Total load from people
+      pool_length: Pool length
+      pool_width: Pool width
+      pool_surface: Pool surface
+      water_temperature: Water temperature
+      vaporization_coefficient: Vaporization coefficient
+      total_load_from_water_surface: Total load from water surface
+      total_weight_of_products: Total weight of products
+      start_percentage_of_moisture: Percentage of moisture at start
+      percentage_dried_per_hour: Percentage dried in 1 hour
+      total_load_from_product_drying: Total load from product drying
+      total_load_from_other_sources: Total load from other sources
+      total_moisture_load: Total moisture load
+      number_of_units: Number of unit
+      process_airflow: Tot. process airflow into dehumidifier(s), A
+      return_air_direct: Return air direct to dehumidifier(s), C
+      total_wet_air_flow: DR-models only; total wet air flow
+      pre_cooled_air: Pre-cooled air, D
+      leakage_average: Average of Leakage H
+      leakage: Leakage H
+      pre_cooling_ambient_air: Pre-cooling ambient air to, D
+      corresponding_to: Corresponding to
+      ambient_air_direct: Ambient air direct to the dehumidifier(s), E
+      air_direct_from_pre_cooling: Air direct from pre-cooling to the room, F
+      j_before_pre_cooler_degree: Point J before pre-cooler
+      j_before_pre_cooler_rate: Point J before pre-cooler
+      j_to_a_pre_cooling: Pre-cooling before dehumidifier(s), J to A
+      inlet_temperature: Temperature
+      inlet_moisture_content: Moisture content
+      air_direct_from_ambient: Air direct from ambient to the room, G
+      total_airflow_to_room: Total airflow to the room
+      air_mix_needed_moisture_content: Needed moisture content in the total air mix to the room
+      total_dry_air_flow: Total dry air flow, B
+      dry_air_needed_moisture_content: Needed moisture content in the dry air from the dehumidifier(s), B
+      dry_air_temperature: Dry air temperature, B
+      heat_load: Heat load
+      format_created_at: Created at
+      format_updated_at: Updated at
+    results:
+      number_of_unit: Number of unit
+      dry_air_temperature: Total dry air flow
+      result_xp2: Dry air from the dehumidifier(s)
+      result_tp2: Dry air temperature
+      result_mr: Capacity
+      start_temperature: Starting temperature
+      starting_relative_humidity: Starting relative humidity
+      starting_atmospheric_pressure: Atmospheric pressure
+      starting_corresponding_to: Starting corresponding to
+      capacity_at_starting_climate: Capacity at starting climate
+      final_temperature: Final temperature
+      final_relative_humidity: Final relative humidity
+      final_atmospheric_pressure: Final atmospheric pressure
+      final_corresponding_to: Final corresponding to
+      capacity_at_final_climate: Capacity at final climate
+  unit_selection:
+    mode: Mode
+    project_info:
+      project_id: Project ID
+      project_name: Project name
+      m_category_name: Category name
+      m_unit_name: Unit name
+    inputs:
+      si:
+        textbox4: C'. Regen Air Inlet TPu1
+        textbox6: C'. Regen Air Inlet XPu1
+        textbox79: C'. Regen Air Inlet FPu
+        textbox22: C. Purge Inlet FPu
+        textbox16: C. Purge Inlet FPu
+        textbox1: A. Process Air Inlet TP1
+        textbox7: A. Process Air Inlet XP1
+        textbox23: A. Process Air Inlet FP
+        textboxd: A. Process Air Inlet VP
+        textbox81: C''. Regen Air Inlet ℃
+        textbox82: C''. Regen Air Inlet g/kg
+        textbox76: C''. Regen Air Inlet m3/h
+        textbox60: A'. Process Air Inlet ℃
+        textbox61: A'. Process Air Inlet g/kg
+        textbox80: A'. Process Air Inlet m3/h
+        textbox17: B. Dry Air Outlet TP2
+        textbox12: B. Dry Air Outlet XP2
+        textbox64: B. Dry Air Outlet FR
+        textbox52: B. Dry Air Outlet MR
+        textbox18: D. Purge Outlet TPu2
+        textbox10: E.Regen Air Inlet TOA
+        textbox19: E.Regen Air Inlet XOA
+        textbox65: E.Regen Air Inlet FOA
+        textbox50: Heater HP
+        textbox2: F. Regen Air TR1
+        textbox5: F. Regen Air XR1
+        textbox38: F. Regen Air FR
+        textboxe: F. Regen Air VR
+        textbox21: G. Wet Air Outlet TR2
+        textbox20: G. Wet Air Outlet XR2
+        textbox55: Pressure Drop PP
+        textbox56: Pressure Drop PR
+        textbox73: Pressure Drop Ppu
+      ip:
+        textbox27: C'. Regen Air Inlet TPu1
+        textbox26: C'. Regen Air Inlet XPu1
+        textbox78: C'. Regen Air Inlet FPu
+        textbox28: C. Purge Inlet FPu
+        textbox91: C. Purge Inlet FPu
+        textbox31: A. Process Air Inlet TP1
+        textbox30: A. Process Air Inlet XP1
+        textbox29: A. Process Air Inlet FP
+        textbox89: A. Process Air Inlet VP
+        textbox87: C''. Regen Air Inlet ℃
+        textbox86: C''. Regen Air Inlet g/kg
+        textbox85: C''. Regen Air Inlet m3/h
+        textbox59: A'. Process Air Inlet ℃
+        textbox58: A'. Process Air Inlet g/kg
+        textbox88: A'. Process Air Inlet m3/h
+        textbox37: B. Dry Air Outlet TP2
+        textbox36: B. Dry Air Outlet XP2
+        textbox84: B. Dry Air Outlet FR
+        textbox51: B. Dry Air Outlet MR
+        textbox35: D. Purge Outlet TPu2
+        textbox48: E.Regen Air Inlet TOA
+        textbox47: E.Regen Air Inlet XOA
+        textbox83: E.Regen Air Inlet FOA
+        textbox49: Heater HP
+        textbox34: F. Regen Air TR1
+        textbox33: F. Regen Air XR1
+        textbox32: F. Regen Air FR
+        textbox90: F. Regen Air VR
+        textbox25: G. Wet Air Outlet TR2
+        textbox24: G. Wet Air Outlet XR2
+        textbox54: Pressure Drop PP
+        textbox53: Pressure Drop PR
+        textbox72: Pressure Drop Ppu
+    results:
+      id: Result ID
+      rotation: Rotation
+      diameter: Diameter
+      depth: Depth
+      a_tp1: A_TP1
+      a_xp1: A_XP1
+      a_fp: A_FP
+      a_vp: A_VP
+      f_tr1: F_TR1
+      f_xr1: F_XR1
+      f_fr: F_FR
+      f_vr: F_VR
+      b_tp2: B_TP2
+      b_xp2: B_XP2
+      b_mr: B_MR
+      d_tpu2: D_TPU2
+      g_tr2: G_TR2
+      g_xr2: G_XR2
+      hp: HP
+      pp: PP
+      pr: PR
+      ppu: PPU
+      margin: Margin
+      h: H
+      i: I
+      j: J
+      k: K
+      l: L
+      m: M
+      status: Status
+      smo_xp2: SMO_XP2
+      is_draff: Is draff

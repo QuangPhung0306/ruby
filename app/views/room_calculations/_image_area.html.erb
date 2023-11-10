@@ -1,0 +1,14 @@
+<div class="calculation_img">
+  <div class="calculation_img_w">
+    <%= image_tag "room-cal-2.png", alt: "", data: {toggle: "modal", target: "#modal_cal"}, class: "img_dekstop_pu" %>
+    <%= image_tag "room-cal-2-mb.png", alt: "", data: {toggle: "modal", target: "#modal_cal"}, class: "img_mobile_pu" %>
+
+    <ul class="nav nav_cal nav_scrollpy_all" role="tablist" id="sections_link">
+      <% Settings.room_calculation.result_tabs.each do |tab_name, tab_id| %>
+        <li class="nav-item">
+          <%= link_to tab_name.upcase, "##{tab_id}", data: {toggle: "pill", dismiss: "modal", id: "#pill_#{tab_id}"}, role: "tab", class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

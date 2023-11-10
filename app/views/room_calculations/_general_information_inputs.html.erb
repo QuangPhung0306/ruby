@@ -1,0 +1,32 @@
+<div class="cal_date">
+  <h2 class="show_mb cal_btnmb"><%= link_to t(".room_calculation"), "javascript:void(0)" %></h2>
+  <div class="cal_select">
+    <div class="frm_gr d-flex">
+      <label class="frm_gr_lb"><%= t(".project") %> <span class="hidden_mb"><%= t(".name") %></span></label>
+      <div class="project-name-group">
+        <%= text_field_tag :project_name, "#{project ? project.name : "Case 1"}", class: "form-control ui-autocomplete-input room-calculation-project-name", placeholder: t(".name"), data: {availableProjects: current_project.to_json}, maxlength: 50, autocomplete: "off" %>
+      </div>
+    </div>
+    <div class="frm_gr d-flex">
+      <label class="frm_gr_lb"><%= t(".date") %></label>
+      <%= text_field_tag :date_of_project, "#{project ? project.date_of_project.strftime("%Y/%m/%d") : Date.current.strftime("%Y/%m/%d")}", placeholder: t(".date_format"), class: "form-control", id: "datetimepicker", readonly: true %>
+    </div>
+      <fieldset class="scheduler-border">
+        <legend class="scheduler-border">Unit Select</legend>
+        <div class="control-group text-center">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="r003_si_mode" name="unit_selection_mode" value="5"
+              class="custom-control-input" checked>
+            <label class="custom-control-label custom-control-label-ed"
+              for="r003_si_mode">SI</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="r003_ip_mode" name="unit_selection_mode" value="6"
+              class="custom-control-input">
+            <label class="custom-control-label custom-control-label-ed"
+              for="r003_ip_mode">IP</label>
+          </div>
+        </div>
+      </fieldset>
+  </div>
+</div>

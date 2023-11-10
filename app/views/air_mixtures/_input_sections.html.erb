@@ -1,0 +1,200 @@
+<div class="tab-pane fade" id="tabs_section_<%= section %>" role="tabpanel" aria-labelledby="tabs_section_<%= section %>">
+  <div class="box_gr_tlt">
+    <h2 class="box_gr_hd"><%= t ".measurements" %></h2>
+    <h2 class="box_gr_hd"><%= t ".units_of_measurement" %></h2>
+    <h2 class="box_gr_hd"><%= t ".value" %></h2>
+  </div>
+
+  <div class="box_gr_item">
+    <div class="gr_item">
+      <span><%= t ".flow_rate" %></span>
+    </div>
+    <div class="gr_item">
+      <span id="<%= section %>_flow_rate_unit"><%= t ".flow_rate_unit" %></span>
+    </div>
+    <div class="gr_item">
+    <% unless input_field[:flow_rate] %>
+      <span class="<%= section %>-flow-rate-display" id="<%= section %>_flow_rate_display"></span>
+      <%= hidden_field_tag "#{section}_flow_rate".to_sym, "", class: "#{section}-flow-rate", id: "#{section}_flow_rate" %>
+    <% else %>
+      <%= text_field_tag "#{section}_flow_rate".to_sym, "",
+        class: "#{section}-flow-rate", id: "#{section}_flow_rate", autocomplete: "off" %>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="box_gr_item">
+    <div class="gr_item">
+      <span><%= t ".temperature" %></span>
+    </div>
+    <div class="gr_item">
+      <span id="<%= section %>_temperature_unit"><sup>o</sup>C</span>
+    </div>
+    <div class="gr_item">
+    <% unless input_field[:temperature] %>
+      <span class="<%= section %>-temperature-display" id="<%= section %>_temperature_display">
+        <%= t ".not_given" if section == :s %>
+      </span>
+      <%= hidden_field_tag "#{section}_temperature".to_sym, "", class: "temperature", id: "#{section}_temperature" %>
+    <% else %>
+      <% if %i(j e).include?(section) %>
+        <%= text_field_tag "#{section}_temperature_display".to_sym, "",
+        class: "temperature", id: "#{section}_temperature_display", autocomplete: "off" %>
+        <%= hidden_field_tag "#{section}_temperature".to_sym, "", class: "temperature", id: "#{section}_temperature", autocomplete: "off" %>
+      <% else %>
+        <%= text_field_tag "#{section}_temperature".to_sym, "", class: "temperature", id: "#{section}_temperature", autocomplete: "off" %>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="box_gr_item">
+    <div class="gr_item">
+      <span><%= t ".absolute_humidity" %></span>
+    </div>
+    <div class="gr_item">
+      <span id="<%= section %>_absolute_humidity_unit"><%= t ".absolute_humidity_unit" %></span>
+    </div>
+    <div class="gr_item">
+    <% unless input_field[:absolute_humidity] %>
+      <span class="<%= section %>-absolute-humidity-display" id="<%= section %>_absolute_humidity_display"></span>
+      <%= hidden_field_tag "#{section}_absolute_humidity".to_sym, "", class: "absolute-humidity", id: "#{section}_absolute_humidity" %>
+    <% else %>
+      <%= text_field_tag "#{section}_absolute_humidity".to_sym, "",
+        class: "absolute-humidity", id: "#{section}_absolute_humidity", autocomplete: "off" %>
+    <% end %>
+    </div>
+  </div>
+
+  <% if section == :e %>
+    <div class="box_gr_item">
+      <div class="gr_item">
+        <span><%= t ".e_anode_capacity" %></span>
+      </div>
+      <div class="gr_item">
+        <span id="e_anode_capacity_unit"><%= t ".e_anode_capacity_unit" %></span>
+      </div>
+      <div class="gr_item">
+        <span class="e-anode-capacity-display" id="e_anode_capacity_display"></span>
+        <%= hidden_field_tag :e_anode_capacity, "", class: "e-anode-capacity", id: "e_anode_capacity" %>
+      </div>
+    </div>
+
+    <div class="box_gr_item">
+      <div class="gr_item">
+        <span><%= t ".e_cathode_capacity" %></span>
+      </div>
+      <div class="gr_item">
+        <span id="e_cathode_capacity_unit"><%= t ".e_cathode_capacity_unit" %></span>
+      </div>
+      <div class="gr_item">
+        <span class="e-cathode-capacity-display" id="e_cathode_capacity_display"></span>
+        <%= hidden_field_tag :e_cathode_capacity, "", class: "e-cathode-capacity", id: "e_cathode_capacity" %>
+      </div>
+    </div>
+  <% elsif section == :g %>
+    <div class="box_gr_item">
+      <div class="gr_item">
+        <span><%= t ".g_anode_capacity" %></span>
+      </div>
+      <div class="gr_item">
+        <span id="g_anode_capacity_unit"><%= t ".g_anode_capacity_unit" %></span>
+      </div>
+      <div class="gr_item">
+        <span class="g-anode-capacity-display" id="g_anode_capacity_display"></span>
+        <%= hidden_field_tag :g_anode_capacity, "", class: "g-anode-capacity", id: "g_anode_capacity" %>
+      </div>
+    </div>
+
+    <div class="box_gr_item">
+      <div class="gr_item">
+        <span><%= t ".g_cathode_capacity" %></span>
+      </div>
+      <div class="gr_item">
+        <span id="g_cathode_capacity_unit"><%= t ".g_cathode_capacity_unit" %></span>
+      </div>
+      <div class="gr_item">
+        <span class="g-cathode-capacity-display" id="g_cathode_capacity_display"></span>
+        <%= hidden_field_tag :g_cathode_capacity, "", class: "g-cathode-capacity", id: "g_cathode_capacity" %>
+      </div>
+    </div>
+
+    <div class="box_gr_item">
+      <div class="gr_item">
+        <span><%= t ".g_cathode_flow_rate" %></span>
+      </div>
+      <div class="gr_item">
+        <span id="g_cathode_flow_rate_unit"><%= t ".g_cathode_flow_rate_unit" %></span>
+      </div>
+      <div class="gr_item">
+        <span class="g-cathode-flow-rate-display" id="g_cathode_flow_rate_display"></span>
+        <%= hidden_field_tag :g_cathode_flow_rate, "", class: "g-cathode-flow-rate", id: "g_cathode_flow_rate" %>
+      </div>
+    </div>
+  <% elsif section == :j %>
+    <div class="box_gr_item">
+      <div class="gr_item">
+        <span><%= t ".j_cathode_capacity" %></span>
+      </div>
+      <div class="gr_item">
+        <span id="j_cathode_capacity_unit"><%= t ".j_cathode_capacity_unit" %></span>
+      </div>
+      <div class="gr_item">
+        <span class="j-cathode-capacity-display" id="j_cathode_capacity_display"></span>
+        <%= hidden_field_tag :j_cathode_capacity, "", class: "j-cathode-capacity", id: "j_cathode_capacity" %>
+      </div>
+    </div>
+
+    <div class="box_gr_item">
+      <div class="gr_item">
+        <span><%= t ".j_cathode_flow_rate" %></span>
+      </div>
+      <div class="gr_item">
+        <span id="j_cathode_flow_rate_unit"><%= t ".j_cathode_flow_rate_unit" %></span>
+      </div>
+      <div class="gr_item">
+        <span class="j-cathode-flow-rate-display" id="j_cathode_flow_rate_display"></span>
+        <%= hidden_field_tag :j_cathode_flow_rate, "", class: "j-cathode-flow-rate", id: "j_cathode_flow_rate" %>
+      </div>
+    </div>
+  <% elsif section == :l %>
+    <div class="box_gr_item">
+      <div class="gr_item">
+        <span><%= t ".l_cathode_capacity" %></span>
+      </div>
+      <div class="gr_item">
+        <span id="l_cathode_capacity_unit"><%= t ".l_cathode_capacity_unit" %></span>
+      </div>
+      <div class="gr_item">
+        <span class="l-cathode-capacity-display" id="l_cathode_capacity_display"></span>
+        <%= hidden_field_tag :l_cathode_capacity, "", class: "l-cathode-capacity", id: "l_cathode_capacity" %>
+      </div>
+    </div>
+  <% elsif section == :n %>
+    <div class="box_gr_item">
+      <div class="gr_item">
+        <span><%= t ".n_cathode_capacity" %></span>
+      </div>
+      <div class="gr_item">
+        <span id="n_cathode_capacity_unit"><%= t ".n_cathode_capacity_unit" %></span>
+      </div>
+      <div class="gr_item">
+        <span class="n-cathode-capacity-display" id="n_cathode_capacity_display"></span>
+        <%= hidden_field_tag :n_cathode_capacity, "", class: "n-cathode-capacity", id: "n_cathode_capacity" %>
+      </div>
+    </div>
+
+    <div class="box_gr_item">
+      <div class="gr_item">
+        <span><%= t ".n_cathode_flow_rate" %></span>
+      </div>
+      <div class="gr_item">
+        <span id="n_cathode_flow_rate_unit"><%= t ".n_cathode_flow_rate_unit" %></span>
+      </div>
+      <div class="gr_item">
+        <span class="n-cathode-flow-rate-display" id="n_cathode_flow_rate_display"></span>
+        <%= hidden_field_tag :n_cathode_flow_rate, "", class: "n-cathode-flow-rate", id: "n_cathode_flow_rate" %>
+      </div>
+    </div>
+  <% end %>
+</div>

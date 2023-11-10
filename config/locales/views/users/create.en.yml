@@ -1,0 +1,5 @@
+en:
+  users:
+    create:
+      email_error: Email address %{content}
+      agency_name_error: The agency name %{content}

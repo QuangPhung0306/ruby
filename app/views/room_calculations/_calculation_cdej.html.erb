@@ -1,0 +1,130 @@
+<div class="box_gr_tlt">
+  <h2 class="box_gr_hd"><%= t(".measurements") %></h2>
+  <h2 class="box_gr_hd"><%= t(".units_of_measurement") %></h2>
+  <h2 class="box_gr_hd"><%= t(".dimensioning") %></h2>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".process_airflow") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :process_airflow, "#{project ? project.room_calculation_input.process_airflow.round(2) : 230}", id: "cdej-process-airflow", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".return_air_direct") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :return_air_direct, "#{project ? project.room_calculation_input.return_air_direct.round(2) : 185.68}", id: "cdej-return-air-direct", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item guideline">
+  <div class="gr_item">
+    <span><%= t(".pre_cooled_air") %></span> <br>
+    <span><i class="hint"><%= t ".hint_pre_cool_air" %></i></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :pre_cooled_air, "#{project ? project.room_calculation_input.pre_cooled_air.round(2) : 0}", id: "cdej-pre-cooled-air", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".pre_cooling_ambient") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span><sup>o</sup>C</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :pre_cooling_ambient_air, "#{project ? project.room_calculation_input.pre_cooling_ambient_air.round(2) : 12}", id: "cdej-pre-cooling-ambient", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".corresponding_to") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>g/kg</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :corresponding_to, "#{project ? project.room_calculation_input.corresponding_to.round(2) : 8.74}", id: "cdej-corresponding-to", readonly: true %>
+  </div>
+</div>
+
+
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".ambient_air") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :ambient_air_direct, "#{project ? project.room_calculation_input.ambient_air_direct.round(2) : 44.32}", id: "cdej-ambient-air", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".before_pre_cooler1") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span><sup>o</sup>C</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :j_before_pre_cooler_degree, "#{project ? project.room_calculation_input.j_before_pre_cooler_degree.round(2) : 20.96}", id: "cdej-before-pre-cooler1", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".before_pre_cooler2") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>g/kg</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :j_before_pre_cooler_rate, "#{project ? project.room_calculation_input.j_before_pre_cooler_rate.round(2) : 8.16}", id: "cdej-before-pre-cooler2", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".pre_cooling_before") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span><sup>o</sup>C</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :j_to_a_pre_cooling, "#{project ? project.room_calculation_input.j_to_a_pre_cooling.round(2) : 20.96}", id: "cdej-pre-cooling-before", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".temperature") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span><sup>o</sup>C</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :inlet_temperature, "#{project ? project.room_calculation_input.inlet_temperature.round(2) : 20.96}", id: "cdej-temperature", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".moisture_content") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>g/kg</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :inlet_moisture_content, "#{project ? project.room_calculation_input.inlet_moisture_content.round(2) : 8.16}", id: "cdej-moisture-content", readonly: true %>
+  </div>
+</div>
+

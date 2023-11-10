@@ -1,0 +1,28 @@
+<div class="abg_it">
+  <% Settings.air_mixture_input_output.each do |section| %>
+    <div class="abg_item <%= Settings.air_mixture_sections_css[section] %>">
+      <h2 class="abg_tlt"><%= t ".section_#{section}" %></h2>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span><%= t ".flow_rate" %></span>
+          <span><input class="inp_table_gr" id="readonly_<%= section %>_flow_rate" readonly></span>
+          <span id="readonly_<%= section %>_flow_rate_unit"><%= t ".flow_rate_unit" %></span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span><%= t ".temperature" %></span>
+          <span><input class="inp_table_gr" id="readonly_<%= section %>_temperature" readonly></span>
+          <span id="readonly_<%= section %>_temperature_unit"><sup>o</sup>C</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span><%= t ".absolute_humidity" %></span>
+          <span><input class="inp_table_gr" id="readonly_<%= section %>_absolute_humidity" readonly></span>
+          <span id="readonly_<%= section %>_absolute_humidity_unit"><%= t ".absolute_humidity_unit" %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

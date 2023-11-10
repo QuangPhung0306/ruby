@@ -1,0 +1,4 @@
+en:
+  air_mixtures:
+    choose_result_alert:
+      message: "At least one result must be chosen before save project"

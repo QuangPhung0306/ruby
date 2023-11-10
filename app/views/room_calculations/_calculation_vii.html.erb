@@ -1,0 +1,281 @@
+<div class="box_gr_tlt">
+  <h2 class="box_gr_hd"><%= t ".measurements" %></h2>
+  <h2 class="box_gr_hd"><%= t ".units_of_measurement" %></h2>
+  <h2 class="box_gr_hd"><%= t ".dimensioning" %></h2>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".room_length" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :room_length, "#{project ? project.room_calculation_input.room_length.round(2) : 5}", id: "vii-room-length", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".room_width" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :room_width, "#{project ? project.room_calculation_input.room_width.round(2) : 5}", id: "vii-room-width", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".room_height" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :room_height, "#{project ? project.room_calculation_input.room_height.round(2) : 3}", id: "vii-room-height", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".room_volume" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup></span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :room_volume, "#{project ? project.room_calculation_input.room_volume.round(2) : 75}", id: "vii-room-volume", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".tightness_of_building" %></span>
+  </div>
+  <div class="gr_item">
+    <span></span>
+  </div>
+  <div class="gr_item">
+    <%= select_tag :tightness_of_building, options_for_select(Settings.room_calculation.vii.tightness), id: "vii-tightness-of-building", class: "custom-select col-9" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".surroundings" %></span>
+  </div>
+  <div class="gr_item">
+    <span></span>
+  </div>
+  <div class="gr_item">
+    <%= select_tag :surroundings, options_for_select(Settings.room_calculation.vii.surroundings), id: "vii-surroundings", class: "custom-select col-9" %>
+  </div>
+</div>
+
+
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".door_height" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :without_lock_door_height, "#{project ? project.room_calculation_input.without_lock_door_height.round(2) : 2}", id: "vii-door-height", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".door_width" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :without_lock_door_width, "#{project ? project.room_calculation_input.without_lock_door_width.round(2) : 1}", id: "vii-door-width", autocomplete: "off" %>
+  </div>
+</div>
+
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".air_lock_vestibule_height" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :air_lock_doors_height, "#{project ? project.room_calculation_input.air_lock_doors_height.round(2) : 0}", id: "vii-air-lock-vestibule-height", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".air_lock_vestibule_width" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :air_lock_doors_width, "#{project ? project.room_calculation_input.air_lock_doors_width.round(2) : 0}", id: "vii-air-lock-vestibule-width", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".air_lock_vestibule_length" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :air_lock_doors_length, "#{project ? project.room_calculation_input.air_lock_doors_length.round(2) : 0}", id: "vii-air-lock-vestibule-length", autocomplete: "off" %>
+  </div>
+</div>
+
+<div class="hint_gr_item">
+  <div class="gr_item">
+    <span class="guideline-section"><i class="hint"><%= t ".hint_vii" %></i></span>
+  </div>
+</div>
+
+<div class="box_gr_item">
+  <div class="text-center w-100">
+    <%= select_tag :door_to_outdoor_air, options_for_select([[t(".check_door_2"), 2], [t(".check_door_1"), 1]]),
+      class: "custom-select", id: "check-door" %>
+  </div>
+</div>
+
+<div class="box_gr_item guideline">
+  <div class="gr_item">
+    <span><%= t ".wind_speed" %></span> </br>
+    <span>
+      <i class="hint"><%= t ".hint_wind_speed" %></i>
+    </span>
+  </div>
+  <div class="gr_item measure">
+    <span>m/s</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :wind_speed, "#{project ? project.room_calculation_input.wind_speed.round(2) : 8}", id: "vii-wind-speed", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".door_without_air_lock" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>minutes</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :without_lock_opened_per_hour, "#{project ? project.room_calculation_input.without_lock_opened_per_hour.round(2) : 0}", id: "vii-door-without-air-lock", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".air_lock_vestibule" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>times</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :air_lock_vestibule_passages_per_hour, "#{project ? project.room_calculation_input.air_lock_vestibule_passages_per_hour.round(2) : 0}", id: "vii-air-lock-vestibule", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".room_tightness" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :tightness_of_room, "#{project ? project.room_calculation_input.tightness_of_room.round(2) : 28.36}", id: "vii-room-tightness", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".door_and_or_air_lock" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :door_or_air_lock_infiltration, "#{project ? project.room_calculation_input.door_or_air_lock_infiltration.round(2) : 8.64}", id: "vii-door-and-or-air-lock", readonly: true %>
+  </div>
+</div>
+
+<div class="box_gr_item guideline">
+  <div class="gr_item">
+    <span><%= t ".open_holes" %></span> </br>
+    <span><i class="hint"><%= t ".hint_open_hole" %></i></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>2</sup></span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :open_holes, "#{project ? project.room_calculation_input.open_holes.round(2) : 0}", id: "vii-open-holes", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".needed_airflow" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :needed_airflow, "#{project ? project.room_calculation_input.needed_airflow.round(2) : 0}", id: "vii-needed-airflow", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item guideline">
+  <div class="gr_item">
+    <span><%= t ".mechanical_ventilation" %></span> </br>
+    <span><i class="hint"><%= t ".hint_mechanical_ventilation" %></i></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :mechanical_ventilation, "#{project ? project.room_calculation_input.mechanical_ventilation.round(2) : 0}", id: "vii-mechanical-ventilation", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".total_ventilation_from_outdoor" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :total_ventilation_from_outdoor, "#{project ? project.room_calculation_input.total_ventilation_from_outdoor.round(2) : 28.36}", id: "vii-total-ventilation-from-outdoor", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".total_ventilation_from_surrounding_rooms" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :total_ventilation_from_surrounding_rooms, "#{project ? project.room_calculation_input.total_ventilation_from_surrounding_rooms.round(2) : 8.64}", id: "vii-total-ventilation-from-surrounding-rooms", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".percentage_leakage" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>%</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :percentage_leakage, "#{project ? project.room_calculation_input.percentage_leakage.round(2) : 49.34}", id: "vii-percentage-leakage", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".total_load_from_ventilation" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>kg/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :total_load_from_ventilation, "#{project ? project.room_calculation_input.total_load_from_ventilation.round(2) : 0.21}", id: "vii-total-load-from-ventilation", readonly: true %>
+  </div>
+</div>

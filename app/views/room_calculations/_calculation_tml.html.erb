@@ -1,0 +1,16 @@
+<div class="box_gr_tlt">
+  <h2 class="box_gr_hd"><%= t(".measurements") %></h2>
+  <h2 class="box_gr_hd"><%= t(".units_of_measurement") %></h2>
+  <h2 class="box_gr_hd"><%= t(".dimensioning") %></h2>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".total_moisture_load") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>kg/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :total_moisture_load, "#{project ? project.room_calculation_input.total_moisture_load.round(2) : 0.21}", id: "tml", readonly: true %>
+  </div>
+</div>

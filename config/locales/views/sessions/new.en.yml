@@ -1,0 +1,14 @@
+en:
+  sessions:
+    dictionary:
+      login: &login Login
+      fields_with_asterisk_is_required: &fields_with_asterisk_is_required The fields with (*) are required.
+    new:
+      login: *login
+      fields_with_asterisk_is_required: *fields_with_asterisk_is_required
+      email_placeholder: Email*
+      password_placeholder: Password*
+      remember_me: Remember me
+      browsers_support: This website just supports Chrome and Edge browser
+      title: *login
+      attr_alt_logo: D-Support

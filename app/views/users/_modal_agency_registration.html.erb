@@ -1,0 +1,53 @@
+<div class="modal fade modal_reg" id="modal_reg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="text-center">
+          <h3><%= t ".registration" %></h3>
+        </div>
+        <div id="message"></div>
+        <%= form_with model: User.new, id: "agency_registration" do |f| %>
+          <div class="frm_modal_mb">
+            <span class="lb_frm pl-3"><%= t ".fields_required" %></span>
+            <div class="form-group">
+            
+              <%= f.fields_for f.object.build_agency do |ff| %>
+                <div class="inp_name inp_gr">
+                  <%= ff.text_field :name, class: "inp_txt", placeholder: t(".agency_name"), type: "text", autocomplete: "off" %>
+                </div>
+              <% end %>
+            </div>
+            <div class="form-group">
+              <div class="inp_email inp_gr">
+                <%= f.text_field :email, class: "inp_txt", placeholder: t(".place_holder_email"), type: "text", autocomplete: "off" %>
+              </div>
+            </div>
+            <h4 class="tlt_model"><%= t ".models" %></h4>
+            <%= f.collection_check_boxes :m_model_ids, models, :id, :name do |form| %>
+              <div class="modal_checkbox">
+                <%= form.label class: "container-checkbox" do %>
+                  <%= form.check_box %>
+                  <span class="checktxt"><%= form.text %></span>
+                  <span class="checkmark"></span>
+                <% end %>
+              </div>
+            <% end %>
+            <h4 class="tlt_model mt-4"><%= t ".area" %></h4>
+            <div class="modal_checkbox">
+              <label class="container-checkbox" for="user_area">
+                <%= f.check_box :area %>
+                <span class="checktxt"><%= t ".asia" %></span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+          <div class="modal_btn">
+            <button class="btn_primary" type="submit"><%= t ".save" %></button>
+            <button class="btn_primary btn_wt" type="submit" data-dismiss="modal"><%= t ".cancel" %></button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

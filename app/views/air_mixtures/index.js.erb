@@ -1,0 +1,69 @@
+<% if @air_mixture_input %>
+  var air_mixture_input = <%= raw @air_mixture_input %>;
+
+  $.each(air_mixture_input, function(key, value) {
+    if (['supply_air_sa', 'outside_air_oa', 'atmospheric_pressure', 'water_temperature_in', 'water_temperature_out'].includes(key)) {
+      window[`ac_${key}`] = parseFloat(value);
+    } else {
+      window[key] = parseFloat(value);
+    }
+  });
+
+  if (calculation_mode == true) {
+    setValueInputSiMode();
+  } else {
+    setValueInputSiMode();
+  }
+
+  var m_category_name = $('#item-categories').find(`a[data-id='${air_mixture_input['m_category_id']}']`).data('category-name');
+  $('#dropdown_category_box').find('.btn_ct_sl').html(m_category_name);
+  var m_unit_name = $('#item-units').find(`a[data-id='${air_mixture_input['m_unit_id']}']`).data('model-name');
+  var m_unit_id = $('#item-units').find(`a[data-id='${air_mixture_input['m_unit_id']}']`).data('id');
+  $('#air_mixture_unit_id').val(m_unit_id);
+
+  var m_dry_air = $('#item-units').find(`a[data-id='${air_mixture_input['m_unit_id']}']`).attr('data-dry-air');
+  var unit_with_mode = calculation_mode ? "m3/h" : "CFM";
+  $('#dropdown_unit_box').find('.btn_ct_sl').html(`${m_unit_name}, ${toFixedValue(m_dry_air)} ${unit_with_mode}`);
+  $('#dropdown_unit_box').find('.btn_ct_sl').addClass('color_green');
+
+  $('#ac_atmospheric_pressure').val(toFixedValue(air_mixture_input['atmospheric_pressure']));
+  $('#height_above_sea_level').val(air_mixture_input['height_above_sea_level']);
+
+  $('#textbox2').val(air_mixture_input['textbox2']);
+  $('#textbox50').val(air_mixture_input['textbox50']);
+
+  <% if @reload_project %>
+    $('#air_mixture_project_name').val('<%= @reload_project.name %>');
+    $('#air_mixture_datetimepicker').val('<%= @reload_project.date_of_project.strftime(Settings.data_time_format.project) %>');
+  <% end %>
+
+  <% if @is_reload_project %>
+    if (calculation_mode == false) {
+      $.LoadingOverlay("show");
+
+      let dataResult = new FormData();
+      data_result = {result_ids: <%= @unit_selection_results.pluck(:id) %>, calculation_mode: "ip"};
+      dataResult.append('results', JSON.stringify(data_result));
+
+      Rails.ajax({
+        url: '/unit_selection/convert_air_mixture_results',
+        type: 'POST',
+        data: dataResult,
+        dataType: 'script',
+        success: function(data) {
+          $.LoadingOverlay("hide");
+        },
+        error: function(data) {
+          $.LoadingOverlay("hide");
+        }
+      });
+    } else {
+      $('#data-rows').html('<%= j render partial: "air_mixtures/result_items",
+      collection: @unit_selection_results, as: :result %>');
+    }
+  <% end %>
+
+  $.each(['#ac_supply_air_sa', '#ac_outside_air_oa_show', '#ac_atmospheric_pressure', '#ac_water_temperature_in', '#ac_water_temperature_out', '#r_flow_rate', '#f_temperature', '#f_absolute_humidity', '#a_temperature', '#a_absolute_humidity', '#n_temperature', '#g_temperature', '#j_temperature_display', '#l_temperature', '#e_temperature_display'], function(index, input_field){
+    $(`${input_field}`).blur();
+  });
+<% end %>

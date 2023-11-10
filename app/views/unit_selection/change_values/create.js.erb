@@ -1,0 +1,110 @@
+<% case @type %>
+<% when "consorb" %>
+  <% if @form_element_values['radiobutton5'] %>
+    $('#image-container').html('<%= j render "unit_selections/unit-selection-consorb_1_3", unit_selection_calculation: @unit_selection_calculation %>');
+  <% elsif @form_element_values['radiobutton6'] %>
+    $('#image-container').html('<%= j render "unit_selections/pi_mode/unit-selection-consorb_1_3", unit_selection_calculation: @unit_selection_calculation %>');
+  <% end %>
+<% when "mix_consorb" %>
+  <% if @form_element_values['radiobutton5'] %>
+    $('#image-container').html('<%= j render "unit_selections/unit-selection-consorb_mix", unit_selection_calculation: @unit_selection_calculation %>');
+  <% elsif @form_element_values['radiobutton6'] %>
+    $('#image-container').html('<%= j render "unit_selections/pi_mode/unit-selection-consorb_mix", unit_selection_calculation: @unit_selection_calculation %>');
+  <% end %>
+<% when "recusorb_1" %>
+  <% if @form_element_values['radiobutton5'] %>
+    $('#image-container').html('<%= j render "unit_selections/unit-selection-recusorb1", unit_selection_calculation: @unit_selection_calculation %>');
+  <% elsif @form_element_values['radiobutton6'] %>
+    $('#image-container').html('<%= j render "unit_selections/pi_mode/unit-selection-recusorb1", unit_selection_calculation: @unit_selection_calculation %>');
+  <% end %>
+<% when "mix_recusorb_1" %>
+  <% if @form_element_values['radiobutton5'] %>
+    $('#image-container').html('<%= j render "unit_selections/unit-selection-recusorb1-mix", unit_selection_calculation: @unit_selection_calculation %>');
+  <% elsif @form_element_values['radiobutton6'] %>
+    $('#image-container').html('<%= j render "unit_selections/pi_mode/unit-selection-recusorb1-mix", unit_selection_calculation: @unit_selection_calculation %>');
+  <% end %>
+<% else %>
+  <% if @form_element_values['radiobutton5'] %>
+    $('#image-container').html('<%= j render "unit_selections/unit-selection-recusorb2", unit_selection_calculation: @unit_selection_calculation %>');
+  <% elsif @form_element_values['radiobutton6'] %>
+    $('#image-container').html('<%= j render "unit_selections/pi_mode/unit-selection-recusorb2", unit_selection_calculation: @unit_selection_calculation %>');
+  <% end %>
+<% end %>
+$('.item-units').html('<%= j render partial: "unit_selections/unit_items",
+  collection: @units, as: :unit %>');
+<% if (params[:history_change].to_s.split("\n")[-3].to_s.match(/combobox(2|8)/) && params[:history_change].to_s.split("\n")[-2].to_s.match(/radiobutton10:true/) && params[:history_change].to_s.split("\n")[-1].to_s.match(/checkbox4:false/)) || params[:history_change].blank? && params[:unit_selection_input_id].present? %>
+  <%= render "unit_selection/select_category_units/visible_elements", visible_tabs: @visible_tabs, form_element_values: @form_element_values %>
+<% elsif params[:history_change].to_s.split("\n").last.to_s.match(/(combobox(2|8)|(radiobutton(5|6)))/) %>
+  <%= render "unit_selection/select_category_units/visible_elements", visible_tabs: @visible_tabs, form_element_values: @form_element_values %>
+<% end %>
+<%= render "unit_selection/select_category_units/set_value_for_elements", form_element_values: @form_element_values %>
+
+<%= render "unit_selection/select_category_units/enable_elements", type: @type %>
+
+// change result when change mode
+<% if params[:history_change].to_s.split("\n").last.to_s.match(/radiobutton(5|6)/) %>
+  $('#data-rows-unit-selection').html('<%= j render partial: "unit_selections/item", collection: @unit_selection_results, as: :result %>');
+  // change units
+  <% if @form_element_values['radiobutton5'] %>
+    $('#result-units').html('<%= j render "unit_selections/si_mode/units" %>')
+  <% elsif @form_element_values['radiobutton6'] %>
+    $('#result-units').html('<%= j render "unit_selections/pi_mode/units" %>')
+  <% end %>
+<% end %>
+
+function reloadTabInputPaginate() {
+  slick.slick('unslick');
+
+  $('#js_tab_slider').html($('.nav-pills').html());
+  slick = $(".center").slick({
+    centerMode: true,
+    infinite: true,
+    centerPadding: '60px',
+    slidesToShow: 3,
+    speed: 500,
+    variableWidth: true
+  });
+
+  var total_number = $('.slick-slide').not('.slick-cloned').length;
+  $('.js-tabs-nb').text(total_number);
+  $('.js-tabs-default').text('<%= Settings.section_tab_numbered.first_tab_order %>');
+  $('.slick-current.slick-active.slick-center').attr('current', true);
+}
+
+<% if (params[:history_change].to_s.split("\n")[-3].to_s.match(/combobox(2|8)/) && params[:history_change].to_s.split("\n")[-2].to_s.match(/radiobutton10:true/) && params[:history_change].to_s.split("\n")[-1].to_s.match(/checkbox4:false/)) || params[:history_change].blank? && params[:unit_selection_input_id].present? %>
+  reloadTabInputPaginate();
+<% elsif params[:history_change].to_s.split("\n").last.to_s.match(/(combobox(2|8)|(radiobutton(5|6)))/) %>
+  reloadTabInputPaginate();
+<% end %>
+
+$('#textbox1, #textbox2, #textbox7, #textbox10, #textbox19, #textbox23, #textbox38, #textbox50, #textbox60, #textbox61, #textbox65, #textbox80, #textbox29, #textbox30, #textbox31, #textbox32, #textbox34, #textbox47, #textbox48, #textbox49, #textbox58, #textbox59, #textbox83, #textbox88, #textbox79, #textbox78, #textbox76, #textbox81, #textbox82, #textbox85, #textbox86, #textbox87, #textbox77').on('blur change', function() {
+  if ($(this).valid()){
+    $(this).removeAttr('title');
+    $(this).css('border-color', '#707070');
+
+    tab_pane_id = $(this).closest('.tab-pane').attr('id');
+    if ($(`#${tab_pane_id} input.error.text-danger[type!=hidden]`).length == 0) {
+      $(`.slick-slide .nav-link[href='#${tab_pane_id}']`).removeClass('error-tab');
+    }
+  };
+});
+
+$(".modal_cal .unit_w").html("");
+$(".calculation_img_w").clone().appendTo(".modal_cal .unit_w");
+
+$('#unit_selection_calculation_results #select_all').click(function() {
+  if ($(this).is(':checked')) {
+    $('.choosen-result-cb').prop('checked', true);
+  } else {
+    $('.choosen-result-cb').prop('checked', false);
+  }
+});
+
+<% if params[:history_change].to_s.split("\n").last.to_s.match(/combobox(2|8)/) %>
+  units_not_applied_humidity_select = ["DR-010 B", "DR-20B", "DR-30D", "DR-40-T10", "DR-40-T16", "DR-50 R", "DR-31 T10", "CS-5", "CS-5L"];
+  if (!units_not_applied_humidity_select.includes($('input#unit').val())) {
+    var history_change = $("#unit_selection_history_change").val();
+    var new_history_change = history_change + 'checkbox4:false\n';
+    $("#unit_selection_history_change").val(new_history_change);
+  }
+<% end %>

@@ -1,0 +1,34 @@
+<div class="modal fade modal_reg modal_rs" id="unit_selection_search_modal" tabindex="-1" role="dialog"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Search Rotation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>    
+      <div class="modal-body">
+          <div class="group-search-modal d-flex align-items-center mb-4">
+            <div class="form-group mb-0">
+              <label for="unit_selection_search_min" class="text-center d-block">Min</label>
+              <%= text_field_tag :gg_textbox2, "", class: "form-control", id: "gg_textbox2" %>
+            </div>
+            <span class="d-inline-block space-unit-search-modal">ー</span>
+            <div class="form-group mb-0">
+              <label for="unit_selection_search_max" class="text-center d-block">Max</label>
+              <%= text_field_tag :gg_textbox3, "", class: "form-control", id: "gg_textbox3" %>
+            </div>
+          </div>
+
+          <div class="form-group form-group-search-modal mb-4 ">
+            <label for="unit_selection_search_interval" class="mb-0 mr-5">Interval</label>
+            <%= text_field_tag :gg_textbox1, "", class: "form-control", id: "gg_textbox1" %>            
+          </div>
+          <div class="submit-unit-search-modal text-center mb-4">
+          <%= button_tag "Start", type: "button", class: "btn btn-primary mb-0 w-50", id: "unit_selection_search_start" %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

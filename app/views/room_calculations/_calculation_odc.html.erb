@@ -1,0 +1,66 @@
+<div class="box_gr_tlt">
+  <h2 class="box_gr_hd"><%= t(".measurements") %></h2>
+  <h2 class="box_gr_hd"><%= t(".units_of_measurement") %></h2>
+  <h2 class="box_gr_hd"><%= t(".dimensioning") %></h2>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".temperature") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span><sup>o</sup>C</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :odc_temperature, "#{project ? project.room_calculation_input.odc_temperature.round(2) : 25}", id: "odc-temperature", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".relative_humidity") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>%RH</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :odc_relative_humidity, "#{project ? project.room_calculation_input.odc_relative_humidity.round(2) : 60}", id: "odc-relative-humidity", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".height_above_sea_level" %></span>
+  </div>
+  <div class="gr_item">
+    <span>m</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :odc_height_above_sea_level, "#{project ? project.room_calculation_input.height_above_sea_level : -6.2}", autocomplete: "off", "data-id": "height_above_sea_level" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".atmospheric_pressure") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>mbar</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :odc_atmospheric_pressure, "#{project ? project.room_calculation_input.odc_atmospheric_pressure.round(2) : 1014}", id: "odc-atmospheric-pressure", readonly: true, "data-id": "base_atmospheric_pressure" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".moisture_content") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>g/kg</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :odc_moisture_content, "#{project ? project.room_calculation_input.odc_moisture_content.round(2) : 11.9}", id: "odc", readonly: true %>
+  </div>
+</div>
+</br>
+<div class="hint_gr_item">
+  <div class="gr_item">
+    <span class="guideline-section"><i class="hint"><%= t ".hint_odc" %></i></span>
+  </div>
+</div>

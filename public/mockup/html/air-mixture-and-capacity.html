@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>air-mixture-and-capacity</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i&display=swap&subset=vietnamese"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/perfect-scrollbar.css">
+  <link rel="stylesheet" href="css/jquery.datetimepicker.min.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <header id="header">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <h1 class="navbar-brand" href="#"><img src="images/logo.png"></h1>
+          <button class="navbar-toggler navbar-icon" type="button" data-toggle="collapse" data-target="#navbar_rps"
+            aria-controls="navbar_rps" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar bar1"></span>
+            <span class="icon-bar bar2"></span>
+            <span class="icon-bar bar3"></span>
+          </button>
+          <div class="collapse navbar-collapse navbar_rps" id="navbar_rps">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="room-calculation.html">Room calculation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="unit-selection-recusorb2.html">Unit selection</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="air-mixture-and-capacity.html">Air mixture and capacity</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="agency-management.html">Agency management</a>
+              </li>
+              <li class="nav-item nav_logout_mb">
+                <a class="nav-link" href="login.html">logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="header_pw">
+        <a href="login.html"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+      </div>
+    </header>
+    <main id="main">
+      <div class="container">
+        <div class="calculation_w air_w">
+          <div class="calculation_img">
+            <div class="calculation_img_w">
+              <img src="images/air-mixture.png" alt="" data-toggle="modal" data-target="#modal_cal"
+                class="img_dekstop_pu">
+              <img src="images/air-mixture-mb.png" alt="" data-toggle="modal" data-target="#modal_cal"
+                class="img_mobile_pu">
+              <ul class="nav nav_air nav_scrollpy_all" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#tabs_ct1" role="tab">A</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#tabs_ct2" role="tab">C</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#tabs_ct1" role="tab">D</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#tabs_ct2" role="tab">E</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#tabs_ct5" role="tab">F</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">G</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">H</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">J</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">K</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">L</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">M</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">N</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">P</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">R</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">S</a>
+                </li>
+              </ul>
+            </div>
+            <div class="calculation_tb_f">
+              <div class="w_tbf">
+                <div class="item_tbf">
+
+                </div>
+              </div>
+            </div>
+            <div class="abg_it">
+              <div class="abg_item ">
+                <h2 class="abg_tlt">R. Position Name</h2>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Temperature</span>
+                    <span><input value="10" class="inp_table_gr"></span>
+                    <span><sup>o</sup>C</span>
+                  </div>
+                </div>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Absolute humidity</span>
+                    <span><input value="6" class="inp_table_gr"></span>
+                    <span>g/kg</span>
+                  </div>
+                </div>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Flow rate</span>
+                    <span><input value="78.9" class="inp_table_gr" disabled=""></span>
+                    <span>m3/h</span>
+                  </div>
+                </div>
+              </div>
+              <div class="abg_item ">
+                <h2 class="abg_tlt">M. Position Name</h2>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Temperature</span>
+                    <span><input value="10" class="inp_table_gr"></span>
+                    <span><sup>o</sup>C</span>
+                  </div>
+                </div>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Absolute humidity</span>
+                    <span><input value="6" class="inp_table_gr"></span>
+                    <span>g/kg</span>
+                  </div>
+                </div>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Flow rate</span>
+                    <span><input value="78.9" class="inp_table_gr" disabled=""></span>
+                    <span>m3/h</span>
+                  </div>
+                </div>
+              </div>
+              <div class="abg_item ">
+                <h2 class="abg_tlt">F. Position Name</h2>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Temperature</span>
+                    <span><input value="10" class="inp_table_gr"></span>
+                    <span><sup>o</sup>C</span>
+                  </div>
+                </div>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Absolute humidity</span>
+                    <span><input value="6" class="inp_table_gr"></span>
+                    <span>g/kg</span>
+                  </div>
+                </div>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Flow rate</span>
+                    <span><input value="78.9" class="inp_table_gr" disabled=""></span>
+                    <span>m3/h</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="abg_item ">
+                <h2 class="abg_tlt">A. Position Name</h2>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Temperature</span>
+                    <span><input value="10" class="inp_table_gr"></span>
+                    <span><sup>o</sup>C</span>
+                  </div>
+                </div>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Absolute humidity</span>
+                    <span><input value="6" class="inp_table_gr"></span>
+                    <span>g/kg</span>
+                  </div>
+                </div>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Flow rate</span>
+                    <span><input value="78.9" class="inp_table_gr" disabled=""></span>
+                    <span>m3/h</span>
+                  </div>
+                </div>
+              </div>
+              <div class="abg_item bg_cl_s">
+                <h2 class="abg_tlt">S. Position Name</h2>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Temperature</span>
+                    <span><input value="10" class="inp_table_gr"></span>
+                    <span><sup>o</sup>C</span>
+                  </div>
+                </div>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Absolute humidity</span>
+                    <span><input value="6" class="inp_table_gr"></span>
+                    <span>g/kg</span>
+                  </div>
+                </div>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Flow rate</span>
+                    <span><input value="78.9" class="inp_table_gr" disabled=""></span>
+                    <span>m3/h</span>
+                  </div>
+                </div>
+              </div>
+              <div class="abg_item bg_cl_e">
+                <h2 class="abg_tlt">E. Position Name</h2>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Temperature</span>
+                    <span><input value="10" class="inp_table_gr"></span>
+                    <span><sup>o</sup>C</span>
+                  </div>
+                </div>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Absolute humidity</span>
+                    <span><input value="6" class="inp_table_gr"></span>
+                    <span>g/kg</span>
+                  </div>
+                </div>
+                <div class="abg_group_inp">
+                  <div class="d-flex align-items-center">
+                    <span>Flow rate</span>
+                    <span><input value="78.9" class="inp_table_gr" disabled=""></span>
+                    <span>m3/h</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="calculation_slt">
+            <div class="cal_date">
+              <h2 class="show_mb cal_btnmb"><a href="javascript:void(0)">AIR MIXTURE & CAPACITY</a></h2>
+              <div class="cal_select">
+                <div class="frm_gr d-flex">
+                  <label class="frm_gr_lb">Project <span class="hidden_mb">Name</span></label>
+                  <input type="text" placeholder="Name" class="form-control" class="frm_gr_inp">
+                </div>
+                <div class="frm_gr d-flex">
+                  <label class="frm_gr_lb">Date</label>
+                  <input type="text" placeholder="MM/DD/YY" class="form-control" class="frm_gr_inp" id="datetimepicker">
+                </div>
+              </div>
+            </div>
+
+            <div class="calculation_tabs">
+              <div class="box_gr clearfix">
+                <div class="tab-content tab_ct_ed" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="tabs_ct1" role="tabpanel" aria-labelledby="tabs_ct1">
+                    <div class="box_gr_tlt">
+                      <h2 class="box_gr_hd">MEASUREMENTS</h2>
+                      <h2 class="box_gr_hd">UNITS OF MEASUREMENT</h2>
+                      <h2 class="box_gr_hd">VALUE</h2>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Supply Air SA</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>m3/h</span>
+                      </div>
+                      <div class="gr_item">
+                        <input type="text" value="20">
+                      </div>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Outside Air OA</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>m3/h</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>50</span>
+                      </div>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Atmospheric pressure</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>mbar</span>
+                      </div>
+                      <div class="gr_item">
+                        <input type="text" value="1014">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="tabs_ct2" role="tabpanel" aria-labelledby="tabs_ct2">
+                    <div class="box_gr_tlt">
+                      <h2 class="box_gr_hd">MEASUREMENTS</h2>
+                      <h2 class="box_gr_hd">UNITS OF MEASUREMENT</h2>
+                      <h2 class="box_gr_hd">VALUE</h2>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Temperature</span>
+                      </div>
+                      <div class="gr_item">
+                        <span><sup>o</sup>C</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>20</span>
+                      </div>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Flow rate</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>g/kg</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>50</span>
+                      </div>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Atmospheric pressure</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>m3/h</span>
+                      </div>
+                      <div class="gr_item">
+                        <input type="text" value="1014">
+                      </div>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Supply Air SA</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>%RH</span>
+                      </div>
+                      <div class="gr_item">
+                        <span>**</span>
+                      </div>
+                    </div>
+                    <div class="box_gr_item">
+                      <div class="gr_item">
+                        <span>Flow rate</span>
+                      </div>
+                      <div class="gr_item">
+                        <span><sup>o</sup>CDP</span>
+                      </div>
+                      <div class="gr_item">
+                        <input type="text" value="**">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="tabs_ct5" role="tabpanel" aria-labelledby="tabs_ct5">
+                    <div class="tab_has">
+                      <div class="box_gr_tlt">
+                        <h2 class="box_gr_hd">HEIGHT ABOVE SEA LEVEL</h2>
+                      </div>
+                      <div class="abg_it">
+                        <div class="abg_item">
+                          <div class="abg_group_inp">
+                            <div class="d-flex align-items-center">
+                              <span>P</span>
+                              <span><input value="20" class="inp_table_gr"></span>
+                              <span>m</span>
+                            </div>
+                            <div class="text-center abg_edtxt">
+                              <span>( 1013.2 mbar )</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="box_gr_tlt">
+                        <h2 class="box_gr_hd">PRESSURE DROP</h2>
+                      </div>
+                      <div class="abg_it">
+                        <div class="abg_item">
+                          <div class="abg_group_inp">
+                            <div class="d-flex align-items-center">
+                              <span>PP</span>
+                              <span><input value="284" class="inp_table_gr" disabled></span>
+                              <span>Pa</span>
+                            </div>
+                          </div>
+                          <div class="abg_group_inp">
+                            <div class="d-flex align-items-center">
+                              <span>PR</span>
+                              <span><input value="309" class="inp_table_gr" disabled></span>
+                              <span>Pa</span>
+                            </div>
+                          </div>
+                          <div class="abg_group_inp">
+                            <div class="d-flex align-items-center">
+                              <span>PPU</span>
+                              <span><input value="-" class="inp_table_gr" disabled></span>
+                              <span>Pa</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-btn-total">
+                  <div class="text-center">
+                    <a class="btn btnPrevious">Previous</a>
+                    <a class="btn btnNext">Next</a>
+                  </div>
+                  <div class="text-center mt-3 js-total-tabs">
+                    (<span class="js-tabs-default">1</span>/<span class="js-tabs-nb"></span>)
+                  </div>
+                </div>
+                <div class="w-tabscroll">
+                  <ul class="nav nav-pills nav-scroll nav_tabs_ed" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="pill" href="#tabs_ct1" role="tab"
+                        aria-selected="true"><span>Desired room climate</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct2" role="tab"
+                        aria-selected="false"><span>Section A</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct3" role="tab"
+                        aria-selected="false"><span>Desired room climate 1</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct4" role="tab"
+                        aria-selected="false"><span>Desired room climate 1</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct5" role="tab"
+                        aria-selected="false"><span>Height Above Sea Level & Pressure Drop</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct5" role="tab"
+                        aria-selected="false"><span>Desired room climate 1</span></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="cal_catefory">
+              <h2 class="show_mb cal_btnmb"><a href="javascript:void(0)">DEHUMIDIFIER</a></h2>
+              <div class="cal_select">
+                <div class="frm_gr d-flex">
+                  <label class="frm_gr_lb">Category</label>
+                  <div class="dropdown">
+                    <button class="item_boxshadow btn_ct_sl" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      + Choose one
+                    </button>
+                    <div class="dropdown-menu dropdown_sl item_boxshadow" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="javascript:void(0)">Recusorb 1</a>
+                      <a class="dropdown-item" href="javascript:void(0)">Consorb</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="frm_gr d-flex">
+                  <label class="frm_gr_lb">Unit</label>
+                  <div class="dropdown">
+                    <button class="item_boxshadow btn_ct_sl" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      + Choose one
+                    </button>
+                    <div class="dropdown-menu dropdown_sl item_boxshadow" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="javascript:void(0)"><span class="color_xd">RLA-60LR,</span> <span
+                          class="color_red">850 m3/h</span></a>
+                      <a class="dropdown-item" href="javascript:void(0)"><span class="color_xd">RLA-051 R,</span> <span
+                          class="color_red">1250 m3/h</span></a>
+                      <a class="dropdown-item" href="javascript:void(0)"><span class="color_xd">RL - 61 ICE,</span>
+                        <span class="color_red">1600 m3/h</span></a>
+                      <a class="dropdown-item" href="javascript:void(0)"><span class="color_xd">RLA - 71 ICE,</span>
+                        <span class="color_red">3000 m3/h</span></a>
+                      <a class="dropdown-item" href="javascript:void(0)"><span class="color_xd">RLZ - 81,</span> <span
+                          class="color_red">2900 m3/h</span></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="frm_gr d-flex justify-content-between mt-3 gr_rcm">
+                  <label class="frm_gr_lb">Supply Air SA</label>
+                  <div class="txt_rcm1">
+                    + Choose one
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cal_button">
+              <a href="#" class="btn_rs btn_primary">Start Calculation</a>
+            </div>
+          </div>
+          <div class="calculation_results">
+            <h2 class="show_mb cal_btnmb"><a href="javascript:void(0)">RESULTS</a></h2>
+            <div class="table_results">
+              <div class="table-responsive">
+                <div class="tablefixedhead">
+                  <div class="box-theadtable">
+                    <table class="table table_checkbox">
+                      <thead>
+                        <tr>
+                          <th>
+                            <label class="container-checkbox">
+                              <input type="checkbox" id="checkall" title="Select all">
+                              <span class="checkmark"></span>
+                            </label>
+                          </th>
+                          <th>CATEGORY</th>
+                          <th>UNIT</th>
+                          <th>B_TP2(C)</th>
+                          <th>B_XP2(g/kg)</th>
+                          <th>B_MR(kg/h)</th>
+                          <th>ROTATION</th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                  <div class="box-tbodytable">
+                    <table class="table table_checkbox">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <label class="container-checkbox">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                          </td>
+                          <td><label>Consorb</label></td>
+                          <td>DC-20</td>
+                          <td>27.6</td>
+                          <td>0.906</td>
+                          <td>19.61</td>
+                          <td>28</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="container-checkbox">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                          </td>
+                          <td><label>Consorb</label></td>
+                          <td>DC-20</td>
+                          <td>27.6</td>
+                          <td>0.906</td>
+                          <td>19.61</td>
+                          <td>28</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="container-checkbox">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                          </td>
+                          <td><label>Consorb</label></td>
+                          <td>DC-20</td>
+                          <td>27.6</td>
+                          <td>0.906</td>
+                          <td>19.61</td>
+                          <td>28</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="container-checkbox">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                          </td>
+                          <td><label>Consorb</label></td>
+                          <td>DC-20</td>
+                          <td>27.6</td>
+                          <td>0.906</td>
+                          <td>19.61</td>
+                          <td>28</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="container-checkbox">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                          </td>
+                          <td><label>Consorb</label></td>
+                          <td>DC-20</td>
+                          <td>27.6</td>
+                          <td>0.906</td>
+                          <td>19.61</td>
+                          <td>28</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="container-checkbox">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                          </td>
+                          <td><label>Consorb</label></td>
+                          <td>DC-20</td>
+                          <td>27.6</td>
+                          <td>0.906</td>
+                          <td>19.61</td>
+                          <td>28</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center btn_gr_all">
+            <a href="#" class="btn_primary">SAVE</a>
+            <a href="preview.html" class="btn_primary">PREVIEW AND PRINT</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- Modal -->
+  <!-- Modal -->
+  <div class="modal fade modal_cal" id="modal_cal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="calculation_w air_w">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#modal_cal" data-toggle="modal" class="gr_popup_mb btn_primary show_mb"><i class="fa fa-sitemap fa-2x"
+      aria-hidden="true"></i></a>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/jquery.scrolling-tabs.min.js"></script>
+  <script src="js/jquery.selectable-list.js"></script>
+  <script src="js/perfect-scrollbar.min.js"></script>
+  <script src="js/jquery.datetimepicker.full.min.js"></script>
+  <script src="js/common.js"></script>
+</body>
+
+</html>

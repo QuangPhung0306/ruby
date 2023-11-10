@@ -1,0 +1,13 @@
+var hp = parseFloat('<%= @hp %>');
+var tr1 = parseFloat('<%= @tr1 %>');
+
+if(calculation_mode == false) {
+  hp = hp * 1000 / 0.29307107;
+  tr1 = tr1 * 1.8 + 32;
+}
+
+changeTextbox2OrTextbox50('textbox50', hp);
+changeTextbox2OrTextbox50('textbox2', tr1);
+
+$('#textbox50').trigger('change');
+$('#textbox2').trigger('change');

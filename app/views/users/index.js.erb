@@ -1,0 +1,9 @@
+$('#users').html('<%= 
+  if @users.blank?
+    j render "shared/not_found_data",
+      message: I18n.t('js.alert_message.not_found_agency')
+  else
+    j render @users, models: @models
+  end %>');
+$('#paginator').html('<%= j paginate @users %>');
+<%= render "shared/load_status_checkbox" %>

@@ -1,0 +1,220 @@
+// reflect from image tabs to input tabs
+for(var i = 0; i < $('.calculation_img input:disabled').length; i++ ) {
+  var id = $('.calculation_img input:disabled').eq(i).data('id');
+  $(`#${id}`).attr("disabled", "disabled");
+}
+<% case type %>
+<% when "recusorb_1" %>
+  $('#tabs_c_purge_inlet input').attr('disabled', 'disabled');
+  $('#tabs_g_wet_air_outlet input').attr('disabled', 'disabled');
+  $('#tabs_f_regen_air input').attr('disabled', 'disabled');
+  $('#tabs_d_purge_air input').attr('disabled', 'disabled');
+  $('#tabs_pressure_drop input').attr('disabled', 'disabled');
+  $('#tabs_a_process_air_inlet #textboxd, #tabs_a_process_air_inlet #textbox89').attr('disabled', 'disabled');
+
+  <% if @unit_name.blank? %>
+    $('#tabs_c1_regen_air_inlet input').attr('disabled', 'disabled');
+    $('#tabs_c1_regen_air_inlet #checkbox6, #tabs_c1_regen_air_inlet #checkbox4').prop('disabled', false);
+    $('#tabs_a_process_air_inlet input').attr('disabled', 'disabled');
+    $('#tabs_a_process_air_inlet #textbox1, #tabs_a_process_air_inlet #textbox7, #tabs_a_process_air_inlet #textbox23, #tabs_a_process_air_inlet #textbox31, #tabs_a_process_air_inlet #textbox30, #tabs_a_process_air_inlet #textbox29, #textbox78').prop('disabled', false);
+    $('#tabs_f_regen_air #textbox38').prop('disabled', false);
+  <% end %>
+<% when "mix_recusorb_1" %>
+  $('#tabs_c1_regen_air_inlet input').attr('disabled', 'disabled');
+  $('#tabs_c_purge_inlet input').attr('disabled', 'disabled');
+  $('#tabs_a_process_air_inlet input').attr('disabled', 'disabled');
+  $('#tabs_g_wet_air_outlet input').attr('disabled', 'disabled');
+  $('#tabs_f_regen_air input').attr('disabled', 'disabled');
+  $('#tabs_d_purge_air input').attr('disabled', 'disabled');
+  $('#tabs_pressure_drop input').attr('disabled', 'disabled');
+  <% if @unit_name.blank? %>
+    $('#tabs_c1_regen_air_inlet input').attr('disabled', 'disabled');
+    $('#textbox78, #textbox59, #textbox58').prop('disabled', false);
+    $('#tabs_a_process_air_inlet #textbox31, #tabs_a_process_air_inlet #textbox30, #tabs_a_process_air_inlet #textbox29, #textbox78').prop('disabled', false);
+
+  <% end %>
+<% when "consorb" %>
+  $('#tabs_g_wet_air_outlet input').attr('disabled', 'disabled');
+  $('#tabs_f_regen_air input').attr('disabled', 'disabled');
+
+  isCheckbox19Checked = $('#checkbox19').is(':checked');
+  $('#textbox10').prop('disabled', isCheckbox19Checked);
+  if($('#radiobutton10').is(':checked')){
+    $('#textbox19').prop('disabled', isCheckbox19Checked);
+    $('#textbox47').prop('disabled', isCheckbox19Checked);
+  } else {
+    $('#textbox103').prop('disabled', isCheckbox19Checked);
+  }
+
+
+  $('#tabs_pressure_drop input').attr('disabled', 'disabled');
+  $('#textboxd').attr('disabled', 'disabled');
+  $('#textbox89, #textbox47, #textbox83').prop('disabled', true);
+
+  // choose IP mode
+  if($('#radiobutton6').is(':checked')){
+    $('#tabs_a_process_air_inlet #textbox89').prop('disabled', false);
+  }
+
+  <% if @unit_name.blank? %>
+    $('#tabs_a_process_air_inlet input').attr('disabled', 'disabled');
+    $('#tabs_f_regen_air #textbox38').prop('disabled', false);
+    $('#tabs_e_regen_air_inlet #textbox65').prop('disabled', true);
+    $('#tabs_a_process_air_inlet #textbox1').prop('disabled', false);
+    $('#tabs_a_process_air_inlet #textbox7').prop('disabled', false);
+    $('#tabs_a_process_air_inlet #textbox23').prop('disabled', false);
+    $('#tabs_a_process_air_inlet #textbox31, #tabs_a_process_air_inlet #textbox30, #tabs_a_process_air_inlet #textbox29, #textbox78').prop('disabled', false);
+    $('#textbox47, #textbox83').prop('disabled', true);
+  <% end %>
+
+  $('#textbox47').prop('disabled', isCheckbox19Checked);
+<% when "mix_consorb" %>
+  $('#tabs_c1_regen_air_inlet input').attr('disabled', 'disabled');
+  $('#tabs_a_process_air_inlet input').attr('disabled', 'disabled');
+  $('#tabs_g_wet_air_outlet input').attr('disabled', 'disabled');
+  $('#tabs_f_regen_air input').attr('disabled', 'disabled');
+  $('#tabs_e_regen_air_inlet input').attr('disabled', 'disabled');
+  $('#tabs_pressure_drop input').attr('disabled', 'disabled');
+  $('#checkbox19').closest('.box_gr_item').hide();
+  $('input[data-id=checkbox19]').closest('.mb-1').hide();
+  $('#textbox27, #textbox26, #textbox31, #textbox30, #textbox29, #textbox89').prop('disabled', false);
+  $('#tabs_c1_regen_air_inlet input, #textbox58, #textbox59').attr('disabled', 'disabled');
+  // choose IP mode
+  if($('#radiobutton6').is(':checked')){
+    $('#tabs_a_process_air_inlet input').prop('disabled', true);
+    $('#tabs_a1_process_air_inlet input').prop('disabled', false);
+  }
+<% when "recusorb_2" %>
+  $('#tabs_c1_regen_air_inlet input').attr('disabled', 'disabled');
+  $('#tabs_c_purge_inlet input').attr('disabled', 'disabled');
+  $('#tabs_a_process_air_inlet input').attr('disabled', 'disabled');
+  $('#tabs_g_wet_air_outlet input').attr('disabled', 'disabled');
+  $('#tabs_f_regen_air input').attr('disabled', 'disabled');
+  $('#tabs_d_purge_air input').attr('disabled', 'disabled');
+  $('#tabs_pressure_drop input').attr('disabled', 'disabled');
+  $('#tabs_c1_regen_air_inlet #checkbox6, #tabs_c1_regen_air_inlet #checkbox4').prop('disabled', false);
+
+  <% if @unit_name.blank? %>
+    $('#tabs_c1_regen_air_inlet #checkbox6, #tabs_c1_regen_air_inlet #checkbox4').prop('disabled', false);
+    $('#tabs_f_regen_air #textbox38').prop('disabled', false);
+  <% end %>
+<% end %>
+
+// reflect from input tabs to image tabs
+
+for(var i = 0; i < $('#image-container input').length; i++) {
+  var element = $('#image-container input').eq(i);
+  var reflected_element = $(`#${element.data('id')}`);
+  if(reflected_element.length > 0) {
+    element.prop('disabled', reflected_element.is(':disabled'));
+  }
+}
+
+// radiobutton 8, 9
+
+if($('#radiobutton8').is(':checked')) {
+  $('#textbox2').prop('disabled', false);
+  $('[data-id="textbox2"]').prop('disabled', false);
+  $('#textbox50').prop('disabled', true);
+  $('[data-id="textbox50"]').prop('disabled', true);
+}
+
+if($('#radiobutton9').is(':checked')) {
+  $('#textbox2').prop('disabled', true);
+  $('[data-id="textbox2"]').prop('disabled', true);
+  $('#textbox50').prop('disabled', false);
+  $('[data-id="textbox50"]').prop('disabled', false);
+}
+
+<% unless type == "recusorb_2" %>
+  if($('#checkbox6').is(':checked')) {
+    $('#textbox4').prop('disabled', true);
+    $('[data-id=textbox4]').prop('disabled', true);
+    $('#textbox27').prop('disabled', true);
+    $('[data-id=textbox27]').prop('disabled', true);
+  } else {
+    $('#textbox4').prop('disabled', false);
+    $('[data-id=textbox4]').prop('disabled', false);
+    $('#textbox27').prop('disabled', false);
+    $('[data-id=textbox27]').prop('disabled', false);
+  }
+
+  if($('#checkbox4').is(':checked')) {
+    $('#textbox6').prop('disabled', true);
+    $('[data-id=textbox6]').prop('disabled', true);
+    $('#textbox26').prop('disabled', true);
+    $('[data-id=textbox26]').prop('disabled', true);
+  } else {
+    $('#textbox6').prop('disabled', false);
+    $('[data-id=textbox6]').prop('disabled', false);
+    $('#textbox26').prop('disabled', false);
+    $('[data-id=textbox26]').prop('disabled', false);
+  }
+<% end %>
+
+// choose IP mode
+if($('#radiobutton6').is(':checked')){
+  $('#textbox48, input[data-id=textbox48]').prop('disabled', false);
+  if($('#radiobutton8').is(':checked')){
+    $('#textbox34').prop('disabled', false);
+    $('#textbox49').prop('disabled', true);
+    $('[data-id=textbox34]').prop('disabled', false);
+    $('[data-id=textbox49]').prop('disabled', true);
+  }
+
+  if($('#radiobutton9').is(':checked')) {
+    $('#textbox34').prop('disabled', true);
+    $('[data-id="textbox34"]').prop('disabled', true);
+    $('#textbox49').prop('disabled', false);
+    $('[data-id="textbox49"]').prop('disabled', false);
+  }
+}
+
+// checkbox19 (E=A)
+<% if params[:history_change].to_s.split("\n").last.to_s.match(/checkbox19/) %>
+  <% if @form_element_values["combobox2"] == "Consorb" && ["CS-5", "CS-5L"].exclude?(@form_element_values["combobox8"]) %>
+    if($('#checkbox19').is(':checked')) {
+      $('#textbox10').prop('disabled', true);
+      $('[data-id="textbox10"]').prop('disabled', true);
+      $('#textbox48').prop('disabled', true);
+      $('[data-id="textbox48"]').prop('disabled', true);
+      $('#textbox19').prop('disabled', true);
+      $('[data-id="textbox19"]').prop('disabled', true);
+      $('#textbox47').prop('disabled', true);
+      $('[data-id="textbox47"]').prop('disabled', true);
+    }
+    else {
+      $('#textbox10').prop('disabled', false);
+      $('[data-id="textbox10"]').prop('disabled', false);
+      $('#textbox48').prop('disabled', false);
+      $('[data-id="textbox48"]').prop('disabled', false);
+      $('#textbox19').prop('disabled', false);
+      $('[data-id="textbox19"]').prop('disabled', false);
+      $('#textbox47').prop('disabled', false);
+      $('[data-id="textbox47"]').prop('disabled', false);
+    }
+  <% end %>
+<% end %>
+
+units_not_applied_humidity_select = ["DR-010 B", "DR-20B", "DR-30D", "DR-40-T10", "DR-40-T16", "DR-50 R", "DR-31 T10", "CS-5", "CS-5L"];
+if(units_not_applied_humidity_select.includes($('input#unit').val())) {
+  if($('#radiobutton10').is(':checked')) {
+    $('#textbox30, [data-id=textbox30], [data-id=textbox82], #textbox82, [data-id=textbox86], #textbox61, [data-id=textbox61], [data-id=textbox58], [data-id=textbox47]').prop('disabled', false);
+    $('#textbox101, #textbox102, [data-id=textbox101], [data-id=textbox102]').prop('disabled', true);
+  }
+
+  if($('#radiobutton11').is(':checked')) {
+    $('#textbox101, #textbox102, [data-id=textbox101], [data-id=textbox102]').prop('disabled', false);
+    $('#textbox30, #textbox26, #textbox82, #textbox86, #textbox61, #textbox58, #textbox47, [data-id=textbox30], [data-id=textbox26], [data-id=textbox82], [data-id=textbox86], [data-id=textbox61], [data-id=textbox58], [data-id=textbox19], [data-id=textbox47]').prop('disabled', true);
+  }
+} else {
+  if($('#radiobutton10').is(':checked')) {
+    $('#textbox7, #textbox30, [data-id=textbox7], [data-id=textbox30], [data-id=textbox82], #textbox82, [data-id=textbox86], #textbox61, [data-id=textbox61], [data-id=textbox58], [data-id=textbox47]').prop('disabled', false);
+    $('#textbox41, #textbox39, #textbox101, #textbox102, [data-id=textbox41], [data-id=textbox39], [data-id=textbox101], [data-id=textbox102]').prop('disabled', true);
+  }
+
+  if($('#radiobutton11').is(':checked')) {
+    $('#textbox41, #textbox39, #textbox101, #textbox102, [data-id=textbox41], [data-id=textbox39], [data-id=textbox101], [data-id=textbox102]').prop('disabled', false);
+    $('#textbox7, #textbox19, #textbox47, #textbox30, #textbox6, #textbox26, #textbox82, #textbox86, #textbox61, #textbox58, #textbox47, [data-id=textbox7], [data-id=textbox30], [data-id=textbox6], [data-id=textbox26], [data-id=textbox82], [data-id=textbox86], [data-id=textbox61], [data-id=textbox58], [data-id=textbox19], [data-id=textbox47]').prop('disabled', true);
+  }
+}

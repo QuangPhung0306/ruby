@@ -1,0 +1,55 @@
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".pre_cooling") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :air_direct_from_pre_cooling, "#{project ? project.room_calculation_input.air_direct_from_pre_cooling.round(2) : 0}", id: "hgf-pre-cooling", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".ambient") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :air_direct_from_ambient, "#{project ? project.room_calculation_input.air_direct_from_ambient.round(2) : 0}", id: "hgf-ambient", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".total_airflow") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :total_airflow_to_room, "#{project ? project.room_calculation_input.total_airflow_to_room.round(2) : 190}", id: "hgf-total-airflow", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".needed_moisture_content") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>g/kg</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :air_mix_needed_moisture_content, "#{project ? project.room_calculation_input.air_mix_needed_moisture_content.round(2) : 6.47}", id: "hgf-needed-moisture-content", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".leakage") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :leakage, "#{project ? project.room_calculation_input.leakage.round(2) : 4.32}", id: "hgf-leakage", readonly: true %>
+  </div>
+</div>

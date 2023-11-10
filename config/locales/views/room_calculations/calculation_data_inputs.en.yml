@@ -1,0 +1,175 @@
+en:
+  dictionary:
+    measurements: &measurements MEASUREMENTS
+    units_of_measurement: &units_of_measurement UNITS OF MEASUREMENT
+    temperature: &temperature Temperature
+    relative_humidity: &relative_humidity Relative humidity
+    atmospheric_pressure: &atmospheric_pressure Atmospheric pressure
+    moisture_content: &moisture_content Moisture content
+    dimensioning: &dimensioning DIMENSIONING
+  room_calculations:
+    calculation_data_inputs:
+      measurements: Measurements
+      units_of_measurement: Units Of Measurement
+      dimensioning: Dimensioning
+      average: Average
+      temperature: Temperature
+      personnel_in_the_room: Personnel In The Room
+      open_water_surface: Open Water Surface
+      product_drying: Product Drying
+      other: Other
+      total_moisture_load: Total Moisture Load
+      relative_humidity: Relative Humidity
+      moisture_content: Moisture Content
+      atmospheric_pressure: Atmospheric Pressure
+      desired_room_climate: Desired room climate
+      outdoor_design_climate: Outdoor design climate
+      surrounding_rooms_climate: Surrounding rooms climate
+      ventilation_including_infiltration: Ventilation, including infiltration
+      dehumidifying: Dehumidifying data
+    calculation_drc:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      temperature: *temperature
+      relative_humidity: *relative_humidity
+      atmospheric_pressure: *atmospheric_pressure
+      moisture_content: *moisture_content
+      dimensioning: *dimensioning
+      dehumidified_room_1: Dehumidified room has one or more walls towards outdoor
+      dehumidified_room_2: Dehumidified room surrounded by other rooms, no wall towards outdoor
+      height_above_sea_level: Height above sea level
+    calculation_odc:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      temperature: *temperature
+      relative_humidity: *relative_humidity
+      atmospheric_pressure: *atmospheric_pressure
+      moisture_content: *moisture_content
+      dimensioning: *dimensioning
+      hint_odc: Consider how many days you can afford not to have desired room conditions. If the worst case in ten years is considered as dimensioning it will be a significant larger dehumidifier needed compared to a "normal" design condition.
+      height_above_sea_level: Height above sea level
+    calculation_src:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      temperature: *temperature
+      relative_humidity: *relative_humidity
+      atmospheric_pressure: *atmospheric_pressure
+      moisture_content: *moisture_content
+      dimensioning: *dimensioning
+      hint_src: Only to be filled in if applicable. Will have no effect on the result if outdoor is chosed above and on the door selection.
+      height_above_sea_level: Height above sea level
+    calculation_vii:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      dimensioning: *dimensioning
+      room_length: Room length
+      room_width: Room width
+      room_height: Room height
+      room_volume: Room volume
+      tightness_of_building: Tightness of building
+      surroundings: Surroundings
+      door_height: Door without air lock vestibule - height
+      door_width: Door without air lock vestibule - width
+      air_lock_vestibule_height: Air lock vestibule, between the two doors - height
+      air_lock_vestibule_width: Air lock vestibule, between the two doors - width
+      air_lock_vestibule_length: Air lock vestibule, between the two doors - length
+      wind_speed: Wind speed, do not use below 6 m/s
+      door_without_air_lock: Door without air lock, opened per hour
+      air_lock_vestibule: Air lock vestibule, passages per hour
+      room_tightness: Infiltration, room tightness
+      door_and_or_air_lock: Infiltration, door and/or air lock
+      open_holes: Open holes
+      needed_airflow: Needed airflow through the open hole
+      mechanical_ventilation: Mechanical ventilation
+      total_ventilation_from_outdoor: Total ventilation from outdoor
+      total_ventilation_from_surrounding_rooms: Total ventilation from surrounding rooms
+      percentage_leakage: Percentage leakage
+      total_load_from_ventilation: Total load from ventilation
+      check_door_1: Door to outdoor air
+      check_door_2: Door to adjacent room (surrounding room climate)
+      hint_vii: If more than one door/air lock put in total area/volume.
+      hint_wind_speed: Dimensioning wind speed is normally around 8 m/s
+      hint_open_hole: Deduct covers like plastic curtains from the total hole area.
+      hint_mechanical_ventilation: Ventilation for people should be filled in here if not covered by above leakages.
+    calculation_ows:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      dimensioning: *dimensioning
+      pool_length: Pool length
+      pool_width: Pool width
+      pool_surface: Pool surface
+      water_temperature: Water temperature
+      vaporization_coefficient: Vaporization coefficient
+      vaporization_coefficient_guideline: "Guideline: Calm surface: 5, Public pool with medium activity: 20"
+      total_water_surface: Total load from water surface
+    calculation_pitr:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      dimensioning: *dimensioning
+      number_people: Number of people
+      moisture_load: Moisture load from each
+      total_load_from_people: Total load from people
+      hint_pitr_moisture_load: "Guideline: <br> Sitting down: 0,08 kg/h <br> Standing: 0,15 kg/h <br> Light work: 0,25 kg/h <br> Walking fast: 0,35 kg/h"
+    calculation_pd:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      dimensioning: *dimensioning
+      total_weight_product: Total weight of products
+      percentage_moisture: Percentage of moisture at start
+      percentage_dried: Percentage dried in 1 hour
+      total_product_dry: Total load from product drying
+    calculation_tml:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      dimensioning: *dimensioning
+      total_moisture_load: Total moisture load
+    calculation_other:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      dimensioning: *dimensioning
+      total_other_source: Total load from other sources
+    calculation_a:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      dimensioning: *dimensioning
+      temperature: Temperature
+      moisture_content: Moisture content
+      dr_model: DR-models only; total wet air flow
+    calculation_b:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      dimensioning: *dimensioning
+      total_dry_air_flow: Total dry air flow, B
+      needed_moisture_content: Needed moisture content in the dry air from the dehumidifier(s), B
+      dry_air_temperature: Dry air temperature, B
+      heat_load: Heat load
+      head_load_title: "Heat load to the room:"
+      start_before_pre_cooler1: Point J before pre-cooler (Starting)
+      start_before_pre_cooler2: Point J before pre-cooler (Starting)
+      start_temperature: Temperature, A (Starting)
+      start_moisture_content: Moisture content, A (Starting)
+    calculation_cdej:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      dimensioning: *dimensioning
+      process_airflow: Tot. process airflow into dehumidifier(s), A
+      return_air_direct: Return air direct to dehumidifier(s), C
+      pre_cooled_air: Pre-cooled air, D
+      pre_cooling_ambient: Pre-cooling ambient air to, D
+      corresponding_to: Corresponding to
+      ambient_air: Ambient air direct to the dehumidifier(s), E
+      before_pre_cooler1: Point J before pre-cooler (Final)
+      before_pre_cooler2: Point J before pre-cooler (Final)
+      pre_cooling_before: Pre-cooling before dehumidifier(s), J to A
+      temperature: Temperature, A (Final)
+      moisture_content: Moisture content, A (Final)
+      hint_pre_cool_air: Should only be filled in if there is a pre-cooler for ambient air only. Let it be 0 if there is no pre-cooled ambient air.
+    calculation_hfg:
+      measurements: *measurements
+      units_of_measurement: *units_of_measurement
+      dimensioning: *dimensioning
+      pre_cooling: Air direct from pre-cooling to the room, F
+      ambient: Air direct from ambient to the room, G
+      total_airflow: Total airflow to the room
+      needed_moisture_content: Needed moisture content in the total air mix to the room
+      leakage: Leakage H

@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="main_search">
+    <div class="search_w">
+      <%= search_form_for @search, remote: true do |f| %>
+        <%= f.text_field :agency_name_cont,
+          placeholder: t(".agency_name"), id: "search-box" %>
+        <%= button_tag type: "submit", class: "search_btn" do %>
+          <i class="fa fa-search" aria-hidden="true"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="main_agency">
+    <%= form_tag roles_users_path, method: :patch, remote: true do %>
+      <div class="agency_box">
+        <div class="egency_tlt">
+          <h2 class="egency_tlt_hd">
+            <label class="container-checkbox">
+              <%= check_box_tag "checkall", nil, false, title: t(".select_all"),
+                data: {users: @all_user_ids} %>
+              <span class="checkmark"></span>
+            </label>
+          </h2>
+          <h2 class="egency_tlt_hd"><%= t(".agency_name").upcase %></h2>
+          <h2 class="egency_tlt_hd"><%= t ".room_calculation" %></h2>
+          <h2 class="egency_tlt_hd"><%= t ".unit_selection" %></h2>
+          <h2 class="egency_tlt_hd"><%= t ".air_mixture" %></h2>
+          <h2 class="egency_tlt_hd"><%= t ".area" %></h2>
+          <h2 class="egency_tlt_hd"><%= t ".status" %></h2>
+          <h2 class="egency_tlt_hd egency_tlt_hd_btn text-center pr-1">
+            <div class="btn-group" role="group">
+              <%= button_tag t(".send_mail"), type: "button",
+                data: {toggle: "modal", target: "#modal_email", user_ids_selected: ""},
+                id: "send-email-btn", class: "btn btn-secondary", disabled: true %>
+              <%= link_to t(".export_csv"), export_csv_path, class: "btn btn-secondary" %>
+            </div>
+            <div class="mt-1">
+              <%= button_tag t(".delete_selected_accounts"), type: "button",
+                data: {toggle: "modal", target: "#modal_delete_users"},
+                id: "delete-btn", class: "btn btn-danger", disabled: true %>
+            </div>
+          </h2>
+        </div>
+        <div id="users">
+          <% if @users.blank? %>
+            <%= render "shared/not_found_data", message: t(".empty_agency") %>
+          <% else %>
+            <%= render @users, models: @models %>
+          <% end %>
+        </div>
+        <div id="paginator">
+          <%= paginate @users %>
+        </div>
+      </div>
+      <div class="text-center agency_gr_btn">
+        <%= link_to t(".registration"), "#modal_reg", data: {toggle: "modal"}, class: "btn_rs btn_primary", id: "agency_registration_button" %>
+        <%= button_tag t(".save"), class: "btn_rs btn_primary", disabled: @users.blank? %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render "users/content_send_email_modal" %>
+<%= render "users/change_status_modal" %>
+<%= render "users/reset_password_modal" %>
+<%= render "users/delete_users_modal" %>
+<%= render "users/modal_agency_registration", models: @models %>
+
+<% content_for :assets do %>
+  <%= javascript_include_tag "users/select_and_delete_users" %>
+<% end %>

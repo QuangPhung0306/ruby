@@ -1,0 +1,235 @@
+<div id="wrapper">
+  <main id="main">
+    <div class="offer_w prev_w">
+      <div class="offer_container">
+        <div class="offer_tlt">
+          <div class="tlt_gr_lr">
+            <h2 class="tlt_gr_txt"><%= t ".preview_and_print" %></h2>
+          </div>
+        </div>
+        <div id="page_print_unit_selection" class="prev_container print-container">
+          <div class="prev_header">
+            <div class="prev_logo">
+              <%= image_tag "logo-print.png", alt: "" %>
+              <h2><%= t ".company_name" %></h2>
+              <h3><%= t ".company_address" %></h3>
+              <%= link_to t(".tel"), t(".link_tel") %>
+              <%= link_to t(".url"), t(".link_url") %>
+            </div>
+            <div class="prev_date">
+              <h2><%= t ".desiccant_rotor_calculation" %></h2>
+              <div class="d-flex justify-content-end">
+                <div class="well">
+                  <table class="table">
+                    <tr>
+                      <td><%= t ".date" %>:</td>
+                      <td><%= l project.date_of_project, format: :day_month_year if project.date_of_project %></td>
+                    </tr>
+                    <tr>
+                      <td><%= t ".project" %>:</td>
+                      <td class="project_name_of_print"><%= project.name %></td>
+                   </tr>
+                    <tr>
+                      <td><%= t ".category" %>:</td>
+                      <td><%= unit.m_category_name %></td>
+                    </tr>
+                    <tr>
+                      <td><%= t ".unit" %>:</td>
+                      <td><%= unit.name %></td>
+                    </tr>
+
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="prev_unit">
+            <div class="calculation_img consorb_mix_w">
+              <div class="abg_it">
+                <div class="abg_item bg_cl_cp">
+                  <h2 class="abg_tlt"><%= t ".C_ss_Regen_Air_Inlet" %></h2>
+                  <div class="ts_preview text-center">
+                    <div class="ts_txt"><%= unit_selection_calculation.get_field_value_by_mode("textbox81", calculation_mode) %><%= calculation_mode == "si" ? " <sup>o</sup>C".html_safe : " FDB" %></div>
+                    <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox82", calculation_mode) %></span> <span><%= calculation_mode == "si" ? "g/kg" : "gr/lb" %></span></div>
+                    <div class="ts_txt"><span><%= unit_selection_calculation.instance_variable_get("@textbox101") %></span> <span>%RH</span></div>
+                    <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox76", calculation_mode) %></span> <span><%= calculation_mode == "si" ? "m<sup>3</sup>/h".html_safe : "CFM" %></span></div>
+                  </div>
+                </div>
+                <div class="abg_item bg_cl_g">
+                  <h2 class="abg_tlt"><%= t ".G_Wet_Air_Outlet" %></h2>
+                  <div class="ts_preview text-center">
+                    <div class="ts_txt"><%= unit_selection_calculation.get_field_value_by_mode("textbox21", calculation_mode) %><%= calculation_mode == "si" ? " <sup>o</sup>C".html_safe : " FDB" %></div>
+                    <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox20", calculation_mode) %></span> <span><%= calculation_mode == "si" ? "g/kg" : "gr/lb" %></span></div>
+                    <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox75", calculation_mode) %></span> <span>%RH</span></div>
+                    <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox74", calculation_mode) %></span> <sup>o</sup>CDP</div>
+                  </div>
+                </div>
+
+                <div class="abg_item bg_cl_f">
+                  <h2 class="abg_tlt"><%= t ".F_Regen_Air" %></h2>
+                  <div class="ts_preview text-center">
+                    <div class="ts_txt"><%= unit_selection_calculation.get_field_value_by_mode("textbox2", calculation_mode) %><%= calculation_mode == "si" ? " <sup>o</sup>C".html_safe : " FDB" %></div>
+                    <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox5", calculation_mode) %></span> <span><%= calculation_mode == "si" ? "g/kg" : "gr/lb" %></span></div>
+                    <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox45", calculation_mode) %></span> <span>%RH</span></div>
+                    <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox38", calculation_mode) %></span> <span><%= calculation_mode == "si" ? "m<sup>3</sup>/h".html_safe : "CFM" %></span></div>
+
+                  </div>
+                </div>
+                <div class="abg_item bg_none">
+                  <div class="abg_item_sm bg_cl_h">
+                    <h2 class="abg_tlt"><%= t ".Heater" %></h2>
+                    <div class="ts_preview text-center">
+                      <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox50", calculation_mode) %></span> <span><%= calculation_mode == "si" ? "kW".html_safe : "BTU/h" %></span></div>
+                    </div>
+                  </div>
+                  <div class="abg_item_sm bg_cl_d">
+                    <h2 class="abg_tlt"><%= t ".D_purge_Air" %></h2>
+                    <div class="ts_preview text-center">
+                      <div class="ts_txt"><%= unit_selection_calculation.get_field_value_by_mode("textbox18", calculation_mode) %><%= calculation_mode == "si" ? " <sup>o</sup>C".html_safe : " FDB" %></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="calculation_img_w" id="js_calculation_image">
+                <%= image_tag "recusorb2-mb.png", alt: "", data: {toggle: "modal", target: "#modal_cal"} %>
+                <ul class="nav nav_recusorb2 nav_scrollpy_all" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#pills-home" role="tab">A</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#pills-profile" role="tab">A'</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">B</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">C</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">C'</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#pills-home" role="tab">D</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#pills-home" role="tab">D'</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">F</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">G</a>
+                  </li>
+
+
+                  <li class="nav-item hidden_pt">
+                    <a class="nav-link" href="javascript:void(0)"><span class="bg_cl_a"><%= unit_selection_calculation.get_field_value_by_mode("textbox67", calculation_mode) %></span><span>%</span></a>
+                  </li>
+                  <li class="nav-item hidden_pt">
+                    <a class="nav-link" href="javascript:void(0)"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox71", calculation_mode) %></span><span>%</span></a>
+                  </li>
+                  <li class="nav-item hidden_pt">
+                    <a class="nav-link" href="javascript:void(0)"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox70", calculation_mode) %></span><span>%</span></a>
+                  </li>
+                  <li class="nav-item hidden_pt">
+                    <a class="nav-link" href="javascript:void(0)"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox69", calculation_mode) %></span><span>%</span></a>
+                  </li>
+                  <li class="nav-item hidden_pt">
+                    <a class="nav-link" href="javascript:void(0)"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox68", calculation_mode) %></span><span>%</span></a>
+                  </li>
+                  <li class="nav-item hidden_pt">
+                    <a class="nav-link" href="javascript:void(0)"><span class="bg_cl_a"><%= unit_selection_calculation.get_field_value_by_mode("textbox66", calculation_mode) %></span><span>%</span></a>
+                  </li>
+                </ul>
+
+                <%= render "preview_and_print/unit_selections/unit_selection_search_box", textbox8: @rotation_rate %>
+
+              </div>
+              <div class="abg_it">
+                <div class="abg_item bg_cl_ap">
+                  <h2 class="abg_tlt"><%= t ".A_s_Process_Air_Inlet" %></h2>
+                  <div class="ts_preview text-center">
+                    <div class="ts_txt"><%= unit_selection_calculation.get_field_value_by_mode("textbox60", calculation_mode) %><%= calculation_mode == "si" ? " <sup>o</sup>C".html_safe : " FDB" %></div>
+                    <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox61", calculation_mode) %></span> <span><%= calculation_mode == "si" ? "g/kg" : "gr/lb" %></span></div>
+
+                    <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox102", calculation_mode) %></span> <span>%RH</span></div>
+
+                    <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox80", calculation_mode) %></span> <span><%= calculation_mode == "si" ? "m<sup>3</sup>/h".html_safe : "CFM" %></span></div>
+                  </div>
+                </div>
+                <div class="abg_item bg_cl_b abg_item_edb">
+                  <h2 class="abg_tlt"><%= t ".B_Dry_Air_Outlet" %></h2>
+                  <div class="d-flex">
+                    <div class="ts_preview text-center">
+                      <div class="ts_txt"><%= unit_selection_calculation.get_field_value_by_mode("textbox17", calculation_mode) %><%= calculation_mode == "si" ? " <sup>o</sup>C".html_safe : " FDB" %></div>
+                      <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox12", calculation_mode) %></span> <span><%= calculation_mode == "si" ? "g/kg" : "gr/lb" %></span></div>
+                      <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox43", calculation_mode) %></span> <span>%RH</span></div>
+                    </div>
+                    <div class="ts_preview text-center">
+                      <div class="ts_txt"><%= unit_selection_calculation.get_field_value_by_mode("textbox44", calculation_mode) %> <sup>o</sup>CDP</div>
+                      <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox64", calculation_mode) %></span> <span><%= calculation_mode == "si" ? "m<sup>3</sup>/h".html_safe : "CFM" %></span></div>
+                      <div class="ts_txt"><span><%= unit_selection_calculation.get_field_value_by_mode("textbox52", calculation_mode) %></span> <span><%= calculation_mode == "si" ? "kg/h".html_safe : "lb/h" %></span></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="prev_frm abg_it abg_it-unit-selection-print">
+            <div class="abg_item abg_item-unit-selection-print">
+              <div class="p25-percent"></div>
+              <fieldset>
+                <legend class="w-auto"><%= t ".height_above_sea_level" %></legend>
+                <table class="table">
+                  <tr class="text-center">
+                    <td>P</td>
+                    <td><%= unit_selection_calculation.get_field_value_by_mode("textbox77", calculation_mode) %></td>
+                    <td>m</td>
+                  </tr>
+                  <tr class="text-center">
+                    <td></td>
+                    <td>(<%= unit_selection_calculation.instance_variable_get "@label139" %></td>
+                    <td>mbar)</td>
+                  </tr>
+                  
+                </table>
+              </fieldset>
+            </div>
+            <div class="abg_item abg_item-unit-selection-print">
+              <fieldset>
+                <legend class="w-auto"><%= t ".Pressure_drop" %></legend>
+                <table class="table">
+                  <tr>
+                    <td><%= t ".Process_PP" %></td>
+                    <td><%= unit_selection_calculation.get_field_value_by_mode("textbox55", calculation_mode) %></td>
+                    <td><%= calculation_mode == "si" ? "Pa" : "in.wc" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".Regeneration_RP" %></td>
+                    <td><%= unit_selection_calculation.get_field_value_by_mode("textbox56", calculation_mode) %></td>
+                    <td><%= calculation_mode == "si" ? "Pa" : "in.wc" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".Purge_PPu" %></td>
+                    <td><%= unit_selection_calculation.get_field_value_by_mode("textbox73", calculation_mode) %></td>
+                    <td><%= calculation_mode == "si" ? "Pa" : "" %></td>
+                  </tr>
+                </table>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div class="prev_btngr">
+          <div class="container">
+            <div class="text-center">
+              <%= link_to t(".print"), "javascript:void(0)", class: "btn_primary btn-block print" %>
+              <%= link_to t(".close"), "javascript:void(0)", class: "btn_secondary btn-block", data: {toggle: "modal", target: "#confirm_close_modal"} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<%= render "shared/confirm_close_preview_print" %>

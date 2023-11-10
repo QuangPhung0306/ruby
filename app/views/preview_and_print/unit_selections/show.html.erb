@@ -1,0 +1,5 @@
+<%= render @type, unit: @unit, project: @project, unit_selection_calculation: @unit_selection_calculation, calculation_mode: params[:calculation_mode] %>
+
+<% content_for :assets do %>
+  <%= javascript_include_tag "unit_selections/preview_and_print" %>
+<% end %>

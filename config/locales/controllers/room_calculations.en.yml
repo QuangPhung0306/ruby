@@ -1,0 +1,7 @@
+en:
+  room_calculations:
+    not_access_permission: You have not access permission.
+    create:
+      create_successful: Create project successfully.
+      create_fail: Create project fail
+      infinity_error: Elapsed time or Moisture content in room is Infinity

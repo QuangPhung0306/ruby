@@ -1,0 +1,42 @@
+en:
+  air_mixtures:
+    input_information:
+      air_mixture_and_capacity: AIR MIXTURE & CAPACITY
+      project: Project
+      name: Name
+      date: Date
+      format_date: YYYY/MM/DD
+      choose_one: "+ Choose one"
+      dehumidifier: DEHUMIDIFIER
+      category: Category
+      unit: Unit
+      measurements: MEASUREMENTS
+      units_of_measurement: UNITS OF MEASUREMENT
+      value: VALUE
+      section_air_flow: Start here
+      supply_air_sa: Supply Air SA
+      supply_air_sa_unit: m3/h
+      outside_air_oa: Outside Air OA
+      outside_air_oa_unit: m3/h
+      atmospheric_pressure: Atmospheric pressure
+      atmospheric_pressure_unit: mbar
+      water_temperature_in: Water temperature in
+      water_temperature_out: Water temperature out
+      section_a: A. Return Air RA
+      section_c: C. Bypass Air
+      section_d: D. Mixed Air1
+      section_e: E. Supply Air SA
+      section_f: F. Outside Air OA
+      section_g: G. Pre-cooler1/Heater
+      section_h: H. Mixed Air2
+      section_j: J. Process Air
+      section_k: K. Dry Air
+      section_l: L. Post-cooler
+      section_m: M. Outside Air
+      section_n: N. Pre-cooler2
+      section_p: P. Regeneration Air
+      section_r: R. Return Air
+      section_s: S. Wet Air
+      section_summary: Summary
+      choosen_suitable_unit: Choose dehumidifier above with airflow the same or lower than SA.
+      height_above_sea_level: Height above sea level

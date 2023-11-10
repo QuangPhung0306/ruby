@@ -1,0 +1,14 @@
+en:
+  air_mixtures:
+    input_output_sections:
+      section_r: "R. Return Air"
+      section_m: M. Outside Air
+      section_f: F. Outside Air OA
+      section_a: A. Return Air RA
+      section_e: E. Supply Air SA
+      section_s: S. Wet Air
+      temperature: Temperature
+      absolute_humidity: Absolute humidity
+      flow_rate: Flow rate
+      absolute_humidity_unit: g/kg
+      flow_rate_unit: m3/h

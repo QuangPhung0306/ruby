@@ -1,0 +1,18 @@
+<% if @result %>
+  $('#start-capacity').text("<%= @result[:starting_capacity] %>"); //B129
+  $('#start_capacity').val("<%= @result[:starting_capacity] %>"); //B129
+  $('#final-capacity').text("<%= @result[:capacity_at_final_climate] %>"); //B135
+  $('#final_capacity').val("<%= @result[:capacity_at_final_climate] %>"); //B135
+
+  xp2 = <%= @result[:xp2].to_f.round(2) %>
+  b113 = <%= @result[:b113].to_f.round(2) %>
+  unit_name = "<%= @result[:unit_name] %>"
+  xp2_text = (xp2 <= b113) ? "OK" : "too small";
+  $('#r003_result_xp2').text("<%= @result[:xp2].to_f.round(2) %>");
+  $('#r003_result_tp2').text("<%= @result[:tp2].to_f.round(2) %>");
+  $('#r003_result_mr').text("<%= @result[:mr].to_f.round(2) %>");
+  $('#xp2_text').text("(" + xp2_text + ")");
+  $('#result_xp2').val("<%= @result[:xp2].to_f.round(2) %>");
+  $('#result_tp2').val("<%= @result[:tp2].to_f.round(2) %>");
+  $('#result_mr').val("<%= @result[:mr].to_f.round(2) %>");
+<% end %>

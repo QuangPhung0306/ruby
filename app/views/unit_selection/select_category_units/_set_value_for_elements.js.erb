@@ -1,0 +1,46 @@
+function convert_comma_to_dot(value) {
+  if(value == ""){return value;}
+  value = parseFloat(value.replace(",", "."));
+  return value;
+}
+
+<% form_element_values.each do |element_name, element_value| %>
+  <% if element_name.match(/checkbox|radiobutton/) %>
+    <% next if element_name == "checkbox4" && ["DR-010 B", "DR-20B", "DR-30D", "DR-40-T10", "DR-40-T16", "DR-50 R", "DR-31 T10", "CS-5", "CS-5L"].exclude?(params[:unit]) %>
+      var checked = '<%= element_value %>' == 'true' ? true : false;
+      $('#<%= element_name %>').prop('checked', checked);
+  <% elsif element_name.match(/label/) %>
+    $('#<%= element_name %>').text('<%= element_value %>');
+  <% elsif element_name.match(/combobox(3|4|1)/) %>
+    $('#<%= element_name %>').text('<%= element_value %>');
+  <% else %>
+    if($('#<%= element_name %>').length > 0 && convert_comma_to_dot($('#<%= element_name %>').val()) != '<%= element_value %>') {
+      $('#<%= element_name %>').val('<%= element_value %>');
+    }
+  <% end %>
+<% end %>
+
+<% if params[:reload_result] == "1" %>
+  $('#textbox8').val('<%= @rotation_rate %>');
+<% end %>
+
+for(var i = 0; i < $('#image-container input').length; i++) {
+  var element = $('#image-container input').eq(i);
+  var reflected_element = $(`#${element.data('id')}`);
+  if(reflected_element.length > 0) {
+    if(element.attr('type') == 'text' || element.attr('type') == undefined) {
+      element.val(reflected_element.val());
+    }
+    if(['checkbox', 'radio'].includes(element.attr('type'))) {
+      element.prop('checked', reflected_element.is(':checked'));
+    }
+  }
+}
+
+if($('.calculation_img_w input[data-id=textbox8]').length > 0) {
+  $('.calculation_img_w input[data-id=textbox8]').val($('#textbox8').val());
+}
+
+if($('#image-container span[data-id=label139]').length > 0) {
+  $('#image-container span[data-id=label139]').text($('#label139').text());
+}

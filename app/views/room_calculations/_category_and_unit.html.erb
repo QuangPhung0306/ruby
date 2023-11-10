@@ -1,0 +1,75 @@
+<div class="cal_catefory">
+  <h2 class="show_mb cal_btnmb"><%= link_to t(".type_of_installation"), "javascript:void(0)" %></h2>
+  <div class="cal_select">
+    <div class="frm_gr d-flex">
+      <label class="frm_gr_lb"><%= t(".category") %></label>
+      <div class="dropdown">
+        <%= button_tag "#{project ? project.room_calculation_input.m_category.name : "Recusorb 1"}", class: "item_boxshadow btn_ct_sl color_green category r003_category", type: "button", id: "dropdownMenuButton",
+          data: {toggle: "dropdown", id: "#{project ? project.room_calculation_input.m_category_id : 1}"}, "aria-haspopup": true, "aria-expanded": false %>
+        <div class="dropdown-menu dropdown_sl item_boxshadow" aria-labelledby="dropdownMenuButton">
+          <% categories.each do |category| %>
+            <%= link_to "javascript:void(0)", class: "dropdown-item dropdown-category", data: {id: category.id, name: category.name} do %>
+              <%= category.name %>
+            <% end %>
+          <% end %>
+        </div>
+        <%= hidden_field_tag :m_category_id, "#{project ? project.room_calculation_input.m_category_id : 1}", id: "room_calculation_category_id" %>
+      </div>
+    </div>
+
+    <div class="frm_gr d-flex">
+      <label class="frm_gr_lb"><%= t(".unit") %></label>
+      <div class="dropdown">
+        <%= button_tag "#{project ? "#{project.room_calculation_input.m_unit.name}, #{project.room_calculation_input.m_unit.capacity} kg/h at 20oC/60%RH" : t(".choose_one")}", class: "item_boxshadow btn_ct_sl unit_button", type: "button",
+         id: "dropdownMenuButton", data: {toggle: "dropdown"}, "aria-haspopup": true, "aria-expanded": false %>
+        <div class="dropdown-menu dropdown_sl item_boxshadow btn_ct_sl_ed scroll_unit" aria-labelledby="dropdownMenuButton1">
+          <% units.each do |unit| %>
+            <% if Settings.room_calculation.units.dr_cs.include? unit.name %>
+              <%= link_to "javascript:void(0)", class: "dropdown-item dropdown-unit",
+                data: {id: unit.id, category_id: unit.m_category_id, name: unit.name, capacity: unit.capacity, wet_air: unit.wet_air, dry_air: unit.dry_air + unit.wet_air} do %>
+                <span class="color_xd"><%= unit.name %>, </span><span
+                class="color_red"><%= unit.capacity %> kg/h at 20<sup>o</sup>C/60%RH</span>
+              <% end %>
+            <% else %>
+              <%= link_to "javascript:void(0)", class: "dropdown-item dropdown-unit",
+                data: {id: unit.id, category_id: unit.m_category_id, name: unit.name, capacity: unit.capacity, wet_air: 0, dry_air: unit.dry_air} do %>
+                <span class="color_xd"><%= unit.name %>, </span><span
+                class="color_red"><%= unit.capacity %> kg/h at 20<sup>o</sup>C/60%RH</span>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        <%= hidden_field_tag :m_unit_id, "", id: "room_calculation_unit_id" %>
+      </div>
+    </div>
+
+    <div class="frm_gr d-flex justify-content-between mt-3 gr_rcm">
+      <label class="frm_gr_lb"><%= t ".total_moisture_load" %></label>
+      <div class="txt_tml">
+        <%= "#{project ? project.room_calculation_input.total_moisture_load.round(2) : 0.21}" + " kg/h" %>
+      </div>
+    </div>
+
+    <div class="frm_gr d-flex justify-content-between mt-3 gr_rcm">
+      <label class="frm_gr_lb"><%= t ".dry_air_needed_moisture_content" %></label>
+      <div class="txt_dry_air_needed_moisture_content">
+        <%= "#{project ? project.room_calculation_input.dry_air_needed_moisture_content.round(2) : 6.47}" + " g/kg" %>
+      </div>
+    </div>
+
+    <div class="frm_gr d-flex justify-content-between mt-3 gr_unt">
+      <label class="frm_gr_lb"><%= t(".number_of_unit") %></label>
+      <div class="input-group">
+        <%= number_field_tag :number_of_units, Settings.room_calculation.default_number_unit, class: "form-control", autocomplete: "off" %>
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2"><strong><%= t(".pcs") %></strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="frm_gr d-flex justify-content-between mt-3 gr_rcm">
+      <label class="frm_gr_lb"></label>
+      <div class="txt_rcm">
+      </div>
+    </div>
+  </div>
+</div>

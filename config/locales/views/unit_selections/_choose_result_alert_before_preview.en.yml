@@ -1,0 +1,4 @@
+en:
+  unit_selections:
+    choose_result_alert_before_preview:
+      message: "At least one result must be chosen before preview and print"

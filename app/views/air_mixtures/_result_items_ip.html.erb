@@ -1,0 +1,39 @@
+<tr data-air-mixture-input-id="<%= result.air_mixture_input.id %>">
+  <td>
+    <label class="container-checkbox">
+      <input type="checkbox" name="check[]" value="<%= result.id %>" class="checkbox  choosen-result-cb">
+      <span class="checkmark checkmark-air-mixture" id="span_check_<%= result.id %>" data-id="span_result_<%= result.id %>"></span>
+    </label>
+  </td>
+  <td><%= result.air_mixture_input.m_category.name %></td>
+  <td><%= result.air_mixture_input.m_unit.name %></td>
+  <td><%= result.b_tp2 %>(FDB)</td>
+  <td><%= result.b_xp2 %>(gr/lb)</td>
+  <td><%= result.b_mr %>(lb/h)</td>
+  <td><%= result.a_tp1 %>(FDB)</td>
+  <td><%= result.a_xp1 %>(gr/lb)</td>
+  <td><%= result.a_fp %>(CFM)</td>
+  <td><%= result.a_vp %>(SFM)</td>
+  <td><%= result.f_tr1 %>(FDB)</td>
+  <td><%= result.f_xr1 %>(gr/lb)</td>
+  <td><%= result.f_fr %>(CFM)</td>
+  <td><%= result.f_vr %>(SFM)</td>
+  <td><%= result.d_tpu2 %>(FDB)</td>
+  <td><%= result.g_tr2 %>(FDB)</td>
+  <td><%= result.g_xr2 %>(gr/lb)</td>
+  <td><%= result.hp %>(BTU/h)</td>
+  <td><%= result.pp %>(in.wc)</td>
+  <td><%= result.pr %>(in.wc)</td>
+  <td><%= result.ppu %>(in.wc)</td>
+  <td><%= result.margin %>(%)</td>
+  <td><%= result.h %>(%)</td>
+  <td><%= result.i %>(%)</td>
+  <td><%= result.j %>(%)</td>
+  <td><%= result.k %>(%)</td>
+  <td><%= result.l %>(%)</td>
+  <td><%= result.m %>(%)</td>
+  <td><%= result.status %></td>
+  <td><%= result.rotation %>(rph)</td>
+  <td><%= result.diameter %>(mm)</td>
+  <td><%= result.depth %>(mm)</td>
+</tr>

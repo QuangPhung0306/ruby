@@ -1,0 +1,8 @@
+en:
+  unit_selections:
+    show:
+      start_calculation: Start Calculation
+      name: Name
+      save: SAVE
+      excel_export: Export Excel
+      preview_and_print: PREVIEW AND PRINT

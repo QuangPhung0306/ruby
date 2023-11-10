@@ -1,0 +1,50 @@
+class ChangeDataTypeColumnsAirMixtureInput < ActiveRecord::Migration[5.2]
+  def change
+    # float to double
+    change_column :air_mixture_inputs, :r_absolute_humidity, :double
+    change_column :air_mixture_inputs, :a_absolute_humidity, :double
+    change_column :air_mixture_inputs, :n_absolute_humidity, :double
+    change_column :air_mixture_inputs, :n_cathode_capacity, :double
+    change_column :air_mixture_inputs, :n_cathode_flow_rate, :double
+    change_column :air_mixture_inputs, :g_temperature, :double
+    change_column :air_mixture_inputs, :g_absolute_humidity, :double
+    change_column :air_mixture_inputs, :g_cathode_capacity, :double
+    change_column :air_mixture_inputs, :g_cathode_flow_rate, :double
+    change_column :air_mixture_inputs, :g_anode_capacity, :double
+    change_column :air_mixture_inputs, :p_temperature, :double
+    change_column :air_mixture_inputs, :p_absolute_humidity, :double
+    change_column :air_mixture_inputs, :h_temperature, :double
+    change_column :air_mixture_inputs, :h_absolute_humidity, :double
+    change_column :air_mixture_inputs, :j_temperature, :double
+    change_column :air_mixture_inputs, :j_absolute_humidity, :double
+    change_column :air_mixture_inputs, :j_cathode_capacity, :double
+    change_column :air_mixture_inputs, :j_cathode_flow_rate, :double
+    change_column :air_mixture_inputs, :c_temperature, :double
+    change_column :air_mixture_inputs, :c_absolute_humidity, :double
+    change_column :air_mixture_inputs, :k_temperature, :double
+    change_column :air_mixture_inputs, :k_absolute_humidity, :double
+    change_column :air_mixture_inputs, :l_temperature, :double
+    change_column :air_mixture_inputs, :l_absolute_humidity, :double
+    change_column :air_mixture_inputs, :l_cathode_capacity, :double
+    change_column :air_mixture_inputs, :d_temperature, :double
+    change_column :air_mixture_inputs, :d_absolute_humidity, :double
+    change_column :air_mixture_inputs, :e_temperature, :double
+    change_column :air_mixture_inputs, :e_absolute_humidity, :double
+    change_column :air_mixture_inputs, :e_anode_capacity, :double
+    change_column :air_mixture_inputs, :e_cathode_capacity, :double
+    change_column :air_mixture_inputs, :outside_air_oa, :double
+    change_column :air_mixture_inputs, :s_temperature, :double
+    change_column :air_mixture_inputs, :s_absolute_humidity, :double
+
+    # integer to float
+    change_column :air_mixture_inputs, :atmospheric_pressure, :double
+    change_column :air_mixture_inputs, :water_temperature_in, :double
+    change_column :air_mixture_inputs, :water_temperature_out, :double
+    change_column :air_mixture_inputs, :r_flow_rate, :double
+    change_column :air_mixture_inputs, :f_temperature, :double
+    change_column :air_mixture_inputs, :f_absolute_humidity, :double
+    change_column :air_mixture_inputs, :a_temperature, :double
+    change_column :air_mixture_inputs, :n_temperature, :double
+    change_column :air_mixture_inputs, :supply_air_sa, :double
+  end
+end

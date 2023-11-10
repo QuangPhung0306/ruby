@@ -1,0 +1,12 @@
+<% if @is_ip_mode == true %>
+  $('#data-rows').html('<%= j render partial: "air_mixtures/result_items_ip", collection: @unit_selection_results, as: :result %>');
+<% else %>
+  $('#data-rows').html('<%= j render partial: "air_mixtures/result_items", collection: @unit_selection_results, as: :result %>');
+<% end %>
+
+<% if @results_checked.present? %>
+  <% @results_checked.each do |result_checked| %>
+    var result_checked = <%= result_checked %>;
+    $("input[value='"+result_checked+"']").prop('checked', true);
+  <% end %>
+<% end %>

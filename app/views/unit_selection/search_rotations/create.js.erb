@@ -1,0 +1,18 @@
+<% if @error_message %>
+  $('#unit_selection_calculation_error_container').html('<%= j render "shared/unit_selection_calculation_error", error_message: @error_message %>');
+  $('#unit_selection_calculation_error_modal').modal('show');
+<% else %>
+  <% @search_results.each do |result| %>
+    $('#data-rows-unit-selection').append('<%= j render partial: "unit_selections/item", locals: {result: result} %>');
+  <% end %>
+<% end %>
+
+<%= render "unit_selection/select_category_units/set_value_for_elements", form_element_values: @form_element_values %>
+
+<% if @form_element_values["warning_messages"].present? %>
+  $('#unit_selection_calculation_error_container').html('<%= j render "shared/unit_selection_calculation_error", error_message: @form_element_values["warning_messages"].uniq.join("<br>") %>');
+  $('#unit_selection_calculation_error_modal').modal('show');
+<% end %>
+
+$('#current_unit_selection_input_id').val('<%= @search_results.last.unit_selection_input_id %>')
+$('#unit_selection_history_change').val('');

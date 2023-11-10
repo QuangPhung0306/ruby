@@ -1,0 +1,4 @@
+en:
+  room_calculation_results:
+    create:
+      unit_selection_calculation_error: "An error occurred due to invalid input."

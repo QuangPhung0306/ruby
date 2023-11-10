@@ -1,0 +1,65 @@
+<% if @error_message %>
+  $('#unit_selection_calculation_error_container').html('<%= j render "shared/unit_selection_calculation_error", error_message: @error_message %>');
+  $('#unit_selection_calculation_error_modal').modal('show');
+<% else %>
+  <% if @result %>
+    ip_mode = <%= raw @result[:ip].to_json %>;
+    si_mode = <%= raw @result[:si].to_json %>;
+    check_mode = true;
+    if ($("#r003_si_mode").is(":checked")){
+      $('#start-capacity').text("<%= @result[:si][:starting_capacity] %>"); //B129
+      $('#start_capacity').val("<%= @result[:si][:starting_capacity] %>"); //B129
+      $('#final-capacity').text("<%= @result[:si][:capacity_at_final_climate] %>"); //B135
+      $('#final_capacity').val("<%= @result[:si][:capacity_at_final_climate] %>"); //B135
+
+      xp2 = <%= @result[:si][:xp2].to_f.round(2) %>
+      b113 = <%= @result[:si][:b113].to_f.round(2) %>
+      unit_name = "<%= @result[:si][:unit_name] %>"
+      xp2_text = (xp2 <= b113) ? "OK" : "too small";
+      $('#r003_result_xp2').text("<%= @result[:si][:xp2].to_f.round(2) %>");
+      $('#r003_result_tp2').text("<%= @result[:si][:tp2].to_f.round(2) %>");
+      $('#r003_result_mr').text("<%= @result[:si][:mr].to_f.round(2) %>");
+      $('#xp2_text').text("(" + xp2_text + ")");
+      $('#result_xp2').val("<%= @result[:si][:xp2].to_f.round(2) %>");
+      $('#result_tp2').val("<%= @result[:si][:tp2].to_f.round(2) %>");
+      $('#result_mr').val("<%= @result[:si][:mr].to_f.round(2) %>");
+      var height_above_sea_level_result = '<%= @result[:si][:height_above_sea_level].to_s %>';
+      var atmospheric_pressure_result = '<%= @result[:si][:atmospheric_pressure].to_s %>';
+    } else {
+      $('#start-capacity').text("<%= @result[:ip][:starting_capacity] %>"); //B129
+      $('#start_capacity').val("<%= @result[:ip][:starting_capacity] %>"); //B129
+      $('#final-capacity').text("<%= @result[:ip][:capacity_at_final_climate] %>"); //B135
+      $('#final_capacity').val("<%= @result[:ip][:capacity_at_final_climate] %>"); //B135
+      xp2 = <%= @result[:ip][:xp2].to_f.round(2) %>
+      b113 = <%= @result[:ip][:b113].to_f.round(2) %>
+      unit_name = "<%= @result[:ip][:unit_name] %>"
+      xp2_text = (xp2 <= b113) ? "OK" : "too small";
+      $('#r003_result_xp2').text("<%= @result[:ip][:xp2].to_f.round(2) %>");
+      $('#r003_result_tp2').text("<%= @result[:ip][:tp2].to_f.round(2) %>");
+      $('#r003_result_mr').text("<%= @result[:ip][:mr].to_f.round(2) %>");
+      $('#xp2_text').text("(" + xp2_text + ")");
+      $('#result_xp2').val("<%= @result[:ip][:xp2].to_f.round(2) %>");
+      $('#result_tp2').val("<%= @result[:ip][:tp2].to_f.round(2) %>");
+      $('#result_mr').val("<%= @result[:ip][:mr].to_f.round(2) %>");
+      var height_above_sea_level_result = '<%= @result[:ip][:height_above_sea_level].to_s %>';
+      var atmospheric_pressure_result = '<%= @result[:ip][:atmospheric_pressure].to_s %>';
+    }
+
+    $(`a.dropdown-unit[data-name="${unit_name}"]`).click();
+
+    // if(parseFloat(height_above_sea_level_result) != convert_comma_to_dot($('#drc_height_above_sea_level').val())) {
+    //   $('input[data-id=height_above_sea_level]').val(height_above_sea_level_result);
+    //   r003_base_atmospheric_pressure = parseFloat(atmospheric_pressure_result);
+    //   $('input[data-id=base_atmospheric_pressure]').val(r003_base_atmospheric_pressure.toFixed(1));
+    //   $('#drc-atmospheric-pressure').trigger('change');
+    // }
+
+    <% if @result[:warning_messages].present? %>
+      $('#unit_selection_calculation_error_container').html('<%= j render "shared/unit_selection_calculation_error", error_message: @result[:warning_messages].uniq.join("<br>") %>');
+      $('#unit_selection_calculation_error_modal').modal('show');
+    <% end %>
+  <% else %>
+    $('#unit_selection_calculation_error_container').html('<%= j render "shared/unit_selection_calculation_error", error_message: "Can not find matching unit" %>');
+    $('#unit_selection_calculation_error_modal').modal('show');
+  <% end %>
+<% end %>

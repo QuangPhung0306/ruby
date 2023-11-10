@@ -1,0 +1,7 @@
+en:
+  air_mixtures:
+    not_access_permission: You have not access permission.
+    create:
+      create_successful: Create air mixture & calculation successfully.
+      create_failed: Create air mixture & calculation failed.
+      unit_selection_calculation_error: "An error occurred due to invalid input."

@@ -1,0 +1,49 @@
+<div class="box_gr_tlt">
+  <h2 class="box_gr_hd"><%= t(".measurements") %></h2>
+  <h2 class="box_gr_hd"><%= t(".units_of_measurement") %></h2>
+  <h2 class="box_gr_hd"><%= t(".dimensioning") %></h2>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".total_weight_product") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>kg</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :total_weight_of_products, "#{project ? project.room_calculation_input.total_weight_of_products.round(2) : 0}", id: "pd-total-weight-product", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".percentage_moisture") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>%</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :start_percentage_of_moisture, "#{project ? (project.room_calculation_input.start_percentage_of_moisture*100).round(2) : 12}", id: "pd-percentage-moisture", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".percentage_dried") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>%</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :percentage_dried_per_hour, "#{project ? (project.room_calculation_input.percentage_dried_per_hour*100).round(2) : 5}", id: "pd-percentage-dried", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".total_product_dry") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>kg/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :total_load_from_product_drying, "#{project ? project.room_calculation_input.total_load_from_product_drying.round(2) : 0}", id: "pd", readonly: true %>
+  </div>
+</div>

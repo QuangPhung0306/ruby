@@ -1,0 +1,336 @@
+<div class="calculation_img recusorb2_w">
+  <div class="abg_it">
+    <div class="abg_item bg_cl_cp abg_item_185">
+      <h2 class="abg_tlt">C". Regen Air Inlet</h2>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+
+          <span><input value="20" class="inp_table_gr" data-id="textbox87"></span>
+          <span>FDB</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+
+          <span><input value="8.7" class="inp_table_gr" data-id="textbox86"></span>
+          <span>gr/lb</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+
+          <span><input value="8.7" class="inp_table_gr" data-id="textbox101" disabled></span>
+          <span>%RH</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+
+          <span><input value="180" class="inp_table_gr" data-id="textbox85"></span>
+          <span>CFM</span>
+        </div>
+      </div>
+    </div>
+    <div class="abg_item bg_cl_g">
+      <h2 class="abg_tlt">G. Wet Air Outlet</h2>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>TR2</span>
+          <span><input value="-" class="inp_table_gr" disabled="" data-id="textbox25"></span>
+          <span>FDB</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>XR2</span>
+          <span><input value="-" class="inp_table_gr" disabled="" data-id="textbox24"></span>
+          <span>gr/lb</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>   </span>
+          <span><input value="" class="inp_table_gr" disabled="" data-id="textbox75"></span>
+          <span>%RH</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>   </span>
+          <span><input value="" class="inp_table_gr" disabled="" data-id="textbox74"></span>
+          <span><sup>o</sup>CDP</span>
+        </div>
+      </div>
+    </div>
+    <div class="abg_item bg_cl_f">
+      <h2 class="abg_tlt">F. Regen Air</h2>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>TR1</span>
+          <span><input value="-" class="inp_table_gr" data-id="textbox34"></span>
+          <span>FDB</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>XR1</span>
+          <span><input value="-" class="inp_table_gr" data-id="textbox33"></span>
+          <span>gr/lb</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span></span>
+          <span><input value="-" class="inp_table_gr" disabled="" data-id="textbox45"></span>
+          <span>%RH</span>
+        </div>
+      </div>
+      <div class="abg_group_inp d-none">
+        <div class="d-flex align-items-center">
+          <span></span>
+          <span><input value="-" class="inp_table_gr" disabled="" data-id="textbox46"></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="mt-27">
+
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span></span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>FR</span>
+          <span><input value="180" class="inp_table_gr" disabled="" data-id="textbox32"></span>
+          <span>CFM</span>
+        </div>
+      </div>
+      <div class="abg_group_inp d-none">
+        <div class="d-flex align-items-center">
+          <span></span>
+          <span><input value="180" class="inp_table_gr" disabled="" data-id="textbox90"></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <div class="abg_item bg_none">
+      <div class="abg_item_sm bg_cl_h">
+        <h2 class="abg_tlt">Heater</h2>
+        <div class="abg_group_inp">
+          <div class="d-flex align-items-center">
+            <span>HP</span>
+            <span><input value="0.69" class="inp_table_gr" data-id="textbox49"></span>
+            <span>BTU/h</span>
+          </div>
+        </div>
+      </div>
+      <div class="abg_item_sm bg_cl_d">
+        <h2 class="abg_tlt">D.purge Air</h2>
+        <div class="abg_group_inp">
+          <div class="d-flex align-items-center">
+            <span>TPu2</span>
+            <span><input value="-" class="inp_table_gr" data-id="textbox35"></span>
+            <span>FDB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="calculation_img_w">
+    <%= image_tag "recusorb2.png", alt: "", data: {toggle: "modal", target: "#modal_cal"}, class: "img_dekstop_pu" %>
+    <%= image_tag "recusorb2-mb.png", alt: "", data: {toggle: "modal", target: "#modal_cal"}, class: "img_mobile_pu" %>
+    <ul class="nav nav_recusorb2 nav_scrollpy_all" role="tablist" id="sections_link">
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" data-click-id="#tabs_a_process_air_inlet" href="#pills-home" role="tab">A</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" data-click-id="#tabs_a1_process_air_inlet" href="#pills-profile" role="tab">A'</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" data-click-id="#tabs_b_dry_air_outlet" href="#pills-contact" role="tab">B</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" data-click-id="#tabs_c_purge_inlet" href="#pills-contact" role="tab">C</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" data-click-id="#tabs_c1_regen_air_inlet" href="#pills-contact" role="tab">C'</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" data-click-id="#tabs_d_purge_air" href="#pills-home" role="tab">D</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" data-click-id="" href="#pills-home" role="tab">D'</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" data-click-id="#tabs_f_regen_air" href="#pills-contact" role="tab">F</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" data-click-id="#tabs_g_wet_air_outlet" href="#pills-contact" role="tab">G</a>
+      </li>
+
+
+      <li class="nav-item hidden_pt">
+        <a class="nav-link" href="javascript:void(0)"><span class="bg_cl_a"><%= unit_selection_calculation.instance_variable_get "@textbox71" %></span><span>%</span></a>
+      </li>
+      <li class="nav-item hidden_pt">
+        <a class="nav-link" href="javascript:void(0)"><span><%= unit_selection_calculation.instance_variable_get "@textbox67" %></span><span>%</span></a>
+      </li>
+      <li class="nav-item hidden_pt">
+        <a class="nav-link" href="javascript:void(0)"><span><%= unit_selection_calculation.instance_variable_get "@textbox70" %></span><span>%</span></a>
+      </li>
+      <li class="nav-item hidden_pt">
+        <a class="nav-link" href="javascript:void(0)"><span><%= unit_selection_calculation.instance_variable_get "@textbox69" %></span><span>%</span></a>
+      </li>
+      <li class="nav-item hidden_pt">
+        <a class="nav-link" href="javascript:void(0)"><span><%= unit_selection_calculation.instance_variable_get "@textbox68" %></span><span>%</span></a>
+      </li>
+      <li class="nav-item hidden_pt">
+        <a class="nav-link" href="javascript:void(0)"><%= text_field_tag :textbox66, unit_selection_calculation.instance_variable_get("@textbox66"), class: "bg_cl_a bg_cl_a_input" %><span>%</span></a>
+      </li>
+    </ul>
+    <%= render "unit_selections/unit_selection_search_box" %>
+  </div>
+  <div class="abg_it">
+    <div class="abg_item bg_cl_ap abg_item_185">
+      <h2 class="abg_tlt">A'. Process Air Inlet</h2>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span><input value="20" class="inp_table_gr" data-id="textbox59"></span>
+          <span>FDB</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+
+          <span><input value="8.7" class="inp_table_gr" data-id="textbox58"></span>
+          <span>gr/lb</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+
+          <span><input value="8.7" class="inp_table_gr" data-id="textbox102" disabled></span>
+          <span>%RH</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+
+          <span><input value="850" class="inp_table_gr" data-id="textbox88"></span>
+          <span>CFM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="abg_item height_above_pressure_drop_box">
+      <div class="bg_cl_by_pass">
+        <div class="abg_group_inp">
+          <div class="d-flex align-items-center">
+            <span class="by-pass-label">By-pass [%]</span>
+            <span><input value="20" class="inp_table_gr" data-id="textbox66"></span>
+            <span>%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg_cl_height_above">
+        <h2 class="abg_tlt">Height Above Sea Level</h2>
+        <div class="abg_group_inp">
+          <div class="d-flex align-items-center">
+            <span>P</span>
+            <span><input value="-" class="inp_table_gr" data-id="textbox77"></span>
+            <span>m</span>
+          </div>
+        </div>
+        <div class="abg_group_inp">
+          <div class="d-flex align-items-center">
+            <span class="text-center">(<span data-id="label139">1013</span></span>
+            <span>mbar)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg_cl_pressure_drop">
+        <h2 class="abg_tlt">Pressure Drop</h2>
+        <div class="abg_group_inp">
+          <div class="d-flex align-items-center">
+            <span>PP</span>
+            <span><input value="-" class="inp_table_gr" data-id="textbox54"></span>
+            <span>in.wc</span>
+          </div>
+        </div>
+
+        <div class="abg_group_inp">
+          <div class="d-flex align-items-center">
+            <span>PR</span>
+            <span><input value="-" class="inp_table_gr" data-id="textbox53"></span>
+            <span>in.wc</span>
+          </div>
+        </div>
+
+        <div class="abg_group_inp">
+          <div class="d-flex align-items-center">
+            <span>PPu</span>
+            <span><input value="-" class="inp_table_gr" data-id="textbox72"></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="abg_item bg_cl_b">
+      <h2 class="abg_tlt">B. Dry Air Outlet</h2>
+      <div class="abg_group_inp d-none">
+        <div class="d-flex align-items-center">
+          <span></span>
+          <span><input value="-" class="inp_table_gr" disabled="" data-id="textbox62"></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>TP2</span>
+          <span><input value="-" class="inp_table_gr" disabled="" data-id="textbox37"></span>
+          <span>FDB</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>XP2</span>
+          <span><input value="-" class="inp_table_gr" disabled="" data-id="textbox36"></span>
+          <span>gr/lb</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>   </span>
+          <span><input value="-" class="inp_table_gr" disabled="" data-id="textbox43"></span>
+          <span>%RH</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>   </span>
+          <span><input value="-" class="inp_table_gr" disabled="" data-id="textbox44"></span>
+          <span><sup>o</sup>CDP</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>FR</span>
+          <span><input value="-" class="inp_table_gr" disabled="" data-id="textbox84"></span>
+          <span>CFM</span>
+        </div>
+      </div>
+      <div class="abg_group_inp">
+        <div class="d-flex align-items-center">
+          <span>MR</span>
+          <span><input value="-" class="inp_table_gr" disabled="" data-id="textbox51"></span>
+          <span>lb/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

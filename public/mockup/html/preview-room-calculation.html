@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Preview room calculation</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i&display=swap&subset=vietnamese"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/perfect-scrollbar.css">
+  <link rel="stylesheet" href="css/jquery.datetimepicker.min.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <header id="header">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <h1 class="navbar-brand" href="#"><img src="images/logo.png"></h1>
+          <button class="navbar-toggler navbar-icon" type="button" data-toggle="collapse" data-target="#navbar_rps"
+            aria-controls="navbar_rps" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar bar1"></span>
+            <span class="icon-bar bar2"></span>
+            <span class="icon-bar bar3"></span>
+          </button>
+          <div class="collapse navbar-collapse navbar_rps" id="navbar_rps">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="room-calculation.html">Room calculation</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="unit-selection-recusorb2.html">Unit selection</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="air-mixture-and-capacity.html">Air mixture and capacity</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="agency-management.html">Agency management</a>
+              </li>
+              <li class="nav-item nav_logout_mb">
+                <a class="nav-link" href="login.html">logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="header_pw">
+        <a href="login.html"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+      </div>
+    </header>
+    <main id="main">
+      <div class="offer_w prev_w">
+        <div class="offer_container">
+          <div class="offer_tlt">
+            <div class="tlt_gr_lr">
+              <h2 class="tlt_gr_txt">PREVIEW AND PRINT</h2>
+            </div>
+          </div>
+          <div class="prev_container">
+            <div class="prev_header">
+              <div class="prev_logo">
+                <img src="images/logo-print.png" alt="">
+                <h2>Seibu Giken DST AB</h2>
+                <h3>Avestagatan 33SE 163 - 53, Spånga, SWEDEN</h3>
+                <a href="tel:4684457720">TEL: 46-8-445-7720</a>
+                <a href="https://www.dst-sq.com">URL: www.dst-sq.com</a>
+              </div>
+              <div class="prev_date">
+                <h2>Desiccant Rotor Calculation</h2>
+                <div class="d-flex justify-content-end">
+                  <div class="well">
+                    <table class="table">
+                      <tr>
+                        <td>Date:</td>
+                        <td>11/07/2019</td>
+                      </tr>
+                      <tr>
+                        <td>Project:</td>
+                        <td>Case 1</td>
+                      </tr>
+                      <tr>
+                        <td>Category:</td>
+                        <td>Consorb 1_3</td>
+                      </tr>
+                      <tr>
+                        <td>Unit:</td>
+                        <td>DR-31 T10</td>
+                      </tr>
+                      <tr>
+                        <td>Number of units:</td>
+                        <td>1 pcs</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="prev_calc none_fixed">
+
+              <div class="calculation_img">
+                <div class="calculation_img_w">
+                  <img src="images/room-cal-2.png" alt="" data-toggle="modal" data-target="#modal_cal"
+                    class="img_dekstop_pu">
+                  <img src="images/room-cal-2-mb.png" alt="" data-toggle="modal" data-target="#modal_cal"
+                    class="img_mobile_pu">
+                  <ul class="nav nav_cal nav_scrollpy_all" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct1" role="tab">A</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct2" role="tab">B</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct3" role="tab">C</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#tabs_ct4" role="tab">D</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#pills-profile" role="tab">E</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">F</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">G</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#pills-contact" role="tab">J</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="prev_calc_hd d-flex justify-content-between">
+
+                <div class="table_left">
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <td>Tot. process airflow into dehumidifier(s)&nbsp;</td>
+                        <td>[A]</td>
+                        <td>65&nbsp; m3/h&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td>Return air direct to dehumidifier(s)</td>
+                        <td>[C]</td>
+                        <td>31&nbsp; m3/h</td>
+                      </tr>
+                      <tr>
+                        <td>Pre-cooled air</td>
+                        <td>[D]</td>
+                        <td>0&nbsp; m3/h</td>
+                      </tr>
+                      <tr>
+                        <td>Pre-cooling ambient air to</td>
+                        <td>[D]</td>
+                        <td>10<sup>o</sup>C</td>
+                      </tr>
+                      <tr>
+                        <td>Corresponding to</td>
+                        <td></td>
+                        <td>7.6 g/kg</td>
+                      </tr>
+                      <tr>
+                        <td>Ambient air direct to the dehumidifier(s)</td>
+                        <td>[E]</td>
+                        <td>34 m3/h</td>
+                      </tr>
+                      <tr>
+                        <td>Point J before pre-cooler</td>
+                        <td></td>
+                        <td>22.6<sup>o</sup>C</td>
+                      </tr>
+                      <tr>
+                        <td>Point J before pre-cooler</td>
+                        <td></td>
+                        <td>9.7 g/kg</td>
+                      </tr>
+                      <tr>
+                        <td>Pre-cooling before dehumidifier(s)</td>
+                        <td>[J to A]</td>
+                        <td>22.6<sup>o</sup>C</td>
+                      </tr>
+                      <tr>
+                        <td>Temperature</td>
+                        <td>[A]</td>
+                        <td>22.6<sup>o</sup>C</td>
+                      </tr>
+                      <tr>
+                        <td>Moisture content</td>
+                        <td>[A]</td>
+                        <td>9.7 g/kg</td>
+                      </tr>
+                      <tr>
+                        <td>Air direct from pre-cooling to the room</td>
+                        <td></td>
+                        <td>65 m3/h</td>
+                      </tr>
+                      <tr>
+                        <td>Air direct from ambient to the room</td>
+                        <td></td>
+                        <td>65 m3/h</td>
+                      </tr>
+                      <tr>
+                        <td>Leakage H</td>
+                        <td></td>
+                        <td>65 m3/h</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- DivTable.com -->
+                </div>
+                <div class="table_right">
+                  <div class="table_right_b">
+                    <div class="table_right_tlt">B. Position Name</div>
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <td>Total dry air flow</td>
+                          <td>35&nbsp; m3/h</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Needed moister content in the dry air</br>from the dehumidifier(s)
+                          </td>
+                          <td>2.9&nbsp; g/kg</td>
+                        </tr>
+                        <tr>
+                          <td>Dry air temperature</td>
+                          <td>2.9 <sup>o</sup>C</td>
+                        </tr>
+                        <tr>
+                          <td>Heat load</td>
+                          <td>0.3&nbsp; &nbsp; kW</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="table_right_c">
+                    <strong class="table_right_tlt">Pulldown time</strong>
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <td></td>
+                          <td>Starting</td>
+                          <td>Final&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td>Temperature</td>
+                          <td>25 <sup>o</sup>C</td>
+                          <td>20 <sup>o</sup>C</td>
+                        </tr>
+                        <tr>
+                          <td>Relative humidity</td>
+                          <td>60 <span>%RH</span></td>
+                          <td>50 <span>%RH</span></td>
+                        </tr>
+                        <tr>
+                          <td>Atmospheric pres.</td>
+                          <td>1014 <span>mbar</span></td>
+                          <td>1014 <span>mbar</span></td>
+                        </tr>
+                        <tr>
+                          <td>Corresponding to</td>
+                          <td>11.9 <span>g/kg</span></td>
+                          <td>7.3 <span>g/kg</span></td>
+                        </tr>
+                        <tr>
+                          <td>Capacity</td>
+                          <td>0.38 <span>kg/h</span></td>
+                          <td>0.38 <span>kg/h</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- DivTable.com -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="prev_btngr">
+            <div class="container">
+              <div class="text-center">
+                <a href="#" class="btn_primary btn-block">PRINT</a>
+                <a href="#" class="btn_secondary btn-block">CLOSE</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade modal_reg" id="modal_reg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="text-center">
+            <h3>REGISTRATION</h3>
+          </div>
+          <form>
+            <span class="lb_frm">The fields with (*) are required</span>
+            <div class="form-group">
+              <div class="inp_name inp_gr">
+                <input type="text" placeholder="Agency Name" class="inp_txt">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="inp_email inp_gr">
+                <input type="text" placeholder="Email*" class="inp_txt">
+              </div>
+            </div>
+            <h4 class="tlt_model">MODELS</h4>
+            <div class="modal_checkbox">
+              <label class="container-checkbox">
+
+                <input type="checkbox" checked>
+                <span class="checktxt">Room calculation</span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="modal_checkbox">
+              <label class="container-checkbox">
+                <input type="checkbox" checked>
+                <span class="checktxt">Calculation Roto</span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="modal_checkbox">
+              <label class="container-checkbox">
+                <input type="checkbox">
+                <span class="checktxt">Air mixture and capacity</span>
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="modal_btn">
+              <button class="btn_primary" type="submit">Save</button>
+              <button class="btn_primary btn_wt" type="submit" data-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade modal_reg" id="modal_rs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="text-center">
+            <h3>Reset Password</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/jquery.scrolling-tabs.min.js"></script>
+  <script src="js/jquery.selectable-list.js"></script>
+  <script src="js/perfect-scrollbar.min.js"></script>
+  <script src="js/jquery.datetimepicker.full.min.js"></script>
+  <script src="js/common.js"></script>
+</body>
+
+</html>

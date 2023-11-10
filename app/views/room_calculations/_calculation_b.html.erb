@@ -1,0 +1,94 @@
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".total_dry_air_flow") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :total_dry_air_flow, "#{project ? project.room_calculation_input.total_dry_air_flow.round(2) : 190}", id: "b-total-dry-air-flow", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".needed_moisture_content") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>g/kg</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :dry_air_needed_moisture_content, "#{project ? project.room_calculation_input.dry_air_needed_moisture_content.round(2) : 6.47}", id: "b-needed-moisture-content", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <strong><%= t ".head_load_title" %></strong>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".dry_air_temperature") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span><sup>o</sup>C</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :dry_air_temperature, "#{project ? project.room_calculation_input.dry_air_temperature.round(2) : 30.19}", id: "b-dry-air-temperature", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".heat_load") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>kW</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :heat_load, "#{project ? project.room_calculation_input.heat_load.round(2) : 0.66}", id: "b-heat-load", readonly: true %>
+  </div>
+</div>
+
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".start_before_pre_cooler1" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span><sup>o</sup>C</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :j_before_pre_cooler_degree_start, "#{project ? project.room_calculation_input.j_before_pre_cooler_degree_start.round(2) : 25.0}", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".start_before_pre_cooler2" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>g/kg</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :j_before_pre_cooler_rate_start, "#{project ? project.room_calculation_input.j_before_pre_cooler_rate_start.round(2) : 11.9}", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t ".start_temperature" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span><sup>o</sup>C</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :inlet_temperature_start, "#{project ? project.room_calculation_input.inlet_temperature_start.round(2) : 25.0}", readonly: true %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item measure">
+    <span><%= t ".start_moisture_content" %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>g/kg</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :inlet_moisture_content_start, "#{project ? project.room_calculation_input.inlet_moisture_content_start.round(2) : 11.9}", readonly: true %>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<li class="page-item page_next">
+  <%= link_to_unless current_page.last?,
+    "<i class='fa fa-angle-double-right' aria-hidden='true'></i>".html_safe,
+    url, rel: "next", remote: true, class: "page-link" %>
+</li>

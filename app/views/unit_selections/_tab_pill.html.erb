@@ -1,0 +1,16 @@
+<div class="nav-item item" data-index="<%= index %>">
+  <%= link_to "#tabs_#{tab}", data: {toggle: "pill"}, role: "tab", "aria-controls": "pills-home", "aria-selected": true, class: "nav-link" do %>
+    <% 
+      name = if Settings.unit_selection.tab_names[tab]
+        Settings.unit_selection.tab_names[tab]
+      else
+        if ["pressure_drop", "height_above_sea_level"].exclude? tab
+          tab.humanize.titleize.sub(" ", ".")
+        else
+          tab.humanize.titleize
+        end
+      end 
+    %>
+    <span><%= name %></span>
+  <% end %>
+</div>

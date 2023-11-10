@@ -1,0 +1,6 @@
+en:
+  batch_deletes:
+    users:
+      destroy:
+        delete_users_successfully: Delete users successfully.
+        delete_users_failed: Delete users failed.

@@ -1,0 +1,5 @@
+en:
+  air_mixtures:
+    recommend_unit_modal:
+      not_found_unit: Choose dehumidifier above with airflow the same or lower than SA.
+      button_ok: OK

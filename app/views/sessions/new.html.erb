@@ -1,0 +1,42 @@
+<div id="wrapper">
+    <div class="w_login">
+      <div class="login_frm">
+        <%= render "shared/flash_messages" %>
+        <div class="login_logo">
+          <h1>
+            <%= link_to root_path do %>
+              <%= image_tag "logo.png", alt: t(".attr_alt_logo") %>
+            <% end %>
+          </h1>
+        </div>
+        <div class="login_box">
+          <h2><%= t ".login" %></h2>
+          <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
+            <span class="lb_login"><%= t ".fields_with_asterisk_is_required" %></span>
+            <div class="inp_center">
+              <%= f.email_field :email, placeholder: t(".email_placeholder"), type: "text", class: "inp_ct" %>
+            </div>
+            <div class="inp_center">
+              <%= f.password_field :password, placeholder: t(".password_placeholder"),
+                type: "password", class: "inp_ct inp_error" %>
+            </div>
+
+            <% if devise_mapping.rememberable? %>
+              <div class="text-left login_checkb">
+                <div class="custom-control custom-checkbox">
+                  <%= f.check_box :remember_me, class: "custom-control-input", id: "customCheck1" %>
+                  <%= f.label :remember_me, t(".remember_me"),
+                    class: "custom-control-label", for: "customCheck1" %>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="btn_login">
+              <%= f.submit t(".login"), class: "btn_primary btn-block" %>
+              <p class="text-danger mt-4"><%= t ".browsers_support" %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

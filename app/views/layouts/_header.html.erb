@@ -1,0 +1,49 @@
+<header id="header">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo.png" %>
+      <% end %>
+      <button class="navbar-toggler navbar-icon" type="button" data-toggle="collapse" data-target="#navbar_rps"
+        aria-controls="navbar_rps" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="icon-bar bar1"></span>
+        <span class="icon-bar bar2"></span>
+        <span class="icon-bar bar3"></span>
+      </button>
+      <div class="collapse navbar-collapse navbar_rps" id="navbar_rps">
+        <ul class="navbar-nav ml-auto">
+          <% if current_user.can_access_room_calculation? || current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to t(".room_calculation"), room_calculation_path, class: "nav-link" %>
+            </li>
+          <% end %>
+          <% if current_user.can_access_unit_selection? || current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to t(".unit_selection"), unit_selection_path, class: "nav-link" %>
+            </li>
+          <% end %>
+          <% if current_user.can_access_air_mixture? || current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to t(".air_mixture_and_capacity"), air_mixtures_path, class: "nav-link" %>
+            </li>
+          <% end %>
+          <% if current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to t(".agency_management"), users_path, class: "nav-link" %>
+            </li>
+          <% end %>
+          <li class="nav-item nav_logout_mb">
+            <%= link_to t(".logout"), destroy_user_session_path, class: "nav-link", method: :delete %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="header_pw">
+    <%= link_to "javascript:void(0)", id: "logout_button" do %>
+      <i class="fa fa-power-off" aria-hidden="true"></i>
+    <% end %>
+  </div>
+  <%= form_tag destroy_user_session_path, method: :delete, id: "logout_user" do %>
+  <% end %>
+</header>

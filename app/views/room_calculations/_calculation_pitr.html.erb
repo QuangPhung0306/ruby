@@ -1,0 +1,39 @@
+<div class="box_gr_tlt">
+  <h2 class="box_gr_hd"><%= t(".measurements") %></h2>
+  <h2 class="box_gr_hd"><%= t(".units_of_measurement") %></h2>
+  <h2 class="box_gr_hd"><%= t(".dimensioning") %></h2>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".number_people") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>pcs</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :number_of_people, "#{project ? project.room_calculation_input.number_of_people : 0}", id: "pitr-number-people", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item guideline">
+  <div class="gr_item">
+    <span><%= t(".moisture_load") %></span> </br>
+    <span><i class="hint"><%= t(".hint_pitr_moisture_load").html_safe %></i></span>
+  </div>
+  <div class="gr_item measure">
+    <span>kg/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :moisture_load_from_each, "#{project ? project.room_calculation_input.moisture_load_from_each.round(2) : 0.15}", id: "pitr-moisture-load", autocomplete: "off" %>
+  </div>
+</div>
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".total_load_from_people") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>kg/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :total_load_from_people, "#{project ? project.room_calculation_input.total_load_from_people.round(2) : 0}", id: "pitr", readonly: true %>
+  </div>
+</div>

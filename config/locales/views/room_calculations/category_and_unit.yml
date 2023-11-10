@@ -1,0 +1,17 @@
+en:
+  room_calculations:
+    category_and_unit:
+      room_calculation: "ROOM CALCULATION"
+      project: "Project"
+      name: "Name"
+      date: "Date"
+      date_format: "YYYY/MM/DD"
+      type_of_installation: "TYPES OF INSTALLATION"
+      category: "Category"
+      choose_one: "+ Choose one"
+      unit: "Unit"
+      recommended_unit: "Recommended unit"
+      total_moisture_load: Total moisture load
+      dry_air_needed_moisture_content: Needed moisture content in the dry air from the dehumidifier(s), B
+      number_of_unit: "Number of unit"
+      pcs: "pcs"

@@ -1,0 +1,85 @@
+<%= form_tag air_mixture_preview_and_print_path, method: :get, id: "form-preview-and-print", target: "_blank" do %>
+  <%= hidden_field_tag :air_mixture_input_id %>
+  <%= hidden_field_tag :project_name %>
+  <%= hidden_field_tag :project_date %>
+  <%= hidden_field_tag :air_mixture_calculation_mode %>
+<% end %>
+
+<div class="container">
+  <%= form_for @project, remote: true, html: {class: "new-air-mixtures-project"} do |f| %>
+    <div class="calculation_w air_w">
+      <div class="calculation_img">
+        <div class="calculation_img_w">
+          <%= image_tag "air-mixture.png", class: "img_dekstop_pu", data: {toggle: "modal", target: "#modal_cal"} %>
+          <%= image_tag "air-mixture-mb.jpg", class: "img_mobile_pu", data: {toggle: "modal", target: "#modal_cal"} %>
+          <%= render "sections_link" %>
+        </div>
+        <div class="calculation_tb_f">
+          <div class="w_tbf">
+            <div class="item_tbf">
+            </div>
+          </div>
+        </div>
+        <%= render "input_output_sections" %>
+      </div>
+      <%= render "input_information", f: f %>
+      <%= render "results" %>
+      <%= f.hidden_field :calculation_type, value: "air_mixture" %>
+      <%= hidden_field_tag :unit_selection_result_ids, "_", id: "unit_selection_result_ids" %>
+      <div class="text-center btn_gr_all">
+        <%= f.button t(".save"), class: "btn_primary", type: "button", id: "save-air-mixture-project" %>
+        <%= f.submit t(".save"), class: "btn_primary d-none", id: "save-air-mixture-project-hide" %>
+        <%= link_to t(".preview_and_print"), "javascript:void(0)",
+          class: "btn_primary", id: "air_mix_preview_print_btn" %>
+      </div>
+
+      <%= render "shared/table_list_project", model: "air_mixture" %>
+    </div>
+  <% end %>
+</div>
+
+<!-- Modal -->
+<div class="modal fade modal_cal" id="modal_cal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="calculation_w air_w">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "air_mixtures/require_select_result_item_modal" %>
+<%= render "air_mixtures/recommend_unit_modal" %>
+
+<%= link_to("#modal_cal", class: "gr_popup_mb btn_primary show_mb", data: {toggle: "modal"}) do %>
+  <i class="fa fa-sitemap fa-2x" aria-hidden="true"></i>
+<% end %>
+
+<%= link_to asset_url("manual_of_airmixture_and_capacity.pdf"), class: "btn_primary", id: "btn-show-manual", target: "_blank" do %>
+  <i class="fa fa-question fa-2x" aria-hidden="true"></i>
+<% end %>
+
+<%= render "choose_result_alert" %>
+<div id="unit_selection_calculation_error_container">
+  <%= render "shared/unit_selection_calculation_error", error_message: "" %>
+</div>
+
+<%= render "shared/invalid_message_modal" %>
+
+<% content_for :assets do %>
+  <%= javascript_include_tag "air_mixture/air_mixture" %>
+  <%= javascript_include_tag "air_mixture/change_calculation_mode" %>
+  <%= javascript_include_tag "air_mixture/convert_mode_algorithm" %>
+  <%= javascript_include_tag "air_mixture/set_value_element" %>
+  <%= javascript_include_tag "air_mixture/preview_and_print" %>
+  <%= javascript_include_tag "air_mixture/load_air_mixture_project" %>
+  <%= javascript_include_tag "air_mixture/load_air_mixture_input" %>
+  <%= javascript_include_tag "air_mixture/handle_checkbox_table_results" %>
+  <%= javascript_include_tag "air_mixture/validations/new_project" %>
+  <%= javascript_include_tag "air_mixture/fill_initial_value" %>
+  <%= javascript_include_tag "air_mixture/height_above_sea_level" %>
+  <%= javascript_include_tag "air_mixture/change_values" %>
+  <%= javascript_include_tag "handle_projects_table" %>
+<% end %>

@@ -1,0 +1,9 @@
+en:
+  room_calculations:
+    general_information_inputs:
+      room_calculation: "ROOM CALCULATION"
+      project: "Project"
+      name: "Name"
+      date: "Date"
+      date_format: "YYYY/MM/DD"
+      type_of_installation: "TYPES OF INSTALLATION"

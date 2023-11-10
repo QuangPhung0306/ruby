@@ -1,0 +1,6 @@
+en:
+  users:
+    delete_users_modal:
+      delete_confirm_message: Are you sure you want to delete selected users?
+      ok: "Yes"
+      cancel: "Cancel"

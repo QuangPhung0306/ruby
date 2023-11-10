@@ -1,0 +1,5 @@
+en:
+  user_mailer:
+    reset_password_subject: "Password Change Notification"
+    send_email_notification_subject: Notification from DST
+    successful_registration_notification: Successful registration notification

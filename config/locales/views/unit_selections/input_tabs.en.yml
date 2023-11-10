@@ -1,0 +1,28 @@
+en:
+  dictionary:
+    measurements: &measurements MEASUREMENTS
+    units_of_measurement: &units_of_measurement UNITS OF MEASUREMENT
+    temperature: &temperature Temperature
+    relative_humidity: &relative_humidity Relative humidity
+    atmospheric_pressure: &atmospheric_pressure Atmospheric pressure
+    moisture_content: &moisture_content Moisture content
+    dimensioning: &dimensioning DIMENSIONING
+  unit_selections:
+    si_mode: &mode
+      c1_regen_air_inlet: &tab_header
+        measurements: *measurements
+        units_of_measurement: *units_of_measurement
+        dimensioning: *dimensioning
+      c_purge_inlet: *tab_header
+      a_process_air_inlet: *tab_header
+      a1_process_air_inlet: *tab_header
+      b_dry_air_outlet: *tab_header
+      c2_regen_air_inlet: *tab_header
+      d_purge_air: *tab_header
+      e_regen_air_inlet: *tab_header
+      f_regen_air: *tab_header
+      g_wet_air_outlet: *tab_header
+      heater: *tab_header
+      height_above_sea_level: *tab_header
+      pressure_drop: *tab_header        
+    pi_mode: *mode

@@ -1,0 +1,6 @@
+en:
+  projects:
+    create:
+      create_successful: Create project successfully.
+      create_failed: Create project failed.
+      not_exits_unit_selection_result: Please select at least a result.

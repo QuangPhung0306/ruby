@@ -1,0 +1,11 @@
+<div class="box_gr_item">
+  <div class="gr_item">
+    <span><%= t(".dr_model") %></span>
+  </div>
+  <div class="gr_item measure">
+    <span>m<sup>3</sup>/h</span>
+  </div>
+  <div class="gr_item">
+    <%= text_field_tag :total_wet_air_flow, "#{project ? project.room_calculation_input.total_wet_air_flow.round(2) : 40}", id: "a-dr-model", autocomplete: "off" %>
+  </div>
+</div>

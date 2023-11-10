@@ -1,0 +1,140 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require libraries/font-awesome.min
+ *= require libraries/bootstrap.min
+ *= require libraries/perfect-scrollbar
+ *= require libraries/jquery.datetimepicker.min
+ *= require style
+ *= require room_calculation
+ *= require air_mixture
+ *= require unit_selection
+ *= require section_input
+ *= require print_style
+ *= require manual_document
+ *= require_self
+ */
+
+@font-face {
+  font-family: 'Roboto';
+  src: asset_url('Roboto-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: asset_url('Roboto-RegularItalic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: asset_url('Roboto-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: asset_url('Roboto-MediumItalic.ttf');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: asset_url('Roboto-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: asset_url('Roboto-BoldItalic.ttf');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: asset_url('Roboto-Black.ttf');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: asset_url('Roboto-BlackItalic.ttf');
+  font-weight: 900;
+  font-style: italic;
+}
+
+
+
+.not-found {
+  font-size: 20px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.alert {
+  text-align: center;
+}
+
+.modal_reg.modal_ct h3 {
+  display: block;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+.calculation_w .calculation_results .table_results th,
+.calculation_w .calculation_results .table_results td {
+  min-width: 130px;
+  max-width: 130px;
+}
+
+.gr_popup_mb {
+  bottom: 15px;
+}
+
+#manual-document-container {
+  height: 100vh;
+}
+
+#btn-show-manual {
+  position: fixed;
+  right: 2%;
+  bottom: 25px;
+  z-index: 10;
+  padding: 6px 10px !important;
+
+  .fa-question {
+    width: 28px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #btn-show-manual {
+    position: fixed;
+    right: 2%;
+    bottom: 65px;
+    z-index: 10;
+    padding: 6px 10px !important;
+
+    .fa-question {
+      width: 28px;
+      text-align: center;
+    }
+  }
+}
+
+.error-tab {
+  background-color: red !important;
+}

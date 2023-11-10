@@ -1,0 +1,16 @@
+en:
+  users:
+    index:
+      agency_name: Agency Name
+      room_calculation: ROOM CALCULATION
+      unit_selection: UNIT SELECTION
+      air_mixture: AIR MIXTURE
+      area: AREA
+      status: STATUS
+      export_csv: Export CSV
+      send_mail: Send mail
+      registration: Registration
+      save: Save
+      select_all: Select all
+      empty_agency: There is no agent.
+      delete_selected_accounts: Delete

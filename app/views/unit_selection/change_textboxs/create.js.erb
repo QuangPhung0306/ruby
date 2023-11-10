@@ -1,0 +1,3 @@
+var text_area_value = $("#unit_selection_history_change").val();
+var new_text_area_value = text_area_value + "<%= params[:textbox_name].to_s %>" + "-" + "<%= params[:value] %>" + "\n";
+$("#unit_selection_history_change").val(new_text_area_value);

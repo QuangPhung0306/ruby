@@ -1,0 +1,48 @@
+en:
+  air_mixture_preview_and_print:
+    show:
+      preview_and_print: PREVIEW AND PRINT
+      date: Date
+      project: Project
+      category: Category
+      unit: Unit
+      temperature: Temperature
+      flow_rate: Flow rate
+      absolute_humidity: Absolute humidity
+      r_return_air: R. Return Air
+      m_outside_air: M. Outside Air
+      f_outside_air_oa: F. Outside Air OA
+      a_return_air_ra: A. Return Air RA
+      s_wet_air: S. Wet Air
+      e_sipply_air_sa: E. Supply Air SA
+      e_anode_capacity: After-Cooler2 power
+      e_cathode_capacity: After-Heater power
+      n_pre_cooler_2: N. Pre Cooler 2
+      n_cathode_capacity: Pre-Cooler2 power
+      n_cathode_flow_rate: Pre-Cooler2 condensed water amount
+      g_pre_cooler_1_heater: G. Pre Cooler 1 / Heater
+      g_anode_capacity: Heater power
+      g_cathode_capacity: Pre-Cooler1 power
+      g_cathode_flow_rate: Pre-Cooler2 condensed water amount
+      h_mixed_air_2: H. Mixed Air 2
+      p_regeneration_air: P. Regeneration Air
+      j_process_air: J. Process Air
+      j_cathode_capacity: Pre-Cooler power
+      j_cathode_flow_rate: Pre-Cooler condensed water amount
+      c_bypass_air: C. Bypass Air
+      k_dry_air: K. Dry Air
+      l_post_cooler: L. Post Cooler
+      l_cathode_capacity: After-Cooler1 power
+      d_mixed_air_1: D. Mixed Air 1
+      regen_air_temperature: Regen Air Temperature
+      heater_power: Heater Power
+      print: PRINT
+      close: CLOSE
+      desiccant_rotor_calculation: Desiccant Rotor Calculation
+      company_name: Seibu Giken DST AB
+      company_address: Avestagatan 33, SE-163 53 Spånga, SWEDEN
+      tel: "TEL: +46-8-445-7720"
+      link_tel: "tel:4684457720"
+      url: "URL: www.dst-sg.com"
+      link_url: "https://www.dst-sq.com"
+      project_name_default: Case 1

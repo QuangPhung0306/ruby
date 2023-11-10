@@ -1,0 +1,84 @@
+<div class="container" id="room_calculation_page">
+  <div class="calculation_w clt_w">
+    <%= render "image_area" %>
+    <%= form_tag room_calculation_path, method: :get, remote: true do %>
+      <%= hidden_field_tag :project_name_hidden, "" %>
+      <%= submit_tag "", id: "project_name_submit" %>
+    <% end %>
+    <%= form_with class: "r003_input new-room-calculation-project", id: "new_project"  do |f| %>
+      <div class="calculation_slt">
+        <div class="r003_load_data">
+          <%= render "calculation_load_data", project: nil %>
+        </div>
+        <div class="general_information_inputs">
+          <%= render "general_information_inputs", f: f, project: nil, current_project: @current_project %>
+        </div>
+        <div class="calculation_data_inputs">
+          <%= render "calculation_data_inputs", project: nil %>
+        </div>
+        <div class="category_and_unit">
+          <%= render "category_and_unit", f: f, categories: @categories, units: @units, project: nil %>
+        </div>
+        <div class="cal_button">
+          <%= link_to t(".start_calculation"), "javascript:void(0)", class: "btn_rs btn_primary", id: "start-calculation" %>
+        </div>
+      </div>
+      <div class="results">
+        <%= render "results", result: nil, input: nil %>
+      </div>
+      <div class="text-center btn_gr_all">
+        <%= link_to t(".save"), "javascript:void(0)", class: "btn_rs btn_primary", id: "save_project" %>
+        <%= link_to t(".preview_and_print"), room_calculation_results_path,
+          class: "btn_rs btn_primary", id: "link_to_preview", target: "_blank" %>
+      </div>
+    <% end %>
+
+    <%= render "shared/table_list_project", model: "room_calculation" %>
+
+    <%= hidden_field_tag :correction_factor, "#{@corrections.to_json}" %>
+  </div>
+</div>
+<%= render "room_calculations/room_calculation_modal" %>
+<div id="unit_selection_calculation_error_container">
+  <%= render "shared/unit_selection_calculation_error", error_message: "" %>
+</div>
+
+<% content_for :show_calculation_icon do %>
+  <%= link_to "#modal_cal", data: {toggle: "modal"}, class: "gr_popup_mb btn_primary show_mb" do %>
+    <i class="fa fa-sitemap fa-2x" aria-hidden="true"></i>
+  <% end %>
+<% end %>
+
+<%= link_to asset_url("manual_of_room_calculation.pdf"), class: "btn_primary", id: "btn-show-manual", target: "_blank" do %>
+  <i class="fa fa-question fa-2x" aria-hidden="true"></i>
+<% end %>
+
+<%= render "shared/invalid_message_modal" %>
+
+<% content_for :assets do %>
+  <%= javascript_include_tag "room_calculations/room_calculation" %>
+  <%= javascript_include_tag "room_calculations/drc" %>
+  <%= javascript_include_tag "room_calculations/odc" %>
+  <%= javascript_include_tag "room_calculations/src" %>
+  <%= javascript_include_tag "room_calculations/ows" %>
+  <%= javascript_include_tag "room_calculations/pitr" %>
+  <%= javascript_include_tag "room_calculations/pd" %>
+  <%= javascript_include_tag "room_calculations/tml" %>
+  <%= javascript_include_tag "room_calculations/fgh" %>
+  <%= javascript_include_tag "room_calculations/b" %>
+  <%= javascript_include_tag "room_calculations/cdej" %>
+  <%= javascript_include_tag "room_calculations/preview" %>
+  <%= javascript_include_tag "room_calculations/load_project_data" %>
+  <%= javascript_include_tag "room_calculations/show_calculations" %>
+  <%= javascript_include_tag "room_calculations/validations/new_project" %>
+  <%= javascript_include_tag "room_calculations/change_mode/change" %>
+  <%= javascript_include_tag "room_calculations/chart_result" %>
+  <%= javascript_include_tag "room_calculations/set_value_unit_and_category" %>
+  <%= javascript_include_tag "room_calculations/vii_room_tightness" %>
+  <%= javascript_include_tag "room_calculations/vii_door_air_clock" %>
+  <%= javascript_include_tag "room_calculations/vii_total_ventilation" %>
+  <%= javascript_include_tag "room_calculations/recommended_unit" %>
+  <%= javascript_include_tag "room_calculations/set_default_value" %>
+  <%= javascript_include_tag "room_calculations/height_above_sea_level" %>
+  <%= javascript_include_tag "handle_projects_table" %>
+<% end %>

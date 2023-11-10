@@ -1,0 +1,6 @@
+en:
+  room_calculations:
+    show:
+      start_calculation: "Start Calculation"
+      save: "SAVE"
+      preview_and_print: "PREVIEW AND PRINT"

@@ -1,0 +1,12 @@
+en:
+  users:
+    modal_agency_registration:
+      registration: REGISTRATION
+      models: MODELS
+      area: AREA
+      fields_required: The fields with (*) are required.
+      agency_name: Agency Name
+      asia: Asia
+      place_holder_email: Email*
+      save: Save
+      cancel: Cancel

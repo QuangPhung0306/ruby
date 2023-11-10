@@ -1,0 +1,5 @@
+en:
+  roles:
+    users:
+      update_role_success: Update agent successfully.
+      update_role_failed: Update agent failed.

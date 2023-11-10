@@ -1,0 +1,80 @@
+<div class="tab-pane fade input-tab-wrap" id="tabs_c1_regen_air_inlet" role="tabpanel" aria-labelledby="tabs_ct2">
+  <div class="box_gr_tlt">
+    <h2 class="box_gr_hd"><%= t(".measurements") %></h2>
+    <h2 class="box_gr_hd"><%= t(".units_of_measurement") %></h2>
+    <h2 class="box_gr_hd"><%= t(".dimensioning") %></h2>
+  </div>
+
+  <div class="box_gr_item">
+    <div class="gr_item gr_item_cb custom-control custom-checkbox">
+      <%= check_box_tag :checkbox6, 1, true, class: "custom-control-input" %>
+      <label class="custom-control-label" for="checkbox6">TPu1 = TP1</label>
+    </div>
+    <div class="gr_item gr_item_cb custom-control custom-checkbox">
+      <%= check_box_tag :checkbox4, 1, false, class: "custom-control-input" %>
+      <label class="custom-control-label" for="checkbox4">XPu1 = XP1</label>
+    </div>
+    <div class="gr_item">
+    </div>
+  </div>
+
+  <div class="box_gr_item">
+    <div class="gr_item">
+      <span>TPu1</span>
+    </div>
+    <div class="gr_item">
+      <span>FDB</span>
+    </div>
+    <div class="gr_item">
+      <%= text_field_tag :textbox27 %>
+    </div>
+  </div>
+
+  <div class="box_gr_item">
+    <div class="gr_item">
+      <span>XPu1</span>
+    </div>
+    <div class="gr_item">
+      <span>gr/lb</span>
+    </div>
+    <div class="gr_item">
+      <%= text_field_tag :textbox26 %>
+    </div>
+  </div>
+
+  <div class="box_gr_item">
+    <div class="gr_item">
+      <span></span>
+    </div>
+    <div class="gr_item">
+      <span>%RH</span>
+    </div>
+    <div class="gr_item">
+      <%= text_field_tag :textbox39 %>
+    </div>
+  </div>
+
+  <div class="box_gr_item">
+    <div class="gr_item">
+      <span></span>
+    </div>
+    <div class="gr_item">
+      <span></span>
+    </div>
+    <div class="gr_item d-none">
+      <%= text_field_tag :textbox40 %>
+    </div>
+  </div>
+
+  <div class="box_gr_item">
+    <div class="gr_item">
+      <span>FPu</span>
+    </div>
+    <div class="gr_item">
+      <span>CFM</span>
+    </div>
+    <div class="gr_item">
+      <%= text_field_tag :textbox78 %>
+    </div>
+  </div>
+</div>

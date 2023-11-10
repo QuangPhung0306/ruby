@@ -1,0 +1,10 @@
+en:
+  shared:
+    confirm_close_preview_print:
+      confirm: Are you sure you want to close this page?
+    invalid_message_modal:
+      close: Close
+      invalid_message: Calculation can't be made due to invalidation
+    table_list_project:
+      project_name: Project name
+      created_at: Date

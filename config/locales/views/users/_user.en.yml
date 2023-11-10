@@ -1,0 +1,9 @@
+en:
+  users:
+    user:
+      reset_password: Reset Password
+      enabled: Enabled
+      disabled: Disabled
+      select_all: Select all
+      area: Area
+      asia: Asia

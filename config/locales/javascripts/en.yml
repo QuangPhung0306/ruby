@@ -1,0 +1,176 @@
+en:
+  js:
+    login:
+      email_required: Email address is required
+      email_invalid: The email you entered incorrect
+      password_required: Password is required
+      password_invalid: The password you entered incorrect
+      password_must_be_8_character: Password must be 8 characters
+    alert_message:
+      not_found_agency: No agency has a corresponding name.
+    send_email:
+      content_required: Email's content is required
+    agency_register:
+      agency_name_required: The agency name is required.
+    room_calculation:
+      blank_recommened_unit: Please increase the number of units
+      maxlength: Project name can't more than 50 characters
+      project_name_required: Project name is required
+      m_unit_id_required: Unit is required
+      date_of_project_required: Date of project is required
+      m_category_id_required: Category is required
+      only_number: Number of unit is only number
+      decimal: Please enter a correct number or decimal
+      drc_temperature: Drc temperature is required
+      drc_relative_humidity: Drc relative humidity is required
+      drc_atmospheric_pressure: Drc atmospheric pressure is required
+      drc_height_above_sea_level: Height above sea level is required
+      dehumidified_room: Dehumidified room is required
+      odc_temperature: Odc temperature is required
+      odc_relative_humidity: Odc relative humidity is required
+      src_temperature: Src temperature is required
+      src_relative_humidity: Src relative humidity is required
+
+      room_length: Room length is required
+      room_width: Room width is required
+      room_height: Room height is required
+      tightness_of_building: Tightness of building is required
+      surroundings: Surroundings is required
+      without_lock_door_height: Door without air lock vestibule - height is required
+      without_lock_door_width: Door without air lock vestibule - width is required
+      air_lock_doors_height: Air lock vestibule, between the two doors - height is required
+      air_lock_doors_width: Air lock vestibule, between the two doors - width is required
+      air_lock_doors_length: Air lock vestibule, between the two doors - length is required
+      door_to_outdoor_air: Door to outdoor air is required
+      wind_speed: Wind speed, do not use below 6 m/s is required
+      without_lock_opened_per_hour: Door without air lock, opened per hour is required
+      air_lock_vestibule_passages_per_hour: Air lock vestibule, passages per hour is required
+      open_holes: Open holes is required
+      mechanical_ventilation: Mechanical ventilation is required
+
+      number_people: Number of people is required
+      moisture_load_from_each: Moisture load from each is required
+      pool_length: Pool length is required
+      pool_width: Pool width is required
+      water_temperature: Water temperature is required
+      vaporization_coefficient: Vaporization coefficient is required
+
+      total_weight_of_products: Total weight of products is required
+      start_percentage_of_moisture: Percentage of moisture at start is required
+      percentage_dried_per_hour: Percentage dried in 1 hour is required
+
+      other: Other is required
+      a_dr_model: A dr model is required
+      b_dry_air_temperature: B dry air temperature is required
+      cdej_process_airflow: Cdej process airflow is required
+      cdej_return_air_direct: Cdej return air direct is required
+      cdej_pre_cooled_air: Cdej pre cooled_air is required
+      cdej_pre_cooling_ambient: Cdej pre cooling ambient is required
+      cdej_pre_cooling_before: Cdej pre cooling before is required
+      hgf_pre_cooling: Hgf pre cooling is required
+      hgf_ambient: Hgf ambient is required
+      j_to_a_pre_cooling: Pre-cooling before dehumidifier(s), J to A is required
+      pre_cooled_air: Pre-cooled air, D is required
+      pre_cooling_ambient_air: Pre-cooling ambient air to, D is required
+      total_load_from_other_sources: Total load from other sources is required
+      total_wet_air_flow: DR-models only; total wet air flow is required
+      dry_air_temperature: Dry air temperature, B is required
+      process_airflow: Tot. process airflow into dehumidifier(s), A is required
+      return_air_direct: Return air direct to dehumidifier(s), C is required
+      process_airflow: Tot. process airflow into dehumidifier(s), A is required
+      return_air_direct: Return air direct to dehumidifier(s), C is required
+      air_direct_from_pre_cooling: Air direct from pre-cooling to the room, F is required
+      air_direct_from_ambient: Air direct from ambient to the room, G is required
+      min_0: Please enter a value greater than or equal to 0.
+      min_negative_fifty: Please enter a value greater than or equal to -50.
+      min_negative_one_hundred: Please enter a value greater than or equal to -100.
+      min_1: Please enter a value greater than or equal to 1.
+      max_100: Please enter a value less than or equal to 100.
+      max_180: Please enter a value less than or equal to 180.
+      max_2000: Please enter a value less than or equal to 2000.
+      max_7: Please enter a value less than or equal to 7.
+      max_4: Please enter a value less than or equal to 4.
+      max_50: Please enter a value less than or equal to 50.
+      max_1100: Please enter a value less than or equal to 1100.
+      min_negative_four_hundred: Please enter a value greater than or equal to -400.
+      max_9000: Please enter a value less than or equal to 9000.
+      max_212: Please enter a value less than or equal to 212.
+      min_148: Please enter a value greater than or equal to -148.
+    air_mixture:
+      maxlength: Project name can't more than 50 characters
+      project_name_required: Project name is required
+      m_unit_id_required: Unit is required
+      date_of_project_required: Date of project is required
+      m_category_id_required: Category is required
+      supply_air_sa: Supply air sa is required
+      outside_air_oa: Outside air oa is required
+      atmospheric_pressure: Atmospheric pressure is required
+      water_temperature_in: Water temperature in is required
+      water_temperature_out: Water temperature out is required
+      hot_water_in: Hot water in is required
+      hot_water_out: Hot water out is required
+      r_flow_rate: R flow rate is required
+      f_temperature: F temperature is required
+      f_absolute_humidity: F absolute_humidity is required
+      a_temperature: A temperature is required
+      a_absolute_humidity: A absolute humidity is required
+      n_temperature: N temperature is required
+      g_temperature: G temperature is required
+      j_temperature: J temperature is required
+      l_temperature: L temperature is required
+      e_temperature: E temperature is required
+      decimal: Please enter a correct number or decimal
+      min_0: Please enter a value greater than or equal to 0.
+      min_32: Please enter a value greater than or equal to 32.
+      min_negative_fifty: Please enter a value greater than or equal to -50.
+      min_negative_one_hundred: Please enter a value greater than or equal to -100.
+      min_n_58: Please enter a value greater than or equal to -58.
+      max_122: Please enter a value less than or equal to 122.
+      min_n_148: Please enter a value greater than or equal to -148.
+      max_212: Please enter a value less than or equal to 212.
+      max_350: Please enter a value less than or equal to 350.
+      min_negative_one_hundred: Please enter a value greater than or equal to -100.
+      max_100: Please enter a value less than or equal to 100.
+      max_50: Please enter a value less than or equal to 50.
+      max_1100: Please enter a value less than or equal to 1100.
+      max_300: Please enter a value less than or equal to 300.
+      max_572: Please enter a value less than or equal to 572.
+      great_than_water_temperature_tab_n: Too low pre-cooling in point N, min 3C above water temperature
+      great_than_water_temperature_tab_g: Too low pre-cooling in point G, min 3C above water temperature
+      great_than_water_temperature_tab_j: Too low pre-cooling in point J, min 3C above water temperature
+      great_than_water_temperature_tab_l: Too low pre-cooling in point L, min 3C above water temperature
+      great_than_water_temperature_tab_e: Too low pre-cooling in point E, min 3C above water temperature
+      drc_height_above_sea_level: Height above sea level is required
+      min_negative_four_hundred: Please enter a value greater than or equal to -400.
+      max_9000: Please enter a value less than or equal to 9000.
+    unit_selection:
+      blank_recommened_unit: Please increase the number of units
+      maxlength: Project name can't more than 50 characters
+      project_name_required: Project name is required
+      category_required: Category is required
+      unit_required: Unit is required
+      m_unit_id_required: Unit is required
+      date_of_project_required: Date of project is required
+      m_category_id_required: Category is required
+      decimal: Please enter a correct number or decimal
+      min_zero: Please enter a value greater than or equal to 0.
+      min_0: Please enter a value greater than or equal to 0.
+      min_negative_fifty: Please enter a value greater than or equal to -50.
+      min_negative_one_hundred: Please enter a value greater than or equal to -100.
+      min_negative_four_hundred: Please enter a value greater than or equal to -400.
+      min_one: Please enter a value greater than or equal to 1.
+      min_1: Please enter a value greater than or equal to 1.
+      max_100: Please enter a value less than or equal to 100.
+      max_180: Please enter a value less than or equal to 180.
+      max_2000: Please enter a value less than or equal to 2000.
+      max_7: Please enter a value less than or equal to 7.
+      max_4: Please enter a value less than or equal to 4.
+      max_50: Please enter a value less than or equal to 50.
+      max_1100: Please enter a value less than or equal to 1100.
+      max_160: Please enter a value less than or equal to 160.
+      max_9000: Please enter a value less than or equal to 9000.
+      required: This field is required.
+      max_100_ip: Please enter a value less than or equal to 212.
+      min_negative_one_hundred_ip: Please enter a value greater than or equal to -148.
+      max_50_ip: Please enter a value less than or equal to 350.
+      max_160_ip: Please enter a value less than or equal to 320.

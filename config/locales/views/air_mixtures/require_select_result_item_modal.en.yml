@@ -1,0 +1,5 @@
+en:
+  air_mixtures:
+    require_select_result_item_modal:
+      require_select_result_message: Please select a calculation result.
+      ok: Ok

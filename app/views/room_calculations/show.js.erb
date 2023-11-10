@@ -1,0 +1,195 @@
+$('.r003_load_data').html("<%= j render "room_calculations/calculation_load_data", project: @project %>");
+$('.general_information_inputs').html("<%= j render "room_calculations/general_information_inputs", project: @project, current_project: @current_project %>");
+$('.category_and_unit').html("<%= j render "room_calculations/category_and_unit", project: @project, categories: @categories, units: @units %>");
+$('#datetimepicker').datetimepicker({
+  timepicker: false,
+  format: 'Y/m/d'
+});
+availableProjects = $('#project_name').data('availableprojects');
+$('#project_name').autocomplete({
+  source: availableProjects
+});
+$('#room_calculation_category_id').val('<%= @project.room_calculation_input.m_category.id %>');
+$('#room_calculation_unit_id').val('<%= @project.room_calculation_input.m_unit.id %>');
+$('.dropdown-unit').filter('[data-category-id!= <%= @project.room_calculation_input.m_category.id %> ]').each(function() {
+  $(this).hide();
+});
+$('.category').addClass('color_green');
+$('.unit_button').addClass('color_green');
+$('#number_of_units').val('<%= @project.room_calculation_input.number_of_units %>');
+
+//load inputs
+$('.calculation_data_inputs').html("<%= j render "room_calculations/calculation_data_inputs", project: @project %>");
+$('#drc_temperature').val('<%= @project.room_calculation_input.drc_temperature %>');
+$('#dehumidified-room').val('<%= @project.room_calculation_input.d_room_has_walls_towards_outdoor %>');
+$('#check-door').val('<%= @project.room_calculation_input.door_to_outdoor_air %>');
+$('#vii-tightness-of-building').val('<%= @project.room_calculation_input.tightness_of_building %>');
+$('#vii-surroundings').val('<%= @project.room_calculation_input.surroundings %>');
+
+//load result
+$('.results').html("<%= j render "room_calculations/results", result: @project.room_calculation_result, input: @project.room_calculation_input %>");
+
+//load_chart
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+  chart_datas = <%= raw @project.array_for_load_data %>;
+  chart_datas.unshift(['Elapsed time', 'Moisture content in room'])
+  data = google.visualization.arrayToDataTable(chart_datas);
+
+  options = {
+    title: 'Depreciation of moisture content in the room:',
+    hAxis: {
+      slantedText: true,
+      title: 'Elapsed time from start'
+    },
+    vAxis: {
+      title: 'Moisture contnent g/kg'
+    },
+    legend: { position: 'none' },
+    curveType: 'function',
+    chartArea: {left: '15%', right: '5%', width: '70%'},
+    width: 900,
+    height: 700,
+  };
+
+  var wrap = document.getElementById('chart_wrap');
+  var container = document.getElementById('curve_chart');
+
+  if(window.getComputedStyle(wrap).display == 'none') {
+    wrap.style.paddingTop = '0px';
+    wrap.style.display = 'block';
+    chart = new google.visualization.LineChart(container);
+    google.visualization.events.addListener(chart, 'ready', function () {
+      wrap.style.display = 'none';
+      wrap.style.paddingTop = '48px';
+    });
+  } else {
+    chart = new google.visualization.LineChart(container);
+  }
+
+  chart.draw(data, options);
+}
+$('#datetimepicker').datetimepicker({
+    timepicker: false,
+    format: 'Y/m/d',
+    scrollInput: false
+});
+
+; (function () {
+    'use strict';
+    $(activate);
+    function activate() {
+        $('.nav-scroll').scrollingTabs({
+            bootstrapVersion: 4,
+            scrollToTabEdge: false,
+            handleDelayedScrollbar: true,
+            enableSwiping: true,
+            enableRtlSupport: true,
+            forceActiveTab: true,
+            cssClassLeftArrow: 'fa fa-chevron-left',
+            cssClassRightArrow: 'fa fa-chevron-right',
+            disableScrollArrowsOnFullyScrolled: true
+        });
+    }
+}());
+
+var count_elements = $('.nav_tabs_ed li').length;
+var df_elements = $(".js-tabs-default");
+df_elements = 1;
+$(".js-tabs-default").text(df_elements);
+$(".js-tabs-nb").html(count_elements);
+
+r003_load_input_data =  JSON.parse($('#r003_load_input_data').val());
+r003_load_result_data = JSON.parse($('#r003_load_result_data').val());
+r003_moisture_content_drc =            r003_load_input_data.drc_moisture_content; //b10
+r003_moisture_content_src =            r003_load_input_data.src_moisture_content; //b16
+r003_moisture_content_odc =            r003_load_input_data.odc_moisture_content; //b22
+r003_room_volume_vii_tr =              r003_load_input_data.room_volume; //b30
+r003_room_tightness_vii_tr =           r003_load_input_data.tightness_of_room; //b41
+r003_vii_infiltration_door_air_clock = r003_load_input_data.door_or_air_lock_infiltration; //b42
+r003_vii_needed_airflow =              r003_load_input_data.needed_airflow; //b44
+r003_vii_total_outdoor =               r003_load_input_data.total_ventilation_from_outdoor; //b46
+r003_vii_total_surrounding_rooms =     r003_load_input_data.total_ventilation_from_surrounding_rooms; //b47
+r003_vii_percentage =                  r003_load_input_data.percentage_leakage; //b48
+r003_vii_total_load_ventilation =      r003_load_input_data.total_load_from_ventilation; //b49
+r003_pitr =                            r003_load_input_data.total_load_from_people; //b54
+r003_ows_pool_surface =                r003_load_input_data.pool_surface; //b59
+r003_total_water_surface =             r003_load_input_data.total_load_from_water_surface; //b62
+r003_pd =                              r003_load_input_data.total_load_from_product_drying; //b68
+r003_tml =                             r003_load_input_data.total_moisture_load; //b73
+r003_b_heat_load =                     r003_load_input_data.heat_load;
+r003_cdej_corresponding =              r003_load_input_data.corresponding_to; //b92
+r003_cdej_ambient_air =                r003_load_input_data.ambient_air_direct; //b93
+r003_cdej_pre_cooler1 =                r003_load_input_data.j_before_pre_cooler_degree; //b94
+r003_cdej_pre_cooler2 =                r003_load_input_data.j_before_pre_cooler_rate; //b95
+r003_cdej_moisture_content =           r003_load_input_data.inlet_moisture_content; //b100
+r003_fgh_total_airflow =               r003_load_input_data.total_airflow_to_room; //b107
+r003_b_needed_moisture_content =       r003_load_input_data.dry_air_needed_moisture_content; //b113
+r003_cdej_return_air_direct =          r003_load_input_data.return_air_direct; //b89
+r003_hfg_needed_moisture_content =     r003_load_input_data.air_mix_needed_moisture_content; //b108
+r003_b_dry_air_temperature =           r003_load_input_data.dry_air_temperature; //b116
+r003_fgh_leakage =                     r003_load_input_data.leakage; //b110
+r003_other =                           r003_load_input_data.total_load_from_other_sources;
+r003_final_corresponding_to =          r003_load_result_data.final_corresponding_to;
+r003_start_corresponding_to =          r003_load_result_data.starting_corresponding_to;
+
+r003_b7 = r003_load_input_data.drc_temperature;
+r003_b8 = r003_load_input_data.drc_relative_humidity;
+r003_b9 = r003_load_input_data.drc_atmospheric_pressure;
+r003_b13 = r003_load_input_data.odc_temperature;
+r003_b14 = r003_load_input_data.odc_relative_humidity;
+r003_b15 = r003_load_input_data.odc_atmospheric_pressure;
+r003_b19 = r003_load_input_data.src_temperature;
+r003_b20 = r003_load_input_data.src_relative_humidity;
+r003_b21 = r003_load_input_data.src_atmospheric_pressure;
+r003_b27 = r003_load_input_data.room_length;
+r003_b28 = r003_load_input_data.room_width;
+r003_b29 = r003_load_input_data.room_height;
+r003_b34 = r003_load_input_data.without_lock_door_height;
+r003_c34 = r003_load_input_data.without_lock_door_width;
+r003_b35 = r003_load_input_data.air_lock_doors_height;
+r003_c35 = r003_load_input_data.air_lock_doors_width;
+r003_d35 = r003_load_input_data.air_lock_doors_length;
+r003_b38 = r003_load_input_data.wind_speed;
+r003_b39 = r003_load_input_data.without_lock_opened_per_hour;
+r003_b40 = r003_load_input_data.air_lock_vestibule_passages_per_hour;
+r003_b43 = r003_load_input_data.open_holes;
+r003_b45 = r003_load_input_data.mechanical_ventilation;
+r003_b52 = r003_load_input_data.number_of_people;
+r003_b53 = r003_load_input_data.moisture_load_from_each;
+r003_b57 = r003_load_input_data.pool_length;
+r003_b58 = r003_load_input_data.pool_width;
+r003_b60 = r003_load_input_data.water_temperature;
+r003_b61 = r003_load_input_data.vaporization_coefficient;
+r003_b65 = r003_load_input_data.total_weight_of_products;
+r003_b66 = r003_load_input_data.start_percentage_of_moisture;
+r003_b67 = r003_load_input_data.percentage_dried_per_hour;
+r003_b88 = r003_load_input_data.process_airflow;
+r003_b90 = r003_load_input_data.pre_cooled_air;
+r003_b91 = r003_load_input_data.pre_cooling_ambient_air;
+r003_b96 = r003_load_input_data.j_to_a_pre_cooling;
+r003_b99 = r003_load_input_data.inlet_temperature;
+r003_b102 = r003_load_input_data.total_wet_air_flow;
+r003_b105 = r003_load_input_data.air_direct_from_pre_cooling;
+r003_b106 = r003_load_input_data.air_direct_from_ambient;
+r003_b112 = r003_load_input_data.total_dry_air_flow;
+r003_b120 = r003_load_input_data.j_before_pre_cooler_degree_start;
+r003_b121 = r003_load_input_data.j_before_pre_cooler_rate_start;
+r003_b124 = r003_load_input_data.inlet_temperature_start;
+r003_b125 = r003_load_input_data.inlet_moisture_content_start;
+
+slick = $(".center").slick({
+  centerMode: true,
+  infinite: true,
+  centerPadding: '60px',
+  slidesToShow: 3,
+  speed: 500,
+  variableWidth: true
+});
+
+var total_number = $('.slick-slide').not('.slick-cloned').length;
+$('.js-tabs-nb').text(total_number);
+
+$('.slick-current.slick-active.slick-center').attr('current', true);

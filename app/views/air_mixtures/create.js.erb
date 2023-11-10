@@ -1,0 +1,51 @@
+<% if @error_message %>
+  $('#unit_selection_calculation_error_container').html('<%= j render "shared/unit_selection_calculation_error", error_message: @error_message %>');
+  $('#unit_selection_calculation_error_modal').modal('show');
+<% else %>
+  <%= render "shared/handle_flash_message" %>
+
+  <% if @warning_messages.present? %>
+    $('#unit_selection_calculation_error_container').html('<%= j render "shared/unit_selection_calculation_error", error_message: @warning_messages.uniq.join("<br>") %>');
+    $('#unit_selection_calculation_error_modal').modal('show');
+  <% end %>
+
+  var height_above_sea_level_result = '<%= @height_above_sea_level %>';
+  var atmospheric_pressure_result = '<%= @atmospheric_pressure %>';
+  window.height_above_sea_level = height_above_sea_level_result;
+  window.ac_atmospheric_pressure = atmospheric_pressure_result;
+
+  if (parseFloat(height_above_sea_level_result) != convert_comma_to_dot($('#height_above_sea_level').val())) {
+    window.ac_atmospheric_pressure = parseFloat(height_above_sea_level_result);
+    $('#ac_atmospheric_pressure').val(window.ac_atmospheric_pressure).trigger('change');
+  }
+
+  <% if @is_success %>
+    if (calculation_mode == true) {
+      $('#data-rows').append('<%= j render "air_mixtures/result_items", result: @fill_unit_selection_result %>');
+    } else {
+      $('#data-rows').append('<%= j render "air_mixtures/result_items_ip", result: @fill_unit_selection_result %>');
+    }
+    <% @k_relation_value.each do |element, value| %>
+      window['<%= element.to_s %>'] = '<%= value %>';
+      <% if element.to_s == 'k_flow_rate' %>
+        setValueSectionElement('<%= element.to_s %>', valueFlowRateToSetElement('<%= value %>'));
+      <% elsif element.to_s == 'k_temperature' || element.to_s == 'd_temperature' %>
+        setValueSectionElement('<%= element.to_s %>', valueTemperatureToSetElement('<%= value %>'));
+      <% elsif element.to_s == 'l_temperature' || element.to_s == 'e_temperature' %>
+        setInputDisplayElement('<%= element.to_s %>', valueTemperatureToSetElement('<%= value %>'));
+      <% elsif ['k_absolute_humidity', 's_absolute_humidity', 'l_absolute_humidity', 'd_absolute_humidity', 'e_absolute_humidity'].include?(element.to_s) %>
+        setValueSectionElement('<%= element.to_s %>', valueAbsoluteHumidityToSetElement('<%= value %>'));
+      <% elsif ['l_cathode_capacity', 'e_anode_capacity', 'e_cathode_capacity', 'total_cooling_power', 'total_heater_power', 'correspondes_to', 'temp_difference_SA_and_RA'].include?(element.to_s) %>
+        setValueSectionElement('<%= element.to_s %>', valueCoolerToSetElement('<%= value %>'));
+      <% elsif element.to_s == 'room_capacity' %>
+        setValueSectionElement('<%= element.to_s %>', valueHeaterPowerToSetElement('<%= value %>'));
+      <% end %>
+    <% end %>
+    $('#e_temperature').change(function() {
+      $('#e_temperature_display').val($('#e_temperature').val());
+    });
+    $('#l_temperature').attr('l_temperature_input', 'false');
+    $('#e_temperature').attr('e_temperature_input', 'false');
+    $('#readonly_e_temperature').val('<%= @k_relation_value[:e_temperature] %>');
+  <% end %>
+<% end %>

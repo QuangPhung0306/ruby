@@ -1,0 +1,8 @@
+user_ids_array = $('#send-email-btn').attr('data-user-ids-selected').split(',');
+$('#delete-btn').prop('disabled', true);
+$('.checkbox-select-user').each(function() {
+  if (user_ids_array.includes($(this).val())) {
+    $(this).prop('checked', true);
+    $('#delete-btn').prop('disabled', false);
+  }
+});

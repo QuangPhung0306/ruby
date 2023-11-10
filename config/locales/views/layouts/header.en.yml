@@ -1,0 +1,8 @@
+en:
+  layouts:
+    header:
+      room_calculation: Room calculation
+      unit_selection: Unit selection
+      air_mixture_and_capacity: Air mixture and capacity
+      agency_management: Agency management
+      logout: Logout

@@ -1,0 +1,14 @@
+<%= render "shared/handle_flash_message" %>
+//Start select all checkboxes
+$('#data-rows-unit-selection').on('click', 'tr', function() {
+  if ($(this).hasClass('selected')) {
+    return;
+  }
+
+  $('#data-rows-unit-selection tr').removeClass('selected');
+  $(this).addClass('selected');
+});
+
+window.open('<%= @export_project_csv_url %>');
+
+<%= render "shared/load_list_projects", model: (params[:save_from_unit_selection] == "true") ? "unit_selection" : "air_mixture" %>

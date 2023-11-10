@@ -1,0 +1,59 @@
+en:
+  room_calculation_results:
+    show:
+      a: A
+      b: B
+      c: C
+      d: D
+      e: E
+      f: F
+      g: G
+      j: J
+      h: H
+      company_name: Seibu Giken DST AB
+      company_address: Avestagatan 33, SE-163 53 Spånga, SWEDEN
+      tel: "TEL: +46-8-445-7720"
+      link_tel: "tel:4684457720"
+      url: "URL: www.dst-sg.com"
+      link_url: "https://www.dst-sq.com"
+      preview_print: PREVIEW AND PRINT
+      desiccant_rotor_calculation: Desiccant Rotor Calculation
+      process_airflow: Tot. process airflow into dehumidifier(s)
+      return_air_direct: Return air direct to dehumidifier(s)
+      pre_cooled_air: Pre-cooled air
+      pre_cooling_ambient: Pre-cooling ambient air to
+      corresponding_to: Corresponding to
+      ambient_air: Ambient air direct to the dehumidifier(s)
+      before_pre_cooler1: Point J before pre-cooler (Final)
+      before_pre_cooler2: Point J before pre-cooler (Final)
+      pre_cooling_before: Pre-cooling before dehumidifier(s)
+      final_temperature: Temperature (Final)
+      moisture_content: Moisture content (Final)
+      pre_cooling: Air direct from pre-cooling to the room
+      ambient: Air direct from ambient to the room
+      leakage: Leakage H
+      pulldown_time: Pulldown time
+      starting: Starting
+      final: Final
+      temperature: Temperature
+      relative_humidity: Relative humidity
+      atmospheric_pressure: Atmospheric pressure
+      corresponding_to: Corresponding to
+      capacity: Capacity
+      total_dry_air_flow: Total dry air flow
+      needed_moisture_content: Needed moisture content in the dry air </br> from the dehumidifier(s)
+      dry_air_temperature: Dry air temperature
+      heat_load: Heat load
+      date: "Date:"
+      project: "Project:"
+      chosen_unit: "Chosen Unit:"
+      chosen_category: "Chosen Category:"
+      quantity: "Number of units:"
+      print: PRINT
+      close: CLOSE
+      b_position_name: Calculation Results
+      r003_result_xp2: Dry air from the dehumidifier(s)
+      r003_result_tp2: Dry air temperature
+      r003_result_mr: Capacity
+      category: Category
+      unit: Unit

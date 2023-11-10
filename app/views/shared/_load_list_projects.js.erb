@@ -1,0 +1,7 @@
+Rails.ajax({
+  url: '/projects?model=<%= model %>',
+  type: 'GET',
+  dataType: 'script',
+  success: function(data) {},
+  error: function(data) {}
+});

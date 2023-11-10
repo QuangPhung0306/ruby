@@ -1,0 +1,6 @@
+<% unless @is_success %>
+  $('#users').html('<%= j render partial: "users/user", locals: {models: @models}, collection: @users %>');
+  $('#paginator').html('<%= j paginate @users, params: {controller: :users, action: :index} %>');
+<% end %>
+<%= render "shared/handle_flash_message" %>
+<%= render "shared/load_status_checkbox" %>

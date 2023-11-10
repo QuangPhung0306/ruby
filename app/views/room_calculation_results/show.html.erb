@@ -1,0 +1,210 @@
+<div class="offer_w prev_w">
+  <div class="offer_container">
+    <div class="offer_tlt">
+      <div class="tlt_gr_lr">
+        <h2 class="tlt_gr_txt"><%= t ".preview_print" %></h2>
+      </div>
+    </div>
+    <div class="prev_container print-container room-calculation-print-container">
+      <div class="prev_header">
+        <div class="prev_logo">
+          <%= image_tag "logo-print.png", alt: ""%>
+          <h2><%= t ".company_name" %></h2>
+          <h3><%= t ".company_address" %></h3>
+          <%= link_to t(".tel"), t(".link_tel") %>
+          <%= link_to t(".url"), t(".link_url") %>
+        </div>
+        <div class="prev_date">
+          <h2><%= t ".desiccant_rotor_calculation" %></h2>
+          <div class="d-flex justify-content-end">
+            <div class="well">
+              <table class="table">
+                <tr>
+                  <td><%= t ".date" %></td>
+                  <td><%= params[:date_of_project] %></td>
+                </tr>
+                <tr>
+                  <td><%= t ".project" %></td>
+                  <td class="project_name_of_print"><%= params[:project_name] %></td>
+                </tr>
+                <tr>
+                  <td><%= t ".category" %></td>
+                  <td><%= params[:category_name] %></td>
+                </tr>
+                <tr>
+                  <td><%= t ".unit" %></td>
+                  <td><%= params[:unit_name] %></td>
+                </tr>
+                <tr>
+                  <td><%= t ".quantity" %></td>
+                  <td><%= params[:quantity] %> pcs</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="prev_calc none_fixed">
+
+        <div class="calculation_img">
+          <div class="calculation_img_w">
+            <%= image_tag "room-cal-2-mb.png", alt: "", data: {toggle: "modal", target: "#modal_cal"} %>
+          </div>
+        </div>
+        <div class="prev_calc_hd d-flex justify-content-between">
+          <div class="table_left">
+            <div class="table_left_ed">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td><%= t ".process_airflow" %>&nbsp;</td>
+                    <td>[A]</td>
+                    <td><%= params[:cdej_process_airflow] %>&nbsp; <%= params[:mode] == "si" ? "m3/h" : "CFM"%>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".return_air_direct" %></td>
+                    <td>[C]</td>
+                    <td><%= params[:return_air_direct] %>&nbsp; <%= params[:mode] == "si" ? "m3/h" : "CFM"%></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".pre_cooled_air" %></td>
+                    <td>[D]</td>
+                    <td><%= params[:pre_cooled_air] %>&nbsp; <%= params[:mode] == "si" ? "m3/h" : "CFM"%></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".pre_cooling_ambient" %></td>
+                    <td>[D]</td>
+                    <td><%= params[:pre_cooling_ambient_air] %><%= params[:mode] == "si" ? " <sup>o</sup>C".html_safe() : " FDB" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".corresponding_to" %></td>
+                    <td></td>
+                    <td><%= params[:corresponding_to] %> <%= params[:mode] == "si" ? "g/kg" : "gr/lb" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".ambient_air" %></td>
+                    <td>[E]</td>
+                    <td><%= params[:ambient_air_direct] %> <%= params[:mode] == "si" ? "m3/h" : "CFM"%></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".before_pre_cooler1" %></td>
+                    <td></td>
+                    <td><%= params[:j_before_pre_cooler_degree] %><%= params[:mode] == "si" ? " <sup>o</sup>C".html_safe() : " FDB" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".before_pre_cooler2" %></td>
+                    <td></td>
+                    <td><%= params[:j_before_pre_cooler_rate] %> <%= params[:mode] == "si" ? "g/kg" : "gr/lb" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".pre_cooling_before" %></td>
+                    <td>[J to A]</td>
+                    <td><%= params[:j_to_a_pre_cooling] %><%= params[:mode] == "si" ? " <sup>o</sup>C".html_safe() : " FDB" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".final_temperature" %></td>
+                    <td>[A]</td>
+                    <td><%= params[:inlet_temperature] %><%= params[:mode] == "si" ? " <sup>o</sup>C".html_safe() : " FDB" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".moisture_content" %></td>
+                    <td>[A]</td>
+                    <td><%= params[:inlet_moisture_content] %> <%= params[:mode] == "si" ? "g/kg" : "gr/lb" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".pre_cooling" %></td>
+                    <td></td>
+                    <td><%= params[:air_direct_from_pre_cooling] %> <%= params[:mode] == "si" ? "m3/h" : "CFM"%></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".ambient" %></td>
+                    <td></td>
+                    <td><%= params[:air_direct_from_ambient] %> <%= params[:mode] == "si" ? "m3/h" : "CFM"%></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".leakage" %></td>
+                    <td></td>
+                    <td><%= params[:leakage] %> <%= params[:mode] == "si" ? "m3/h" : "CFM"%></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="table_right">
+            <div class="table_right_b">
+              <div class="table_right_tlt">
+                <strong class="table_right_tlt"><%= t ".b_position_name" %></strong>
+              </div>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td><%= t ".total_dry_air_flow" %></td>
+                    <td><%= params[:total_dry_air_flow] %>&nbsp; <%= params[:mode] == "si" ? "m3/h" : "CFM"%></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".r003_result_xp2" %></td>
+                    <td><%= params[:result_xp2] %>&nbsp; <%= params[:mode] == "si" ? "g/kg" : "gr/lb" %> </br> <span id="xp2_text"><%= params[:result_xp2_text] %></span></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".r003_result_tp2" %></td>
+                    <td><%= params[:result_tp2] %> <%= params[:mode] == "si" ? " <sup>o</sup>C".html_safe() : " FDB" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".r003_result_mr" %></td>
+                    <td><%= params[:result_mr] %>&nbsp; <%= params[:mode] == "si" ? "kg/h" : "lb/h" %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table_right_c">
+              <strong class="table_right_tlt"><%= t ".pulldown_time" %></strong>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td><%= t ".starting" %></td>
+                    <td><%= t ".final" %>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".temperature" %></td>
+                    <td><%= params[:start_temperature] %> <%= params[:mode] == "si" ? " <sup>o</sup>C".html_safe() : " FDB" %></td>
+                    <td><%= params[:final_temperature] %> <%= params[:mode] == "si" ? " <sup>o</sup>C".html_safe() : " FDB" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".relative_humidity" %></td>
+                    <td><%= params[:start_relative_humidity] %> <span>%RH</span></td>
+                    <td><%= params[:final_relative_humidity] %> <span>%RH</span></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".atmospheric_pressure" %></td>
+                    <td><%= params[:start_atmospheric_pressure] %> <span>mbar</span></td>
+                    <td><%= params[:final_atmospheric_pressure] %> <span>mbar</span></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".corresponding_to" %></td>
+                    <td><%= params[:start_corresponding] %> <span><%= params[:mode] == "si" ? "g/kg" : "gr/lb" %></span></td>
+                    <td><%= params[:final_corresponding] %> <span><%= params[:mode] == "si" ? "g/kg" : "gr/lb" %></span></td>
+                  </tr>
+                  <tr>
+                    <td><%= t ".capacity" %></td>
+                    <td><%= params[:start_capacity] %> <span><%= params[:mode] == "si" ? "kg/h" : "lb/h" %></span></td>
+                    <td><%= params[:final_capacity] %> <span><%= params[:mode] == "si" ? "kg/h" : "lb/h" %></span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="prev_btngr">
+      <div class="container">
+        <div class="text-center">
+          <%= link_to t(".print"), "javascript:void(0)", class: "btn_primary btn-block print" %>
+          <%= link_to t(".close"), "javascript:void(0)", class: "btn_secondary btn-block ", data: {toggle: "modal", target: "#confirm_close_modal"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/confirm_close_preview_print" %>

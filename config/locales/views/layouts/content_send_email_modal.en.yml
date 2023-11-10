@@ -1,0 +1,7 @@
+en:
+  users:
+    content_send_email_modal:
+      send_email: Send email
+      content_place_holder: Send email...
+      send: Send
+      cancel: Cancel
